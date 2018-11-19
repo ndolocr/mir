@@ -1,0 +1,6 @@
+*.pyc
+tmp
+media
+static
+db.sqlite3
+settings.py
