@@ -2,6 +2,9 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 # Create your models here.
 
+'''
+CATEGORY MODEL
+'''
 class Category(models.Model):	
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -15,7 +18,9 @@ class Category(models.Model):
 	def __str__(self):
 		return self.category_name
 
-
+'''
+COUNTRY MODEL
+'''
 class Country(models.Model):
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -30,7 +35,9 @@ class Country(models.Model):
 	def __str__(self):
 		return self.country_name
 
-
+'''
+QUALITY MODEL
+'''
 class Quality(models.Model):
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -44,6 +51,9 @@ class Quality(models.Model):
 	def __str__(self):
 		return self.quality_name
 
+'''
+REGION MODEL
+'''
 class Region(models.Model):
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -57,6 +67,9 @@ class Region(models.Model):
 	def __str__(self):
 		return self.region_name
 
+'''
+RESOURCE MODEL
+'''
 class Resource(models.Model):
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -70,7 +83,9 @@ class Resource(models.Model):
 	def __str__(self):
 		return self.resource_name
 
-
+'''
+THEME MODEL
+'''
 class Theme(models.Model):
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -84,6 +99,9 @@ class Theme(models.Model):
 	def __str__(self):
 		return self.theme_name
 
+'''
+SUB THEME MODEL
+'''
 class SubTheme(models.Model):
 	theme = models.OneToOneField(Theme, on_delete=models.CASCADE)
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
@@ -98,5 +116,19 @@ class SubTheme(models.Model):
 	def __str__(self):
 		return self.sub_theme_name
 
+'''
+SUB CATEGORY MODEL
+'''
+class SubCategory(models.Model):
+	category = models.OneToOneField(Category, on_delete=models.CASCADE)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
+	sub_category_name = models.CharField(_('Sub Category'), max_length=255, blank=False, null=False)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
+	class Meta:
+		verbose_name = "Sub Category"
+		verbose_name_plural = "Sub Categories"
 
+	def __str__(self):
+		return self.sub_category_name
