@@ -84,3 +84,19 @@ class Theme(models.Model):
 	def __str__(self):
 		return self.theme_name
 
+class SubTheme(models.Model):
+	theme = models.OneToOneField(Theme, on_delete=models.CASCADE)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
+	sub_theme_name = models.CharField(_('Sub Theme'), max_length=255, blank=False, null=False)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+
+	class Meta:
+		verbose_name = "Sub Theme"
+		verbose_name_plural = "Sub Themes"
+
+	def __str__(self):
+		return self.sub_theme_name
+
+
+
