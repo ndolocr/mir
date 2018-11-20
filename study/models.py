@@ -69,3 +69,18 @@ class Resource(models.Model):
 
 	def __str__(self):
 		return self.resource_name
+
+
+class Theme(models.Model):
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	theme_name = models.CharField(_('Theme'), max_length=255, blank=False, null=False)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+
+	class Meta:
+		verbose_name = "Theme"
+		verbose_name_plural = "Theme"
+
+	def __str__(self):
+		return self.theme_name
+
