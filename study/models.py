@@ -55,5 +55,17 @@ class Region(models.Model):
 		verbose_name_plural = "Regions"
 
 	def __str__(self):
-		return self.quality_name
+		return self.region_name
 
+class Resource(models.Model):
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	resource_name = models.CharField(_('Resource'), max_length=255, blank=False, null=False)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+
+	class Meta:
+		verbose_name = "Resource"
+		verbose_name_plural = "Resources"
+
+	def __str__(self):
+		return self.resource_name
