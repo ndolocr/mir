@@ -43,6 +43,8 @@ class User(AbstractUser):
 
     username = None
     email = models.EmailField(_('email address'), unique=True)
+    position = models.CharField(_('position'), max_length=255, blank=True, null=True)
+    organization = models.CharField(_('organization'), max_length=255, blank=True, null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -53,7 +55,7 @@ class User(AbstractUser):
     This class describes member information.
 '''
 
-class Member(models.Model):
+'''class Member(models.Model):
 
     COUNTRY_CODE_CHOICES = (
         ('Algeria (+213)', 'Algeria (+213)'),
@@ -338,3 +340,4 @@ class Member(models.Model):
         return self.registration_number+ ' - ' + full_name
     
 
+'''
