@@ -15,6 +15,7 @@ class Category(models.Model):
 	def __str__(self):
 		return self.category_name
 
+
 class Country(models.Model):
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
@@ -25,4 +26,23 @@ class Country(models.Model):
 	class Meta:
 		verbose_name = 'Country'
 		verbose_name_plural = 'Countries'
+
+	def __str__(self):
+		return self.country_name
+
+
+class Quality(models.Model):
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	quality_name = models.CharField(_('Quality'), max_length=255, blank=False, null=False)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+
+	class Meta:
+		verbose_name = "Quality"
+		verbose_name_plural = "Qualities"
+
+	def __str__(self):
+		return self.quality_name
+
+
 
