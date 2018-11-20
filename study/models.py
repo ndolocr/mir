@@ -148,3 +148,31 @@ class Tag(models.Model):
 
 	def __str__(self):
 		return self.tag_name
+
+'''
+STUDY MODEL
+'''
+class Study(models.Model):
+	
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
+	title = models.CharField(_('Title'), max_length=255, blank=False, null=False)
+	author = models.CharField(_('Author'), max_length=255, blank=False, null=False)
+	link = models.CharField(_('link'), max_length=255, blank=False, null=False)
+	tags = models.ManyToManyField(Tag)
+	year = models.PositiveIntegerField(_('Year'))
+	'''FOREGIN KEY FIELDS'''
+	region = models.ManyToManyField(Region)
+	sub_theme = models.ManyToManyField(Theme)	
+	country = models.ManyToManyField(Country)
+	resource = models.ManyToManyField(Resource)
+	sub_category = models.ManyToManyField(Category)
+	quality = models.ForeignKey(Quality, on_delete=models.CASCADE)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+
+	class Meta:
+		verbose_name = "Study"
+		verbose_name_plural = "Studies"
+
+	def __str__(self):
+		return self.title
