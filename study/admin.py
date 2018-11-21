@@ -20,11 +20,11 @@ admin.site.register(Theme)
 admin.site.register(Region)
 admin.site.register(Country)
 admin.site.register(Quality)
-admin.site.register(Category)
+#admin.site.register(Category)
 admin.site.register(Resource)
 admin.site.register(SubTheme)
 admin.site.register(SubCategory)
 
-@admin.register(Study)
+@admin.register(Study, Category)
 class ViewAdmin(ImportExportModelAdmin):
 	pass
