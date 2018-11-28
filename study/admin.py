@@ -14,17 +14,26 @@ from study.models import SubCategory
 
 # Register your models here.
 
-admin.site.register(Tag)
+#admin.site.register(Tag)
 #admin.site.register(Study)
-admin.site.register(Theme)
-admin.site.register(Region)
-admin.site.register(Country)
-admin.site.register(Quality)
+#admin.site.register(Theme)
+#admin.site.register(Region)
+#admin.site.register(Country)
+#admin.site.register(Quality)
 #admin.site.register(Category)
-admin.site.register(Resource)
-admin.site.register(SubTheme)
-admin.site.register(SubCategory)
+#admin.site.register(Resource)
+#admin.site.register(SubTheme)
+#admin.site.register(SubCategory)
 
-@admin.register(Study, Category)
+@admin.register(Tag)
+@admin.register(Study)
+@admin.register(Theme)
+@admin.register(Region)
+@admin.register(Country)
+@admin.register(Quality)
+@admin.register(Category)
+@admin.register(Resource)
+@admin.register(SubTheme)
+@admin.register(SubCategory)
 class ViewAdmin(ImportExportModelAdmin):
 	pass

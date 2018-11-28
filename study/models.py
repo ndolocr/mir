@@ -7,9 +7,11 @@ from django.utils.translation import ugettext_lazy as _
 CATEGORY MODEL
 '''
 class Category(models.Model):	
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+
 	category_name = models.CharField(_('Category Name'), max_length=255, unique=True, blank=False, null=False)
+	
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)	
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -23,10 +25,11 @@ class Category(models.Model):
 COUNTRY MODEL
 '''
 class Country(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	country_name = models.CharField(_('Country Name'), max_length=255, blank=False, null=False)
-	continent_name = models.CharField(_('Continent Name'), max_length=255, unique=True, blank=False, null=False)	
+	#continent_name = models.CharField(_('Continent Name'), max_length=255, unique=True, blank=False, null=False)	
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)		
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -39,10 +42,11 @@ class Country(models.Model):
 '''
 QUALITY MODEL
 '''
-class Quality(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+class Quality(models.Model):	
 	quality_name = models.CharField(_('Quality'), max_length=255, unique=True, blank=False, null=False)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -56,9 +60,10 @@ class Quality(models.Model):
 REGION MODEL
 '''
 class Region(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	region_name = models.CharField(_('Region'), max_length=255, unique=True, blank=False, null=False)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -72,9 +77,10 @@ class Region(models.Model):
 RESOURCE MODEL
 '''
 class Resource(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	resource_name = models.CharField(_('Resource'), max_length=255, unique=True, blank=False, null=False)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -88,9 +94,10 @@ class Resource(models.Model):
 THEME MODEL
 '''
 class Theme(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	theme_name = models.CharField(_('Theme'), max_length=255, unique=True, blank=False, null=False)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -103,11 +110,12 @@ class Theme(models.Model):
 '''
 SUB THEME MODEL
 '''
-class SubTheme(models.Model):
-	theme = models.OneToOneField(Theme, on_delete=models.CASCADE)
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
+class SubTheme(models.Model):	
 	sub_theme_name = models.CharField(_('Sub Theme'), max_length=255, unique=True, blank=False, null=False)
+	theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -121,10 +129,11 @@ class SubTheme(models.Model):
 SUB CATEGORY MODEL
 '''
 class SubCategory(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	category = models.OneToOneField(Category, on_delete=models.CASCADE)	
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
 	sub_category_name = models.CharField(_('Sub Category'), max_length=255, unique=True, blank=False, null=False)
+	category = models.ForeignKey(Category, on_delete=models.CASCADE)		
+	
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -138,9 +147,10 @@ class SubCategory(models.Model):
 TAG MODEL
 '''
 class Tag(models.Model):
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	tag_name = models.CharField(_('Tag'), max_length=255, unique=True, blank=False, null=False)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
@@ -154,9 +164,6 @@ class Tag(models.Model):
 STUDY MODEL
 '''
 class Study(models.Model):
-	
-	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)	
 	title = models.CharField(_('Title'), max_length=255, blank=False, null=False)
 	author = models.CharField(_('Author'), max_length=255, blank=False, null=False)
 	link = models.CharField(_('link'), max_length=255, blank=False, null=False)
@@ -164,11 +171,14 @@ class Study(models.Model):
 	year = models.PositiveIntegerField(_('Year'))
 	'''FOREGIN KEY FIELDS'''
 	region = models.ManyToManyField(Region)
-	sub_theme = models.ManyToManyField(Theme)	
 	country = models.ManyToManyField(Country)
-	resource = models.ManyToManyField(Resource)
+	sub_theme = models.ManyToManyField(Theme)	
 	sub_category = models.ManyToManyField(Category)
+	resource = models.ForeignKey(Resource, default=1, on_delete=models.CASCADE)	
 	quality = models.ForeignKey(Quality, on_delete=models.CASCADE)
+
+	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
+	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	#created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 	class Meta:
