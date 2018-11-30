@@ -1,0 +1,48 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+	<style>
+		.btn{
+			font-weight: bold;
+			padding: 10px;
+		}	
+		.btn-upload{			
+			background: #226F96;
+			border: solid 2px #226F96;
+			border-radius: 5px;
+			color: #ffffff;
+		}
+
+		.btn-upload:hover{
+			background: #ffffff;
+			border: solid 2px #226F96;
+			border-radius: 5px;
+			color: #226F96;
+			text-decoration: underline;
+		}
+	</style>
+
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}">{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}
+	<div class="breadcrumbs">
+		<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+		&rsaquo;
+		<a href="/admin/study/">{% trans 'Study' %}</a>
+		&rsaquo;
+		{% block app_upload %} {% endblock %}
+	</div>
+{% endblock %}
+
+<div class="content" class="flex">
+	{% block content %} 
+
+	{% endblock %}
+</div>

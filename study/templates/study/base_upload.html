@@ -1,0 +1,100 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+	<style>
+
+		label{
+			color: #226F96;
+			font-weight: bold;
+		}
+
+		.btn{
+			font-weight: bold;
+			padding: 10px;
+		}		
+
+		.btn-reset{			
+			background: #AD4238;
+			border: solid 2px #AD4238;
+			border-radius: 5px;
+			color: #ffffff;
+		}
+
+		.btn-reset:hover{
+			background: #ffffff;
+			border: solid 2px #AD4238;
+			border-radius: 5px;
+			color: #AD4238;
+			text-decoration: underline;
+		}
+
+		.btn-upload{			
+			background: #226F96;
+			border: solid 2px #226F96;
+			border-radius: 5px;
+			color: #ffffff;
+		}
+
+		.btn-upload:hover{
+			background: #ffffff;
+			border: solid 2px #226F96;
+			border-radius: 5px;
+			color: #226F96;
+			text-decoration: underline;
+		}
+	</style>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}">{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}
+	<div class="breadcrumbs">
+		<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+		&rsaquo;
+		<a href="/admin/study/">{% trans 'Study' %}</a>
+		&rsaquo;
+		{% block app_upload %} {% endblock %}
+	</div>
+{% endblock %}
+
+<div class="content" class="flex">
+	{% block content %} 
+		
+		<div class="content" class="flex">
+			<h1> {% block upload_title %}  {% endblock %}</h1>
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<table style="width:100%; border: solid 1px #ccc;">
+					<tbody>
+
+						<tr class="row1">
+							<td> 
+								<label> Upload file </label>
+							</td>
+
+							<td class="field-__str__">
+								<input type="file" name="file_upload">
+							</td>
+						</tr>
+
+						<tr class="row2">
+							<td>
+								<button type="submit" class="btn btn-upload">Upload</button>
+							</td>
+
+							<td>
+								<button type="reset" class="btn btn-reset" >Cancel</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>	
+		</div>
+
+	{% endblock %}	
+</div>
