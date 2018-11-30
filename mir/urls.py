@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from study.views import category_upload
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+	path('admin/', category_upload, name='category_upload' ),
+    #path('admin/', admin.site.urls),
 ]
