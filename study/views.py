@@ -1,11 +1,27 @@
+
 import csv, io
 import openpyxl
+
+from study.models import Tag
+from study.models import Study
+from study.models import Theme
+from study.models import Region
+from study.models import Country
+from study.models import Quality
 from study.models import Category
+from study.models import Resource
+from study.models import SubTheme
+from study.models import SubCategory
+
 from django.shortcuts import render
 from django.contrib import messages
+from django.shortcuts import redirect
 
 # Create your views here.
 
+'''
+	Starts Upload Category
+'''
 def category_upload(request):
 	upload_template = "study/category_upload.html"
 	prompt = {}
@@ -38,16 +54,155 @@ def category_upload(request):
 							row_data.append(str(cell.value))
 					excel_data.append(row_data)
 				x = x + 1
+
+			request.session['list'] = excel_data
 			return render(request, "study/category_confirm.html", {"excel_data":excel_data})
 
 
-	#context = {}
-	#return render(request, template, context)
+def category_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			for cell in row:
+				_, category_instance = Category.objects.update_or_create(
+					category_name = cell,
+				)
+		return redirect('admin:index')
+
+'''
+	End Upload Category
+'''
+
+'''
+	Start Upload Country Information
+'''
 
 def country_upload(request):
-	template = "study/country_upload.html"
-	context = {}
-	return render(request, template, context)
+	upload_template = "study/country_upload.html"
+	prompt = {}
+
+	if request.method == "GET":
+		return render(request, upload_template, prompt)
+	else:
+		#Capture uploaded file
+		excel_file = request.FILES['file_upload']
+
+		#validation to ensure file is excel file
+		if not excel_file.name.endswith('.xlsx'):
+			messages.error(request, 'This is not an excel file')
+		else:
+			wb = openpyxl.load_workbook(excel_file)
+
+			# getting a particular sheet by name out of many sheets
+			worksheet = wb["Sheet1"]
+			#print(worksheet)
+
+			excel_data = list()
+			# iterating over the rows and
+			# getting value from each cell in row
+			x = 1
+			for row in worksheet.iter_rows():
+				row_data = list()				
+				if x>1:
+					for cell in row:
+						if cell !="":
+							row_data.append(str(cell.value))
+					excel_data.append(row_data)
+				x = x + 1
+
+			request.session['list'] = excel_data
+			return render(request, "study/country_confirm.html", {"excel_data":excel_data})
+
+
+def country_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			for cell in row:
+				_, category_instance = Country.objects.update_or_create(
+					country_name = cell,
+				)
+		return redirect('admin:index')
+
+
+
+'''
+	End Upload Country Information
+'''
+
+
+'''
+	Start Upload Quality Information
+'''
+
+def quality_upload(request):
+	upload_template = "study/quality_upload.html"
+	prompt = {}
+
+	if request.method == "GET":
+		return render(request, upload_template, prompt)
+	else:
+		#Capture uploaded file
+		excel_file = request.FILES['file_upload']
+
+		#validation to ensure file is excel file
+		if not excel_file.name.endswith('.xlsx'):
+			messages.error(request, 'This is not an excel file')
+		else:
+			wb = openpyxl.load_workbook(excel_file)
+
+			# getting a particular sheet by name out of many sheets
+			worksheet = wb["Sheet1"]
+			#print(worksheet)
+
+			excel_data = list()
+			# iterating over the rows and
+			# getting value from each cell in row
+			x = 1
+			for row in worksheet.iter_rows():
+				row_data = list()				
+				if x>1:
+					for cell in row:
+						if cell !="":
+							row_data.append(str(cell.value))
+					excel_data.append(row_data)
+				x = x + 1
+
+			request.session['list'] = excel_data
+			return render(request, "study/qualitys_confirm.html", {"excel_data":excel_data})
+
+
+def quality_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			for cell in row:
+				_, category_instance = Quality.objects.update_or_create(
+					quality_name = cell,
+				)
+		return redirect('admin:index')
+
+
+
+'''
+	End Upload Quality Information
+'''
+
+
+
+
+
+
+
 
 def quality_upload(request):
 	template = "study/quality_upload.html"

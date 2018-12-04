@@ -1,8 +1,8 @@
 {% extends "study/base_confirm.html" %}
 
-{% block app_upload %} Upload Category {% endblock %}
+{% block app_upload %} Upload Quality {% endblock %}
 
-{% block upload_title %} Category Upload {% endblock %}
+{% block upload_title %} Quality Upload {% endblock %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
 	<thead>
 		<tr>
 			<th> Serial no.</th>
-			<th> Category Name </th>
+			<th> Quality Name </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -32,9 +32,9 @@
 			<td></td>
 			<td>
 				
-				<form method="POST" enctype="multipart/form-data" action="{% url 'category_upload_confirm' %}">
+				<form method="POST" enctype="multipart/form-data" action="{% url 'quality_upload_confirm' %}">
 					{% csrf_token %}					
-					<input type="text" value="{{ excel_data }}" name="excel_data_values">
+					<!--<input type="text" value="{{ excel_data }}" name="excel_data_values">-->
 					<button type="submit" class="btn btn-upload">Save</button>
 				</form>
 
