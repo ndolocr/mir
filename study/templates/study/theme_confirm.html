@@ -1,0 +1,46 @@
+{% extends "study/base_confirm.html" %}
+
+{% block app_upload %} Upload Resource {% endblock %}
+
+{% block upload_title %} Resource Upload {% endblock %}
+
+{% block content %}
+
+<table>
+	<thead>
+		<tr>
+			<th> Serial no.</th>
+			<th> Resource Name </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		{% for row in excel_data %}
+				
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>
+					{% for cell in row %}
+						{{ cell }}&nbsp;&nbsp;
+        			{% endfor %}
+				</td>
+			</tr>
+			
+		{% endfor %}	
+
+		<tr class="row2">
+			<td></td>
+			<td>
+				
+				<form method="POST" enctype="multipart/form-data" action="{% url 'theme_upload_confirm' %}">
+					{% csrf_token %}					
+					<!--<input type="text" value="{{ excel_data }}" name="excel_data_values">-->
+					<button type="submit" class="btn btn-upload">Save</button>
+				</form>
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}

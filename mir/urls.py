@@ -27,6 +27,8 @@ from study.views import resource_upload
 from study.views import sub_theme_upload
 from study.views import sub_category_upload
 
+from study.views import tag_upload_confirm
+from study.views import theme_upload_confirm
 from study.views import region_upload_confirm
 from study.views import country_upload_confirm
 from study.views import quality_upload_confirm
@@ -39,8 +41,14 @@ urlpatterns = [
 	
 	#Upload URLS
 	path('admin/study/upload/', study_upload, name='study_upload'),
+	
+	#Tags URLS
 	path('admin/study/tag/upload/', tag_upload, name='tag_upload'),
+	path('admin/study/tag/upload/confirm/', tag_upload_confirm, name='tag_upload_confirm'),
+
+	#Theme URLS
 	path('admin/study/theme/upload/', theme_upload, name='theme_upload'),
+	path('admin/study/theme/upload/confirm/', theme_upload_confirm, name='theme_upload_confirm'),
 	
 	#Region URLS
 	path('admin/study/region/upload/', region_upload, name='region_upload'),

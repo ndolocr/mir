@@ -315,7 +315,121 @@ def resource_upload_confirm(request):
 	End Upload Resource Information
 '''
 
+'''
+	Start Upload Theme Information
+'''
 
+def theme_upload(request):
+	upload_template = "study/theme_upload.html"
+	prompt = {}
+
+	if request.method == "GET":
+		return render(request, upload_template, prompt)
+	else:
+		#Capture uploaded file
+		excel_file = request.FILES['file_upload']
+
+		#validation to ensure file is excel file
+		if not excel_file.name.endswith('.xlsx'):
+			messages.error(request, 'This is not an excel file')
+		else:
+			wb = openpyxl.load_workbook(excel_file)
+
+			# getting a particular sheet by name out of many sheets
+			worksheet = wb["Sheet1"]
+			#print(worksheet)
+
+			excel_data = list()
+			# iterating over the rows and
+			# getting value from each cell in row
+			x = 1
+			for row in worksheet.iter_rows():
+				row_data = list()				
+				if x>1:
+					for cell in row:
+						if cell !="":
+							row_data.append(str(cell.value))
+					excel_data.append(row_data)
+				x = x + 1
+
+			request.session['list'] = excel_data
+			return render(request, "study/theme_confirm.html", {"excel_data":excel_data})
+
+
+def theme_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			for cell in row:
+				_, category_instance = Theme.objects.update_or_create(
+					theme_name = cell,
+				)
+		return redirect('admin:index')
+
+'''
+	End Upload Theme Information
+'''
+
+'''
+	Start Upload Tags Information
+'''
+
+def tag_upload(request):
+	upload_template = "study/tag_upload.html"
+	prompt = {}
+
+	if request.method == "GET":
+		return render(request, upload_template, prompt)
+	else:
+		#Capture uploaded file
+		excel_file = request.FILES['file_upload']
+
+		#validation to ensure file is excel file
+		if not excel_file.name.endswith('.xlsx'):
+			messages.error(request, 'This is not an excel file')
+		else:
+			wb = openpyxl.load_workbook(excel_file)
+
+			# getting a particular sheet by name out of many sheets
+			worksheet = wb["Sheet1"]
+			#print(worksheet)
+
+			excel_data = list()
+			# iterating over the rows and
+			# getting value from each cell in row
+			x = 1
+			for row in worksheet.iter_rows():
+				row_data = list()				
+				if x>1:
+					for cell in row:
+						if cell !="":
+							row_data.append(str(cell.value))
+					excel_data.append(row_data)
+				x = x + 1
+
+			request.session['list'] = excel_data
+			return render(request, "study/tag_confirm.html", {"excel_data":excel_data})
+
+
+def tag_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			for cell in row:
+				_, category_instance = Tag.objects.update_or_create(
+					tag_name = cell,
+				)
+		return redirect('admin:index')
+
+'''
+	End Upload Tags Information
+'''
 
 
 
@@ -335,15 +449,7 @@ def sub_theme_upload(request):
 	context = {}
 	return render(request, template, context)
 
-def tag_upload(request):
-	template = "study/tag_upload.html"
-	context = {}
-	return render(request, template, context)
 
-def theme_upload(request):
-	template = "study/theme_upload.html"
-	context = {}
-	return render(request, template, context)
 
 def study_upload(request):
 	template = "study/study_upload.html"
