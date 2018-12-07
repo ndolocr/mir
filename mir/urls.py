@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from study.views import tag_upload
 from study.views import theme_upload
@@ -34,17 +36,21 @@ from study.views import country_upload_confirm
 from study.views import quality_upload_confirm
 from study.views import category_upload_confirm
 from study.views import resource_upload_confirm
+from study.views import sub_theme_upload_confirm
+from study.views import sub_category_upload_confirm
 
-urlpatterns = [
+from study.views import download_template
+from study.views import download_sub_theme_template
+
+urlpatterns = [	
 	
-	#Category Links
-	
-	#Upload URLS
+	#Study URLS
 	path('admin/study/upload/', study_upload, name='study_upload'),
 	
 	#Tags URLS
 	path('admin/study/tag/upload/', tag_upload, name='tag_upload'),
 	path('admin/study/tag/upload/confirm/', tag_upload_confirm, name='tag_upload_confirm'),
+	
 
 	#Theme URLS
 	path('admin/study/theme/upload/', theme_upload, name='theme_upload'),
@@ -71,9 +77,19 @@ urlpatterns = [
 	path('admin/study/resource/upload/confirm/', resource_upload_confirm, name='resource_upload_confirm'),
 
 	path('admin/study/sub/theme/upload/', sub_theme_upload, name='sub_theme_upload'),	
+	path('admin/study/sub/theme/upload/confirm/', sub_theme_upload_confirm, name='sub_theme_upload_confirm'),
+
 	path('admin/study/sub/category/upload/', sub_category_upload, name='sub_category_upload'),	
-	#path('admin/study/sub/category/upload/confirm/', sub_category_upload_confirm, name='sub_category_upload_confirm'),
+	path('admin/study/sub/category/upload/confirm/', sub_category_upload_confirm, name='sub_category_upload_confirm'),
+
+	#Download Excel Sheet Templates URL
+	path('admin/study/download/<file_name>/', download_template, name='download_template'),
+
+	path('admin/study/test/', download_sub_theme_template),
 
 	#Generic Admin Links
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

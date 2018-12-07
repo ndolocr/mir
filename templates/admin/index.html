@@ -54,68 +54,78 @@
 	<div class="app-accounts module">
         <table>
         <caption>
-            <a href="/admin/accounts/" class="section" title="Models in the Accounts application">Import and Export data in Excel File</a>
+            <div class="section" title="Models in the Accounts application">Import and Export data in Excel File</div>
         </caption>
         
             <tbody>
             	<tr class="model-user">
             		<th scope="row"> Categories </th>
-            		<td scope="row"><a href="{% url 'category_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Category.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'category_upload' %}" class="addlinks">Import Data </a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Countries </th>
-            		<td scope="row"><a href="{% url 'country_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Country.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'country_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Qualities </th>
-            		<td scope="row"><a href="{% url 'quality_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Quality.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'quality_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Regions </th>
-            		<td scope="row"><a href="{% url 'region_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Region.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'region_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Resources </th>
-            		<td scope="row"><a href="{% url 'resource_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Resource.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'resource_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Studies </th>
-            		<td scope="row"><a href="{% url 'study_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Study.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'study_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Sub Categories </th>
-            		<td scope="row"><a href="{% url 'sub_category_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Sub_Category.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'sub_category_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Sub Themes </th>
-            		<td scope="row"><a href="{% url 'sub_theme_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Sub_Theme.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'sub_theme_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Tags </th>
-            		<td scope="row"><a href="{% url 'tag_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Tags.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'tag_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
 
             	<tr class="model-user">
             		<th scope="row"> Themes </th>
-            		<td scope="row"><a href="{% url 'theme_upload' %}" class="addlinks">Import</a></td>
-            		<td scope="row"><a href="" class="removelink">Export</a></td>
+                    <td scope="row"><a href="{% url 'download_template' 'Theme.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'theme_upload' %}" class="addlinks">Import Data</a></td>
+            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
             	</tr>
         	</tbody>
 		</table>

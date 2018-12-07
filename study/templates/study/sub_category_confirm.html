@@ -1,0 +1,47 @@
+{% extends "study/base_confirm.html" %}
+
+{% block app_upload %} Upload Sub Category {% endblock %}
+
+{% block upload_title %} Sub Category Upload {% endblock %}
+
+{% block content %}
+
+<table>
+	<thead>
+		<tr>
+			<th> Serial no.</th>
+			<th> Sub Category Name </th>
+			<th> Category </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		{% for row in excel_data %}
+				
+			<tr>
+				<td>{{ forloop.counter }}</td>
+
+				{% for cell in row %}
+					<td> {{ cell }} </td>
+				{% endfor %}
+
+			</tr>
+			
+		{% endfor %}	
+
+		<tr class="row2">
+			<td></td>
+			<td colspan="2">
+				
+				<form method="POST" enctype="multipart/form-data" action="{% url 'sub_category_upload_confirm' %}">
+					{% csrf_token %}					
+					<!--<input type="text" value="{{ excel_data }}" name="excel_data_values">-->
+					<button type="submit" class="btn btn-upload">Save</button>
+				</form>
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}

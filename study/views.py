@@ -1,6 +1,11 @@
-
-import csv, io
+# import xlwt using: pip install xlwt
+import io
+import os
+import csv
+import xlwt
 import openpyxl
+from django.conf import settings
+from django.http import HttpResponse
 
 from study.models import Tag
 from study.models import Study
@@ -67,7 +72,7 @@ def category_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Category.objects.update_or_create(
+				_, object_instance = Category.objects.update_or_create(
 					category_name = cell,
 				)
 		return redirect('admin:index')
@@ -125,7 +130,7 @@ def country_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Country.objects.update_or_create(
+				_, object_instance = Country.objects.update_or_create(
 					country_name = cell,
 				)
 		return redirect('admin:index')
@@ -186,7 +191,7 @@ def quality_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Quality.objects.update_or_create(
+				_, object_instance = Quality.objects.update_or_create(
 					quality_name = cell,
 				)
 		return redirect('admin:index')
@@ -247,7 +252,7 @@ def region_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Region.objects.update_or_create(
+				_, object_instance = Region.objects.update_or_create(
 					region_name = cell,
 				)
 		return redirect('admin:index')
@@ -306,7 +311,7 @@ def resource_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Resource.objects.update_or_create(
+				_, object_instance = Resource.objects.update_or_create(
 					resource_name = cell,
 				)
 		return redirect('admin:index')
@@ -364,7 +369,7 @@ def theme_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Theme.objects.update_or_create(
+				_, object_instance = Theme.objects.update_or_create(
 					theme_name = cell,
 				)
 		return redirect('admin:index')
@@ -422,39 +427,186 @@ def tag_upload_confirm(request):
 
 		for row in excel_data:
 			for cell in row:
-				_, category_instance = Tag.objects.update_or_create(
+				_, object_instance = Tag.objects.update_or_create(
 					tag_name = cell,
 				)
 		return redirect('admin:index')
 
 '''
-	End Upload Tags Information
+	End Upload Tag Information
+'''
+
+'''
+	Start upload Sub Theme Information
+'''
+def sub_theme_upload(request):
+	upload_template = "study/sub_theme_upload.html"
+	prompt = {}
+
+	if request.method == "GET":
+		return render(request, upload_template, prompt)
+	else:
+		#Capture uploaded file
+		excel_file = request.FILES['file_upload']
+
+		#validation to ensure file is excel file
+		if not excel_file.name.endswith('.xlsx'):
+			messages.error(request, 'This is not an excel file')
+		else:
+			wb = openpyxl.load_workbook(excel_file)
+
+			# getting a particular sheet by name out of many sheets
+			worksheet = wb["Sheet1"]
+			#print(worksheet)
+
+			excel_data = list()
+			# iterating over the rows and
+			# getting value from each cell in row
+			x = 1
+			for row in worksheet.iter_rows():
+				row_data = list()				
+				if x>1:
+					for cell in row:
+						if cell !="":
+							row_data.append(str(cell.value))
+					excel_data.append(row_data)
+				x = x + 1
+
+			request.session['list'] = excel_data
+			return render(request, "study/sub_theme_confirm.html", {"excel_data":excel_data})
+
+
+def sub_theme_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			got_sub_theme_name = row[0]	
+			theme_instance = int(row[1])	
+			theme_object = Theme.objects.get(id = theme_instance)
+			_, object_instance = SubTheme.objects.update_or_create(
+				sub_theme_name = got_sub_theme_name,
+				theme = theme_object,
+			)	
+		return redirect('admin:index')
+'''
+	End Upload of Sub Theme Information
+'''
+
+'''
+	Start Upload of Sub Category Information
+'''
+
+def sub_category_upload(request):
+	upload_template = "study/sub_category_upload.html"
+	prompt = {}
+
+	if request.method == "GET":
+		return render(request, upload_template, prompt)
+	else:
+		#Capture uploaded file
+		excel_file = request.FILES['file_upload']
+
+		#validation to ensure file is excel file
+		if not excel_file.name.endswith('.xlsx'):
+			messages.error(request, 'This is not an excel file')
+		else:
+			wb = openpyxl.load_workbook(excel_file)
+
+			# getting a particular sheet by name out of many sheets
+			worksheet = wb["Sheet1"]
+			#print(worksheet)
+
+			excel_data = list()
+			# iterating over the rows and
+			# getting value from each cell in row
+			x = 1
+			for row in worksheet.iter_rows():
+				row_data = list()				
+				if x>1:
+					for cell in row:
+						if cell !="":
+							row_data.append(str(cell.value))
+					excel_data.append(row_data)
+				x = x + 1
+
+			request.session['list'] = excel_data
+			return render(request, "study/sub_category_confirm.html", {"excel_data":excel_data})
+
+
+def sub_category_upload_confirm(request):
+	
+	if request.method == "POST":
+		#excel_data = []
+		excel_data = request.session['list']
+
+		for row in excel_data:
+			got_sub_category_name = row[0]	
+			category_instance = int(row[1])	
+			category_object = Category.objects.get(id = category_instance)
+			_, object_instance = SubCategory.objects.update_or_create(
+				sub_category_name = got_sub_category_name,
+				category = category_object,
+			)	
+		return redirect('admin:index')
+'''
+	End Upload of Sub Category Information
 '''
 
 
 
-
 def study_upload(request):
 	template = "study/study_upload.html"
 	context = {}
 	return render(request, template, context)
 
-def sub_category_upload(request):
-	template = "study/sub_category_upload.html"
-	context = {}
-	return render(request, template, context)
-
-def sub_theme_upload(request):
-	template = "study/sub_theme_upload.html"
-	context = {}
-	return render(request, template, context)
 
 
+def download_template(request, file_name):	
+	file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+	if os.path.exists(file_path):
+		with open(file_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+			response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+			return response 
+	
+def download_sub_theme_template(request):
+	#determining file 
+	file_name = 'Category.xlsx'
+	file_path = os.path.join(settings.MEDIA_ROOT, file_name)	
+	# content-type of response
+	response = HttpResponse(content_type='application/ms-excel')
+	#decide file name
+	#response['Content-Disposition'] = 'attachment; filename="Sub_Theme.xlsx"'
+	wrkbook = response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+	
+	#creating workbook
+	#wrkbook = xlwt.Workbook(encoding='utf-8')
 
+	#adding sheet
+	wrksheet_two = wrkbook.add_sheet("sheet2")
+
+	#get your data, from database or from a text file...
+	data = Theme.objects.all()
+
+	row_num = 0
+	#Writting content on excel sheet
+	for my_row in data:
+		wrksheet_two.write(row_num, 0, my_row.id)
+		wrksheet_two.write(row_num, 1, my_row.sub_theme_name)
+
+	wrkbook.save()
+	return wrkbook
+'''
 def study_upload(request):
 	template = "study/study_upload.html"
 	context = {}
 	return render(request, template, context)
+'''
+
+
 '''
 def category_upload(request):
 	template = "study/category_upload.html"
