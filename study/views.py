@@ -212,7 +212,6 @@ def download_country(request):
 	wrkbook.save(response)
 	return response
 
-
 '''
 	End Upload Country Information
 '''
@@ -272,6 +271,43 @@ def quality_upload_confirm(request):
 				)
 		return redirect('admin:index')
 
+
+def download_quality(request):
+	# content-type of response
+	response = HttpResponse(content_type='application/ms-excel')
+	
+	#decide file name
+	response['Content-Disposition'] = 'attachment; filename="quality_list.xls"'
+
+	#creating workbook
+	wrkbook = xlwt.Workbook(encoding='utf-8')
+
+	#Category Worksheet
+	wrksheet = wrkbook.add_sheet("quality")
+
+	data = Quality.objects.all()
+
+	row_num = 0
+
+	#Styling Headers
+	font_style = xlwt.XFStyle()
+	# headers are bold
+	font_style.font.bold = True
+
+	#column header names
+	columns = ['Quality Name',]
+
+	#write column headers in sheet
+	for col_num in range(len(columns)):
+		wrksheet.write(row_num, col_num, columns[col_num], font_style)
+
+	#Writting content on excel sheet
+	for my_row in data:
+		row_num = row_num + 1
+		wrksheet.write(row_num, 0, my_row.quality_name)		
+
+	wrkbook.save(response)
+	return response
 
 
 '''

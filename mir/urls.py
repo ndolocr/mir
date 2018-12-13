@@ -40,6 +40,7 @@ from study.views import sub_theme_upload_confirm
 from study.views import sub_category_upload_confirm
 
 from study.views import download_country
+from study.views import download_quality
 from study.views import download_category
 from study.views import download_template
 from study.views import download_category_template
@@ -70,6 +71,7 @@ urlpatterns = [
 
 	#Quality URLS
 	path('admin/study/quality/upload/', quality_upload, name='quality_upload'),
+	path('admin/study/quality/download/', download_quality, name='download_quality'),
 	path('admin/study/quality/upload/confirm/', quality_upload_confirm, name='quality_upload_confirm'),
 
 	#category URLS
