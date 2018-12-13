@@ -39,8 +39,10 @@ from study.views import resource_upload_confirm
 from study.views import sub_theme_upload_confirm
 from study.views import sub_category_upload_confirm
 
+from study.views import download_category
 from study.views import download_template
-from study.views import download_sub_theme_template
+from study.views import download_category_template
+#from study.views import download_sub_theme_template
 
 urlpatterns = [	
 	
@@ -69,7 +71,10 @@ urlpatterns = [
 	path('admin/study/quality/upload/confirm/', quality_upload_confirm, name='quality_upload_confirm'),
 
 	#category URLS
+	
 	path('admin/study/category/upload/', category_upload, name='category_upload'),
+	path('admin/study/category/download', download_category, name='download_category'),
+	path('admin/study/category/downloads', download_category_template, name='download_category_template'),
 	path('admin/study/category/upload/confirm/', category_upload_confirm, name='category_upload_confirm'),
 
 	#Resource URLS
@@ -85,7 +90,8 @@ urlpatterns = [
 	#Download Excel Sheet Templates URL
 	path('admin/study/download/<file_name>/', download_template, name='download_template'),
 
-	path('admin/study/test/', download_sub_theme_template),
+
+	#path('admin/study/test/', download_sub_theme_template),
 
 	#Generic Admin Links
     path('admin/', admin.site.urls),

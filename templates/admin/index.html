@@ -62,7 +62,7 @@
             		<th scope="row"> Categories </th>
                     <td scope="row"><a href="{% url 'download_template' 'Category.xlsx' %}" download class="addlinks">Download Template</a></td>
             		<td scope="row"><a href="{% url 'category_upload' %}" class="addlinks">Import Data </a></td>
-            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
+            		<td scope="row"><a href="{% url 'download_category' %}" class="removelink">Export categories</a></td>
             	</tr>
 
             	<tr class="model-user">

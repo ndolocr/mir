@@ -571,8 +571,138 @@ def download_template(request, file_name):
 			response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
 			response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
 			return response 
+
+
+def download_category(request):
+	# content-type of response
+	response = HttpResponse(content_type='application/ms-excel')
 	
-def download_sub_theme_template(request):
+	#decide file name
+	response['Content-Disposition'] = 'attachment; filename="category_list.xls"'
+
+	#creating workbook
+	wrkbook = xlwt.Workbook(encoding='utf-8')
+
+	#Category Worksheet
+	wrksheet = wrkbook.add_sheet("category")
+
+	data = Category.objects.all()
+
+	row_num = 0
+
+	#Styling Headers
+	font_style = xlwt.XFStyle()
+	# headers are bold
+	font_style.font.bold = True
+
+	#column header names
+	columns = ['Category Name',]
+
+	#write column headers in sheet
+	for col_num in range(len(columns)):
+		wrksheet.write(row_num, col_num, columns[col_num], font_style)
+
+	#Writting content on excel sheet
+	for my_row in data:
+		row_num = row_num + 1
+		#category_wrksheet.write(category_row_num, 0, my_row.id)
+		wrksheet.write(row_num, 0, my_row.category_name)		
+
+	wrkbook.save(response)
+	return response
+
+	
+def download_category_template(request):
+	# content-type of response
+	response = HttpResponse(content_type='application/ms-excel')
+	
+	#decide file name
+	response['Content-Disposition'] = 'attachment; filename="list.xls"'
+
+	#creating workbook
+	wrkbook = xlwt.Workbook(encoding='utf-8')
+
+	#Theme Worksheet
+	#theme_wrksheet = wrkbook.add_sheet("sheet1")
+	region_wrksheet = wrkbook.add_sheet("region")
+
+	region_data = Region.objects.all()
+	region_row_num = 0
+	#Writting content on excel sheet
+	for my_row in region_data:
+		region_wrksheet.write(region_row_num, 0, my_row.id)
+		region_wrksheet.write(region_row_num, 1, my_row.region_name)
+		region_row_num = region_row_num + 1
+
+	country_wrksheet = wrkbook.add_sheet("country")
+	country_data = Country.objects.all()
+	country_row_num = 0
+	#Writting content on excel sheet
+	for my_row in country_data:
+		country_wrksheet.write(country_row_num, 0, my_row.id)
+		country_wrksheet.write(country_row_num, 1, my_row.country_name)
+		country_row_num = country_row_num + 1
+
+	quality_wrksheet = wrkbook.add_sheet("quality")
+	quality_data = Quality.objects.all()
+	quality_row_num = 0
+	#Writting content on excel sheet
+	for my_row in quality_data:
+		quality_wrksheet.write(quality_row_num, 0, my_row.id)
+		quality_wrksheet.write(quality_row_num, 1, my_row.quality_name)
+		quality_row_num = quality_row_num + 1
+
+	#category_wrksheet = wrkbook.add_sheet("sheet5")
+	resource_wrksheet = wrkbook.add_sheet("resource")
+	resource_data = Resource.objects.all()
+	resource_row_num = 0
+	#Writting content on excel sheet
+	for my_row in resource_data:
+		resource_wrksheet.write(resource_row_num, 0, my_row.id)
+		resource_wrksheet.write(resource_row_num, 1, my_row.resource_name)
+		resource_row_num = resource_row_num + 1
+
+	sub_theme_wrksheet = wrkbook.add_sheet("sub_theme")
+	sub_theme_data = SubTheme.objects.all()
+	sub_theme_row_num = 0
+	#Writting content on excel sheet
+	for my_row in sub_theme_data:
+		sub_theme_wrksheet.write(sub_theme_row_num, 0, my_row.id)
+		sub_theme_wrksheet.write(sub_theme_row_num, 1, my_row.sub_theme_name)
+		sub_theme_row_num = sub_theme_row_num + 1
+
+	sub_categroy_wrksheet = wrkbook.add_sheet("sub_category")
+	sub_categroy_data = SubCategory.objects.all()
+	sub_categroy_row_num = 0
+	#Writting content on excel sheet
+	for my_row in sub_categroy_data:
+		sub_categroy_wrksheet.write(sub_categroy_row_num, 0, my_row.id)
+		sub_categroy_wrksheet.write(sub_categroy_row_num, 1, my_row.sub_category_name)
+		sub_categroy_row_num = sub_categroy_row_num + 1
+	'''
+	#Category 
+	country_data = Country.objects.all()
+	country_row_num = 0
+	#Writting content on excel sheet
+	for my_row in country_data:
+		country_wrksheet.write(country_row_num, 0, my_row.id)
+		country_wrksheet.write(country_row_num, 1, my_row.country_name)
+		country_row_num = country_row_num + 1
+
+	#Category 
+	category_data = Category.objects.all()
+	category_row_num = 0
+	#Writting content on excel sheet
+	for my_row in category_data:
+		category_wrksheet.write(category_row_num, 0, my_row.id)
+		category_wrksheet.write(category_row_num, 1, my_row.category_name)
+		category_row_num = category_row_num + 1
+
+	'''
+	wrkbook.save(response)
+	return response
+
+	'''
 	#determining file 
 	file_name = 'Category.xlsx'
 	file_path = os.path.join(settings.MEDIA_ROOT, file_name)	
@@ -599,6 +729,7 @@ def download_sub_theme_template(request):
 
 	wrkbook.save()
 	return wrkbook
+	'''
 '''
 def study_upload(request):
 	template = "study/study_upload.html"
