@@ -40,6 +40,7 @@ from study.views import sub_theme_upload_confirm
 from study.views import sub_category_upload_confirm
 
 from study.views import download_tags
+from study.views import download_theme
 from study.views import download_region
 from study.views import download_country
 from study.views import download_quality
@@ -62,6 +63,7 @@ urlpatterns = [
 
 	#Theme URLS
 	path('admin/study/theme/upload/', theme_upload, name='theme_upload'),
+	path('admin/study/theme/download/', download_theme, name='download_theme'),
 	path('admin/study/theme/upload/confirm/', theme_upload_confirm, name='theme_upload_confirm'),
 	
 	#Region URLS
