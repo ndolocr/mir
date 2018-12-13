@@ -39,6 +39,7 @@ from study.views import resource_upload_confirm
 from study.views import sub_theme_upload_confirm
 from study.views import sub_category_upload_confirm
 
+from study.views import download_region
 from study.views import download_country
 from study.views import download_quality
 from study.views import download_category
@@ -62,6 +63,7 @@ urlpatterns = [
 	
 	#Region URLS
 	path('admin/study/region/upload/', region_upload, name='region_upload'),
+	path('admin/study/region/download', download_region, name='download_region'),
 	path('admin/study/region/upload/confirm/', region_upload_confirm, name='region_upload_confirm'),
 	
 	#Country URLS
