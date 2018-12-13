@@ -90,7 +90,7 @@
             		<th scope="row"> Resources </th>
                     <td scope="row"><a href="{% url 'download_template' 'Resource.xlsx' %}" download class="addlinks">Download Template</a></td>
             		<td scope="row"><a href="{% url 'resource_upload' %}" class="addlinks">Import Data</a></td>
-            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
+            		<td scope="row"><a href="{% url 'download_resource' %}" class="removelink">Export Resources</a></td>
             	</tr>
 
             	<tr class="model-user">
@@ -118,7 +118,7 @@
             		<th scope="row"> Tags </th>
                     <td scope="row"><a href="{% url 'download_template' 'Tags.xlsx' %}" download class="addlinks">Download Template</a></td>
             		<td scope="row"><a href="{% url 'tag_upload' %}" class="addlinks">Import Data</a></td>
-            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
+            		<td scope="row"><a href="{% url 'download_tags' %}" class="removelink">Export Tags</a></td>
             	</tr>
 
             	<tr class="model-user">
