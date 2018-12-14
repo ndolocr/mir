@@ -92,28 +92,7 @@
             		<td scope="row"><a href="{% url 'resource_upload' %}" class="addlinks">Import Data</a></td>
             		<td scope="row"><a href="{% url 'download_resource' %}" class="removelink">Export Resources</a></td>
             	</tr>
-
-            	<tr class="model-user">
-            		<th scope="row"> Studies </th>
-                    <td scope="row"><a href="{% url 'download_template' 'Study.xlsx' %}" download class="addlinks">Download Template</a></td>
-            		<td scope="row"><a href="{% url 'study_upload' %}" class="addlinks">Import Data</a></td>
-            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
-            	</tr>
-
-            	<tr class="model-user">
-            		<th scope="row"> Sub Categories </th>
-                    <td scope="row"><a href="{% url 'download_template' 'Sub_Category.xlsx' %}" download class="addlinks">Download Template</a></td>
-            		<td scope="row"><a href="{% url 'sub_category_upload' %}" class="addlinks">Import Data</a></td>
-            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
-            	</tr>
-
-            	<tr class="model-user">
-            		<th scope="row"> Sub Themes </th>
-                    <td scope="row"><a href="{% url 'download_template' 'Sub_Theme.xlsx' %}" download class="addlinks">Download Template</a></td>
-            		<td scope="row"><a href="{% url 'sub_theme_upload' %}" class="addlinks">Import Data</a></td>
-            		<!-- <td scope="row"><a href="" class="removelink">Export</a></td> -->
-            	</tr>
-
+            	
             	<tr class="model-user">
             		<th scope="row"> Tags </th>
                     <td scope="row"><a href="{% url 'download_template' 'Tags.xlsx' %}" download class="addlinks">Download Template</a></td>
@@ -129,6 +108,40 @@
             	</tr>
         	</tbody>
 		</table>
+
+        <table>
+        <caption>
+            <div class="section" title="Models in the Accounts application">Studies, Sub-Theme and Sub Categories</div>
+        </caption>
+        
+            <tbody>
+                <tr class="model-user">
+                    <th scope="row"> Studies </th>
+                    <!--<td scope="row"><a href="{% url 'download_template' 'Study.xlsx' %}" download class="addlinks">Download Template</a></td>-->
+                    <td scope="row"><a href="{% url 'download_template' 'Study.xlsx' %}" download class="addlinks">Study Template</a></td>
+                    <td scope="row"><a href="{% url 'download_study_related_template' %}" download class="addlinks">Related Data</a></td>
+                    <td scope="row"><a href="{% url 'study_upload' %}" class="addlinks">Import Data</a></td>
+                    <!--<td scope="row"><a href="" class="removelink">Export Studies</a></td>-->
+                </tr>
+
+                <tr class="model-user">
+                    <th scope="row"> Sub Themes </th>
+                    <td scope="row"><a href="{% url 'download_template' 'Sub_Theme.xlsx' %}" download class="addlinks">Sub Theme Template</a></td>
+                    <td scope="row"><a href="{% url 'download_sub_theme_related_template' %}" download class="addlinks">Related Data</a></td>
+                    <td scope="row"><a href="{% url 'sub_theme_upload' %}" class="addlinks">Import Data</a></td>
+                    <!--<td scope="row"><a href="" class="removelink">Export Sub Themes</a></td>-->
+                </tr>
+
+                <tr class="model-user">
+                    <th scope="row"> Sub Categories </th>
+                    <td scope="row"><a href="{% url 'download_template' 'Sub_Category.xlsx' %}" download class="addlinks">Sub Category Template</a></td>
+                    <td scope="row"><a href="{% url 'download_sub_category_related_template' %}" download class="addlinks">Related Data</a></td>
+                    <td scope="row"><a href="{% url 'sub_category_upload' %}" class="addlinks">Import Data</a></td>
+                    <!--<td scope="row"><a href="" class="removelink">Export Sub Category</a></td>-->
+                </tr>
+
+            </tbody>
+        </table>
 	</div>
 
 </div>

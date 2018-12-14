@@ -4,8 +4,9 @@ import os
 import csv
 import xlwt
 import openpyxl
-from django.conf import settings
-from django.http import HttpResponse
+
+from io import StringIO
+from zipfile import ZipFile
 
 from study.models import Tag
 from study.models import Study
@@ -18,8 +19,10 @@ from study.models import Resource
 from study.models import SubTheme
 from study.models import SubCategory
 
+from django.conf import settings
 from django.shortcuts import render
 from django.contrib import messages
+from django.http import HttpResponse
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -821,31 +824,38 @@ def sub_category_upload_confirm(request):
 	End Upload of Sub Category Information
 '''
 
-
+'''
+	Start Study Views
+'''
 
 def study_upload(request):
 	template = "study/study_upload.html"
 	context = {}
 	return render(request, template, context)
 
+'''
+	End Study Views
+'''
 
 
+'''
+Method to download template files
+'''
 def download_template(request, file_name):	
 	file_path = os.path.join(settings.MEDIA_ROOT, file_name)
 	if os.path.exists(file_path):
 		with open(file_path, 'rb') as fh:
 			response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
 			response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-			return response 
-
+			return response
 
 	
-def download_category_template(request):
+def download_study_related_template(request):
 	# content-type of response
 	response = HttpResponse(content_type='application/ms-excel')
 	
 	#decide file name
-	response['Content-Disposition'] = 'attachment; filename="list.xls"'
+	response['Content-Disposition'] = 'attachment; filename="study_related_templates.xls"'
 
 	#creating workbook
 	wrkbook = xlwt.Workbook(encoding='utf-8')
@@ -907,120 +917,63 @@ def download_category_template(request):
 		sub_categroy_wrksheet.write(sub_categroy_row_num, 0, my_row.id)
 		sub_categroy_wrksheet.write(sub_categroy_row_num, 1, my_row.sub_category_name)
 		sub_categroy_row_num = sub_categroy_row_num + 1
-	'''
-	#Category 
-	country_data = Country.objects.all()
-	country_row_num = 0
-	#Writting content on excel sheet
-	for my_row in country_data:
-		country_wrksheet.write(country_row_num, 0, my_row.id)
-		country_wrksheet.write(country_row_num, 1, my_row.country_name)
-		country_row_num = country_row_num + 1
-
-	#Category 
-	category_data = Category.objects.all()
-	category_row_num = 0
-	#Writting content on excel sheet
-	for my_row in category_data:
-		category_wrksheet.write(category_row_num, 0, my_row.id)
-		category_wrksheet.write(category_row_num, 1, my_row.category_name)
-		category_row_num = category_row_num + 1
-
-	'''
+	
 	wrkbook.save(response)
 	return response
 
-	'''
-	#determining file 
-	file_name = 'Category.xlsx'
-	file_path = os.path.join(settings.MEDIA_ROOT, file_name)	
+def download_sub_category_related_template(request):
 	# content-type of response
 	response = HttpResponse(content_type='application/ms-excel')
-	#decide file name
-	#response['Content-Disposition'] = 'attachment; filename="Sub_Theme.xlsx"'
-	wrkbook = response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
 	
+	#decide file name
+	response['Content-Disposition'] = 'attachment; filename="sub_category_related_templates.xls"'
+
 	#creating workbook
-	#wrkbook = xlwt.Workbook(encoding='utf-8')
+	wrkbook = xlwt.Workbook(encoding='utf-8')
 
-	#adding sheet
-	wrksheet_two = wrkbook.add_sheet("sheet2")
+	#Category Worksheet
+	wrksheet = wrkbook.add_sheet("category")
 
-	#get your data, from database or from a text file...
+	data = Category.objects.all()
+
+	row_num = 0
+
+	#Writting content on excel sheet
+	for my_row in data:		
+		wrksheet.write(row_num, 0, my_row.id)
+		wrksheet.write(row_num, 1, my_row.category_name)
+		row_num = row_num + 1		
+
+	wrkbook.save(response)
+	return response
+
+def download_sub_theme_related_template(request):
+	# content-type of response
+	response = HttpResponse(content_type='application/ms-excel')
+	
+	#decide file name
+	response['Content-Disposition'] = 'attachment; filename="sub_theme_related_templates.xls"'
+
+	#creating workbook
+	wrkbook = xlwt.Workbook(encoding='utf-8')
+
+	#Category Worksheet
+	wrksheet = wrkbook.add_sheet("themes")
+
 	data = Theme.objects.all()
 
 	row_num = 0
+
 	#Writting content on excel sheet
 	for my_row in data:
-		wrksheet_two.write(row_num, 0, my_row.id)
-		wrksheet_two.write(row_num, 1, my_row.sub_theme_name)
+		row_num = row_num + 1
+		wrksheet.write(row_num, 0, my_row.id)
+		wrksheet.write(row_num, 1, my_row.theme_name)		
 
-	wrkbook.save()
-	return wrkbook
-	'''
-'''
-def study_upload(request):
-	template = "study/study_upload.html"
-	context = {}
-	return render(request, template, context)
-'''
-
+	wrkbook.save(response)
+	return response
 
 '''
-def category_upload(request):
-	template = "study/category_upload.html"
-
-	prompt = {
-		'order': 'Kindly list category names to be uploaded: '
-	}
-
-	if request.method=="GET":
-		return render(request, template, prompt)
-
-	csv_file = request.FILES['file_upload']
-
-	if not csv_file.name.endswith('.xlsx'):
-		messages.error(request, 'This is not an excel file')
-
-	#data_set = csv_file.read().decode('UTF-8')
-	io_string = io.StringIO(data_set)
-	next(io_string)
-
-	for column in csv.reader(io_string, delimiter='', quotechar="|"):
-		_, created = Category.objects.update_or_create(
-			category_name = column[0],
-		)
-
-	context ={}
-
-	return render(request, template, context)
-
-
-def index(request):
-	template = "study/category_upload.html"
-
-	if request.method=="GET":
-		return render(request, template, {})
-	else:
-		excel_file = request.FILES["file_upload"]
-
-		# you may put validations here to check extension or file size
-
-		wb = openpyxl.load_workbook(excel_file)
-
-		# getting a particular sheet by name out of many sheets
-		worksheet = wb["Sheet1"]
-		#print(worksheet)
-
-		excel_data = list()
-		# iterating over the rows and
-		# getting value from each cell in row
-		for row in worksheet.iter_rows():
-			row_data = list()
-			for cell in row:
-				row_data.append(str(cell.value))
-			excel_data.append(row_data)
-
-		return render(request, "study/category_confirm.html", {"excel_data":excel_data})
-
+	End downlodaing Templates
 '''
+	

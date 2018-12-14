@@ -46,14 +46,18 @@ from study.views import download_country
 from study.views import download_quality
 from study.views import download_category
 from study.views import download_resource
+
 from study.views import download_template
-from study.views import download_category_template
-#from study.views import download_sub_theme_template
+from study.views import download_study_related_template
+from study.views import download_sub_theme_related_template
+from study.views import download_sub_category_related_template
+
 
 urlpatterns = [	
 	
 	#Study URLS
 	path('admin/study/upload/', study_upload, name='study_upload'),
+	path('admin/study/download/related/templates/', download_study_related_template, name='download_study_related_template'),
 	
 	#Tags URLS
 	path('admin/study/tag/upload/', tag_upload, name='tag_upload'),
@@ -84,8 +88,7 @@ urlpatterns = [
 	#category URLS
 	
 	path('admin/study/category/upload/', category_upload, name='category_upload'),
-	path('admin/study/category/download', download_category, name='download_category'),
-	path('admin/study/category/downloads', download_category_template, name='download_category_template'),
+	path('admin/study/category/download', download_category, name='download_category'),	
 	path('admin/study/category/upload/confirm/', category_upload_confirm, name='category_upload_confirm'),
 
 	#Resource URLS
@@ -93,17 +96,25 @@ urlpatterns = [
 	path('admin/study/resource/download', download_resource, name='download_resource'),
 	path('admin/study/resource/upload/confirm/', resource_upload_confirm, name='resource_upload_confirm'),
 
+	#Sub Theme URLS
 	path('admin/study/sub/theme/upload/', sub_theme_upload, name='sub_theme_upload'),	
 	path('admin/study/sub/theme/upload/confirm/', sub_theme_upload_confirm, name='sub_theme_upload_confirm'),
+	path('admin/study/sub/theme/download/related/templates/', download_sub_theme_related_template, name='download_sub_theme_related_template'),
 
+	#Sub Category URLS
 	path('admin/study/sub/category/upload/', sub_category_upload, name='sub_category_upload'),	
 	path('admin/study/sub/category/upload/confirm/', sub_category_upload_confirm, name='sub_category_upload_confirm'),
+	path('admin/study/sub/category/download/related/templates/', download_sub_category_related_template, name='download_sub_category_related_template'),
 
-	#Download Excel Sheet Templates URL
+	#Generic URL to download Template files
 	path('admin/study/download/<file_name>/', download_template, name='download_template'),
-
+	
+	
 
 	#path('admin/study/test/', download_sub_theme_template),
+	#path('admin/study/category/downloads', download_category_template, name='download_category_template'),
+	#path('admin/study/download/study/<file_name_one>/<file_name_two>/', downlaod_two, name='downlaod_two'),
+	#path('admin/study/download/<first_file_name>/<second_file_name>/', download_templates, name='download_templates'),
 
 	#Generic Admin Links
     path('admin/', admin.site.urls),
