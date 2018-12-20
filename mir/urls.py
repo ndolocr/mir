@@ -30,6 +30,7 @@ from study.views import sub_theme_upload
 from study.views import sub_category_upload
 
 from study.views import tag_upload_confirm
+from study.views import study_upload_confirm
 from study.views import theme_upload_confirm
 from study.views import region_upload_confirm
 from study.views import country_upload_confirm
@@ -57,8 +58,9 @@ urlpatterns = [
 	
 	#Study URLS
 	path('admin/study/upload/', study_upload, name='study_upload'),
-	path('admin/study/download/related/templates/', download_study_related_template, name='download_study_related_template'),
-	
+	path('admin/study/upload/confirm/', study_upload_confirm, name='study_upload_confirm'),
+	path('admin/study/download/related/templates/', download_study_related_template, name='download_study_related_template'),	
+
 	#Tags URLS
 	path('admin/study/tag/upload/', tag_upload, name='tag_upload'),
 	path('admin/study/tag/download/', download_tags, name='download_tags'),

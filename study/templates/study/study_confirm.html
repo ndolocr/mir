@@ -1,0 +1,55 @@
+{% extends "study/base_confirm.html" %}
+
+{% block app_upload %} Upload Study {% endblock %}
+
+{% block upload_title %} Study Upload {% endblock %}
+
+{% block content %}
+
+<table>
+	<thead>
+		<tr>
+			<th> Serial no.</th>
+			<th> Title </th>
+			<th> Author </th>
+			<th> Year </th>
+			<th> Country </th>
+			<th> Region </th>
+			<th> Resource </th>
+			<th> Sub Category </th>
+			<th> Sub Theme </th>
+			<th> Quality </th>
+			<th> Link </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		{% for row in excel_data %}
+				
+			<tr>
+				<td>{{ forloop.counter }}</td>
+
+				{% for cell in row %}
+					<td> {{ cell }} </td>
+				{% endfor %}
+
+			</tr>
+			
+		{% endfor %}	
+
+		<tr class="row2">
+			<td></td>
+			<td colspan="11">
+				
+				<form method="POST" enctype="multipart/form-data" action="{% url 'study_upload_confirm' %}">
+					{% csrf_token %}					
+					<input type="text" value="{{ excel_data }}" name="excel_data_values">
+					<button type="submit" class="btn btn-upload">Save</button>
+				</form>
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}

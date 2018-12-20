@@ -172,8 +172,8 @@ class Study(models.Model):
 	'''FOREGIN KEY FIELDS'''
 	region = models.ManyToManyField(Region)
 	country = models.ManyToManyField(Country)
-	sub_theme = models.ManyToManyField(Theme)	
-	sub_category = models.ManyToManyField(Category)
+	sub_theme = models.ManyToManyField(SubTheme)	
+	sub_category = models.ManyToManyField(SubCategory)
 	resource = models.ForeignKey(Resource, default=1, on_delete=models.CASCADE)	
 	quality = models.ForeignKey(Quality, on_delete=models.CASCADE)
 
