@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from core.views import home_page
+
 from study.views import tag_upload
 from study.views import theme_upload
 from study.views import study_upload
@@ -54,8 +56,8 @@ from study.views import download_sub_theme_related_template
 from study.views import download_sub_category_related_template
 
 
-urlpatterns = [	
-	
+urlpatterns = [	   
+
 	#Study URLS
 	path('admin/study/upload/', study_upload, name='study_upload'),
 	path('admin/study/upload/confirm/', study_upload_confirm, name='study_upload_confirm'),
@@ -111,15 +113,14 @@ urlpatterns = [
 	#Generic URL to download Template files
 	path('admin/study/download/<file_name>/', download_template, name='download_template'),
 	
-	
-
-	#path('admin/study/test/', download_sub_theme_template),
-	#path('admin/study/category/downloads', download_category_template, name='download_category_template'),
-	#path('admin/study/download/study/<file_name_one>/<file_name_two>/', downlaod_two, name='downlaod_two'),
-	#path('admin/study/download/<first_file_name>/<second_file_name>/', download_templates, name='download_templates'),
-
 	#Generic Admin Links
     path('admin/', admin.site.urls),
+
+    
+
+    #Front End Page Links
+    path('', home_page, name='home_page'),
+
 ]
 
 if settings.DEBUG:
