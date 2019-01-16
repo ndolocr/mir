@@ -1,0 +1,7 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+	{% for results in result %}
+		{{results.title}}
+	{% endfor %}
+{% endblock %}

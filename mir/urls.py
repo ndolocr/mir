@@ -120,6 +120,8 @@ urlpatterns = [
 
     #Front End Page Links
     path('', home_page, name='home_page'),
+    #path('/search_results', search_results, name='search_results'),
+
 
 ]
 

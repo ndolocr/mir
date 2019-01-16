@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+	<!--{{study_data.count}}		-->
+
+	<script type="text/javascript">
+		total_study_counter({{study_data.count}});
+	</script>
+
+
+
+	<table border='1px'>
+		<tbody>			
+			<tr>
+				{% for category in category_data %}					
+				{% endfor %}
+			</tr>
+
+			<tr>
+				<td> </td>				
+				{% for sub_category in sub_category_data %}						 
+					<td class="rotate-td"> 
+						<div class="rotate"> 
+							{{sub_category.sub_category_name}} 
+						</div> 
+					</td>						
+				{% endfor %}
+			</tr>
+			
+			{% for sub_theme in sub_theme_data %}
+				<tr>
+					<td class="sub_theme_td"> {{sub_theme.sub_theme_name}} </td>
+
+					{% for sub_category in sub_category_data %}	
+						<script type="text/javascript">
+							reset_counter();
+						</script>				
+						<td> 
+							{% for study in study_data %}
+								{% for s_theme in study.sub_theme.all %}
+									{% for s_category in study.sub_category.all %}
+										{% if s_category == sub_category and s_theme == sub_theme %}
+												
+											<script type="text/javascript">
+												//write_value({{study.title}})
+												/*var title = {{study.title}} ;
+												var quality = {{study.quality}};
+												var link = {{study.link}};
+												document.write(title);*/
+												//counter( title, quality, link );
+											</script>											
+
+											<div class="high">
+												{{study.title}} - {{study.quality}}- <br>
+
+												{% if study.quality == High %}
+													<script type="text/javascript">
+														counter();
+													</script>
+												{% endif %}
+											</div>
+										{% endif %}
+									{% endfor %}
+								{% endfor %}
+							{% endfor %}
+							<script type="text/javascript">
+								return_counter();
+							</script>
+						</td>
+					{% endfor %}
+					
+				</tr>
+			{% endfor %}
+
+
+						
+		</tbody>
+	</table>
+	{% endblock %}

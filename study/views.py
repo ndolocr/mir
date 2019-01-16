@@ -29,10 +29,6 @@ from django.shortcuts import redirect
 from xlsxwriter.workbook import Workbook
 # Create your views here.
 
-'''	Front End views '''
-def home_page(request):
-	return HttpResponse("This is the Home Page!")
-
 '''	Back End views'''
 
 

@@ -164,10 +164,17 @@ class Tag(models.Model):
 STUDY MODEL
 '''
 class Study(models.Model):
+	
+	QUALITY_CHOICES = (
+        ('Low', 'Low'),
+        ('High', 'High'),
+        ('Medium', 'Medium'),        
+    )
+
 	title = models.CharField(_('Title'), max_length=255, blank=False, null=False)
 	author = models.CharField(_('Author'), max_length=255, blank=False, null=False)
 	link = models.CharField(_('link'), max_length=255, blank=False, null=False)
-	tags = models.ManyToManyField(Tag)
+	#tags = models.ManyToManyField(Tag)
 	year = models.PositiveIntegerField(_('Year'))
 	'''FOREGIN KEY FIELDS'''
 	region = models.ManyToManyField(Region)
@@ -175,7 +182,7 @@ class Study(models.Model):
 	sub_theme = models.ManyToManyField(SubTheme)	
 	sub_category = models.ManyToManyField(SubCategory)
 	resource = models.ForeignKey(Resource, default=1, on_delete=models.CASCADE)	
-	quality = models.ForeignKey(Quality, on_delete=models.CASCADE)
+	quality = models.CharField(_('Quality'), max_length=6, choices=QUALITY_CHOICES, default='Low')
 
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)

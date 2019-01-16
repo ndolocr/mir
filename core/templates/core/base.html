@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html>
+	<head>
+		{% load staticfiles %}
+
+		<meta charset="utf-8" />
+        <meta content="" name="author" />
+        <meta content="" name="description" />        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        
+		<title>{% block title %} Africa Research | Online Repository {% endblock %}</title>
+
+		 <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />        
+        <link href="{% static 'core/bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'core/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />        
+        <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+
+
+         <!-- BEGIN CORE PLUGINS -->
+        <script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'core/js/toggle.js' %}" type="text/javascript"></script>
+        <script src="{% static 'core/js/counter.js' %}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+
+        
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default">
+			<!-- Site Logo -->
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand"> Africa Research</a>
+			</div>
+
+			<ul class="nav navbar-nav">
+				<li > <a href=""> Home </a> </li>
+				<li> <a href=""> About us </a> </li>
+				<li> <a href=""> Contact Us </a> </li>
+			</ul>
+		</nav>
+		<div class="search-bar container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<form role="form" method="POST" id="search" name="search" action="">
+                    	{% csrf_token %}
+                    	<div class="row">
+
+                    		<div class="col-md-6">
+                    			<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="form-control">
+                    		</div>
+                    		
+                    		<div class="col-md-6">
+                    			<div class="row">
+                    				<div class="col-sm-3 col-xs-12">
+		                    			<select class="form-control" name="category" id="category">
+		                    				<option value="">All Categories</option>
+		                    				{% for category in category_data %}
+		                    					<option value="{{category.id}}">
+		                    						{{category.category_name}} 
+		                    					</option>
+		                    				{% endfor %}
+
+		                    			</select>		
+		                    		</div>
+
+		                    		<div class="col-sm-3 col-xs-6">
+		                    			<select class="form-control" name="theme" id="theme">
+		                    				<option value="">All Themes</option>
+		                    				{% for theme in theme_data %}
+			                    				<option value="{{theme.id}}">
+			                    					{{theme.theme_name}} 
+			                    				</option>
+		                    				{% endfor %}
+		                    				
+		                    			</select>
+		                    		</div>
+
+		                    		<div class="col-sm-3 col-xs-6">
+		                    			<!--<a href="#" class="toggle-link blue">
+		                    				<i class="fa fa-gear"> </i> Advanced
+		                    			</a>-->
+		                    			<button id="toggle_button" class="advance-btn blue btn" type="button">
+		                    				<i class="fa fa-gear"> </i> Advanced
+		                    			</button>
+		                    		</div>
+
+		                    		<div class="col-sm-3 col-xs-6">
+		                    			<button type="submit" class="btn btn-search btn-block"> Search </button>
+		                    		</div>		
+                    			</div>                    			
+                    		</div>	
+                    	</div>
+                    	
+                    	<div id="toggle_row">
+	                    	<div class="row">
+	                    		<div class="toggle">
+	                    			
+		                    			<div class="col-sm-3 col-xs-12">
+		                    				<select class="form-control" name="sub_category" id="sub_category">
+		                    					<option value="">All Sub Categories</option>
+			                    				{% for sub_category in sub_category_data %}
+				                    				<option value="{{sub_category.id}}">
+				                    					{{sub_category.sub_category_name}} 
+				                    				</option>
+			                    				{% endfor %}
+			                    			</select>
+		                    			</div>
+
+		                    			<div class="col-sm-3 col-xs-12">
+		                    				<select class="form-control" name="sub_theme" id="sub_theme">
+		                    					<option value="">All Sub Themes</option>
+			                    				{% for sub_theme in sub_theme_data %}
+				                    				<option value="{{sub_theme.id}}">
+				                    					{{sub_theme.sub_theme_name}} 
+				                    				</option>
+			                    				{% endfor %}
+			                    			</select>
+		                    			</div>
+	                    			
+	                    			<div class="col-xs-3">
+	                    				<select class="form-control" name="country" id="country">
+	                    					<option value="">All Countries</option>
+		                    				{% for country in country_data %}
+			                    				<option value="{{country.id}}">
+			                    					{{country.country_name}} 
+			                    				</option>
+		                    				{% endfor %}
+		                    			</select>
+	                    			</div>
+
+	                    			
+	                    		</div>
+	                    	</div>
+
+	                    	<div class="row">
+	                    		<div class="toggle">
+	                    			
+	                    			<div class="col-xs-3">
+	                    				<select class="form-control" name="region" id="region">
+		                    				<option value="">All Regions</option>
+		                    				{% for region in region_data %}	                    		
+			                    				<option value="{{region.id}}">
+			                    					{{region.region_name}} 
+			                    				</option>
+		                    				{% endfor %}
+		                    			</select>
+	                    			</div>
+
+	                    			<div class="col-sm-3 col-xs-12">
+	                    				<select class="form-control" name="quality" id="quality">
+	                    					<option value="">All Qualities</option>
+		                    				{% for quality in quality_data %}
+			                    				<option value="{{quality.id}}">
+			                    					{{quality.quality_name}} 
+			                    				</option>
+		                    				{% endfor %}
+		                    			</select>
+	                    			</div>
+
+	                    		</div>
+	                    	</div>
+						
+						</div>	
+						
+
+						
+					</form>
+				</div>
+			</div>
+		</div>
+
+		{% block content %} {% endblock %}
+
+		<!--[if lt IE 9]>
+			<script src="../assets/global/plugins/respond.min.js"></script>
+			<script src="../assets/global/plugins/excanvas.min.js"></script> 
+		<![endif]-->
+
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'core/js/toggle.js' %}" type="text/javascript"></script>
+        <script src="{% static 'core/js/counter.js' %}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+	</body>
+</html>
