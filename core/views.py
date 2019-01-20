@@ -1,6 +1,8 @@
 from django import template
+from django.core import serializers
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 register = template.Library()
 
@@ -19,7 +21,7 @@ from study.models import SubCategory
 
 '''	Front End views '''
 
-def home_page(request):	
+def search(request):
 	if request.method == 'POST':
 		theme = request.POST.get('theme')
 		region = request.POST.get('region')
@@ -29,16 +31,7 @@ def home_page(request):
 		category = request.POST.get('category')
 		sub_theme = request.POST.get('sub_theme')
 		sub_category = request.POST.get('sub_category')
-
-		result = Study.objects.filter(title__icontains=keyword)
-		context = {
-			'result':result
-		}
-		return render(request, 'core/search_result.html', context)
-	else:
-		
-		no_of_studies = []
-		High = "High"
+#0704348770
 		study_data = Study.objects.all()
 		theme_data = Theme.objects.all()
 		region_data = Region.objects.all()
@@ -47,41 +40,208 @@ def home_page(request):
 		category_data = Category.objects.all()	
 		sub_theme_data = SubTheme.objects.all()
 		sub_category_data = SubCategory.objects.all()
-		#prac = practice(**kwargs)
+
+		#If no search parameters are input
+		if theme=="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category =="" and keyword=="":
+			result = Study.objects.all()
+		#If all parameters are input
+		elif theme!="" and category!="" and region!="" and country!="" and sub_theme!="" and sub_category!="" and keyword!="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme, sub_category__category=category, region=region, country=country, sub_theme=sub_theme, sub_category=sub_category)
+		#Keyword Seach with other parameters
+		elif keyword!="" and theme=="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword)
+		elif keyword!="" and theme!="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme)
+		elif keyword!="" and theme=="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_category__category=category)
+		elif keyword!="" and theme=="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, region=region)
+		elif keyword!="" and theme=="" and category=="" and region=="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, country=country)
+		elif keyword!="" and theme=="" and category=="" and region=="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme=sub_theme)
+		elif keyword!="" and theme=="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_category=sub_category)
+		#Keyword and Theme Combination
+		elif keyword!="" and theme!="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme, sub_category__category=category)
+		elif keyword!="" and theme!="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme, region=region)
+		elif keyword!="" and theme!="" and category=="" and region=="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme, country=country)
+		elif keyword!="" and theme!="" and category=="" and region=="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme, sub_theme=sub_theme)
+		elif keyword!="" and theme!="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme__theme=theme, sub_category=sub_category)
+		#Keyword and category Combination
+		elif keyword!="" and theme=="" and category!="" and region!="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_category__category=category, region=region)
+		elif keyword!="" and theme=="" and category!="" and region=="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_category__category=category, country=country)
+		elif keyword!="" and theme=="" and category!="" and region=="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, sub_category__category=category, sub_theme=sub_theme)
+		elif keyword!="" and theme=="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(title__icontains=keyword, sub_category__category=category, sub_category=sub_category)
+		#Keyword and region combination
+		elif keyword!="" and theme=="" and category=="" and region!="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, region=region, country=country)
+		elif keyword!="" and theme=="" and category=="" and region!="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, region=region, sub_theme=sub_theme)
+		elif keyword!="" and theme=="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(title__icontains=keyword, region=region, sub_category=sub_category)
+		#Keyword and Country Combination
+		elif keyword!="" and theme=="" and category=="" and region=="" and country!="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(title__icontains=keyword, country=country, sub_theme=sub_theme)
+		elif keyword!="" and theme=="" and category=="" and region=="" and country!="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(title__icontains=keyword, country=country, sub_category=sub_category)
+		#Keyword and sub_category combination
+		elif keyword!="" and theme=="" and category=="" and region=="" and country=="" and sub_theme!="" and sub_category !="":
+			result = Study.objects.filter(title__icontains=keyword, sub_theme=sub_theme, sub_category=sub_category)
+		#Theme Search
+		elif keyword=="" and theme!="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme)
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category__category=category)
+		elif keyword=="" and theme!="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, region=region)
+		elif keyword=="" and theme!="" and category=="" and region=="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, country=country)
+		elif keyword=="" and theme!="" and category=="" and region=="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_theme=sub_theme)
+		elif keyword=="" and theme!="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category=sub_category)
+		#Theme and Category Search
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category__category=category)
+		elif keyword=="" and theme!="" and category!="" and region!="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category__category=category, region=region)
+		elif keyword=="" and theme!="" and category!="" and region=="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category__category=category, country=country)
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category__category=category, sub_theme=sub_theme)
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_category__category=category, sub_category=sub_category)
+		#Theme and region combination
+		elif keyword=="" and theme!="" and category=="" and region!="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, region=region, country=country)
+		elif keyword=="" and theme!="" and category=="" and region!="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, region=region, sub_theme=sub_theme)
+		elif keyword=="" and theme!="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(sub_theme__theme=theme, region=region, sub_category=sub_category)
+		#Theme and country combination
+		elif keyword=="" and theme!="" and category=="" and region=="" and country!="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_theme__theme=theme, country=country, sub_theme=sub_theme)
+		elif keyword=="" and theme!="" and category=="" and region!="" and country!="" and sub_theme=="" and sub_category !="":
+			result = Study.objects.filter(sub_theme__theme=theme, region=region, sub_category=sub_category)
+		#Theme and sub_theme		
+		elif keyword=="" and theme!="" and category=="" and region!="" and country=="" and sub_theme!="" and sub_category !="":
+			result = Study.objects.filter(sub_theme__theme=theme, sub_theme=sub_theme, sub_category=sub_category)
+		#Category search
+		elif keyword=="" and theme=="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category)
+		elif keyword=="" and theme=="" and category!="" and region!="" and country=="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category, region=region)
+		elif keyword=="" and theme=="" and category!="" and region=="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category, country=country)
+		elif keyword=="" and theme=="" and category!="" and region=="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category, sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category!="" and region=="" and country=="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(sub_category__category=category, sub_category=sub_category)
+		#Category region combination
+		elif keyword=="" and theme=="" and category!="" and region!="" and country!="" and sub_theme=="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category, region=region, country=country)
+		elif keyword=="" and theme=="" and category!="" and region!="" and country=="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category, region=region, sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category!="" and region!="" and country=="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(sub_category__category=category, region=region, sub_category=sub_category)
+		#category country combination
+		elif keyword=="" and theme=="" and category!="" and region=="" and country!="" and sub_theme!="" and sub_category =="":
+			result = Study.objects.filter(sub_category__category=category, country=country, sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category!="" and region=="" and country!="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(sub_category__category=category, country=country, sub_category=sub_category)
+		#Category sub_theme combination
+		elif keyword=="" and theme=="" and category!="" and region=="" and country=="" and sub_theme!="" and sub_category!="":
+			result = Study.objects.filter(sub_category__category=category, sub_theme=sub_theme, sub_category=sub_category)
+		#Region Search
+		elif keyword=="" and theme=="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category=="":
+			result = Study.objects.filter(region=region)		
+		elif keyword=="" and theme=="" and category=="" and region!="" and country!="" and sub_theme=="" and sub_category=="":
+			result = Study.objects.filter(region=region, country=country)
+		elif keyword=="" and theme=="" and category=="" and region!="" and country=="" and sub_theme!="" and sub_category=="":
+			result = Study.objects.filter(region=region, sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category=="" and region!="" and country=="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(region=region, sub_category=sub_category)
+		#region country combination
+		elif keyword=="" and theme=="" and category=="" and region!="" and country!="" and sub_theme!="" and sub_category=="":
+			result = Study.objects.filter(region=region, country=country, sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category=="" and region!="" and country!="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(region=region, country=country, sub_category=sub_category)
+		#region sub_theme combination
+		elif keyword=="" and theme=="" and category=="" and region!="" and country=="" and sub_theme!="" and sub_category!="":
+			result = Study.objects.filter(region=region, sub_theme=sub_theme, sub_category=sub_category)
+		#Country Search
+		elif keyword=="" and theme=="" and category=="" and region=="" and country!="" and sub_theme=="" and sub_category=="":
+			result = Study.objects.filter(country=country)
+		elif keyword=="" and theme=="" and category=="" and region=="" and country!="" and sub_theme!="" and sub_category=="":
+			result = Study.objects.filter(country=country, sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category=="" and region=="" and country!="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(country=country, sub_category=sub_category)
+		#Country sub_theme combination
+		elif keyword=="" and theme=="" and category=="" and region=="" and country!="" and sub_theme!="" and sub_category!="":
+			result = Study.objects.filter(country=country, sub_theme=sub_theme, sub_category=sub_category)
+		#Sub Theme search
+		elif keyword=="" and theme=="" and category=="" and region=="" and country=="" and sub_theme!="" and sub_category=="":
+			result = Study.objects.filter(sub_theme=sub_theme)
+		elif keyword=="" and theme=="" and category=="" and region=="" and country=="" and sub_theme!="" and sub_category!="":
+			result = Study.objects.filter(sub_theme=sub_theme, sub_category=sub_category)
+		#Sub Category search
+		elif keyword=="" and theme=="" and category=="" and region=="" and country=="" and sub_theme=="" and sub_category!="":
+			result = Study.objects.filter(sub_category=sub_category)
 		
-		no_of_sub_categories = 1
-		no_of_categories = Category.objects.count()
-		x = 0
-		#while x < no_of_categories:
-			#no_of_sub_categories = SubCategory.objects.filter(category=category_data[0]).count()
 
 		context = {
-			'x':x,
-			#'prac':prac,
-			'High':High,
-			'study_data':study_data,
-			'theme_data':theme_data, 
-			'region_data':region_data,
-			'country_data':country_data,
-			'quality_data':quality_data,
-			'no_of_studies':no_of_studies,
-			'category_data':category_data, 
-			'sub_theme_data':sub_theme_data, 
-			'no_of_categories':no_of_categories,
-			'sub_category_data':sub_category_data,		
-			'no_of_sub_categories':no_of_sub_categories,
+		'result':result,
+		'study_data':study_data,
+		'theme_data':theme_data, 
+		'region_data':region_data,
+		'country_data':country_data,
+		'quality_data':quality_data,		
+		'category_data':category_data, 
+		'sub_theme_data':sub_theme_data,
+		'sub_category_data':sub_category_data,
 		}
 
-		return render(request, 'core/index.html', context)
+		return render(request, 'core/search_result.html', context)	
+	else:
+		return redirect('home_page')
 
-def of_sub_categories():
-	num = Category.objects.count()
-	return num
 
-#@register.filter
-def sub_categories_in_category(cat):
-	got_sub_cat = SubCategory.objects.filter(category=cat)
-	return got_sub_cat
+def home_page(request):	
 
-def practice(*args):
-	return args
+	High = "High"
+	study_data = Study.objects.all()
+	theme_data = Theme.objects.all()
+	region_data = Region.objects.all()
+	country_data = Country.objects.all()
+	quality_data = Quality.objects.all()
+	category_data = Category.objects.all()	
+	sub_theme_data = SubTheme.objects.all()
+	sub_category_data = SubCategory.objects.all()
+	
+	context = {		
+		'study_data':study_data,
+		'theme_data':theme_data, 
+		'region_data':region_data,
+		'country_data':country_data,
+		'quality_data':quality_data,
+		'category_data':category_data, 
+		'sub_theme_data':sub_theme_data, 
+		'sub_category_data':sub_category_data,		
+	}
+
+	return render(request, 'core/index.html', context)
+
+def studies_json(request):
+	queryset = Study.objects.all()
+	study_data = serializers.serialize('json', queryset)
+	return HttpResponse(queryset, content_type='application/json')

@@ -7,8 +7,6 @@
 		total_study_counter({{study_data.count}});
 	</script>
 
-
-
 	<table border='1px'>
 		<tbody>			
 			<tr>
@@ -33,39 +31,60 @@
 
 					{% for sub_category in sub_category_data %}	
 						<script type="text/javascript">
-							reset_counter();
+							reset_low_quality_counter();
+							reset_high_quality_counter();
+							reset_medium_quality_counter();
 						</script>				
 						<td> 
 							{% for study in study_data %}
 								{% for s_theme in study.sub_theme.all %}
 									{% for s_category in study.sub_category.all %}
 										{% if s_category == sub_category and s_theme == sub_theme %}
-												
-											<script type="text/javascript">
-												//write_value({{study.title}})
-												/*var title = {{study.title}} ;
-												var quality = {{study.quality}};
-												var link = {{study.link}};
-												document.write(title);*/
-												//counter( title, quality, link );
-											</script>											
-
-											<div class="high">
-												{{study.title}} - {{study.quality}}- <br>
-
-												{% if study.quality == High %}
-													<script type="text/javascript">
-														counter();
-													</script>
-												{% endif %}
-											</div>
+											{% if study.quality == "Low" %}
+												{{study.title}} - {{study.quality}}, <br>
+												<script 'type="text/javascript">
+													count_low_quality_studies();	
+												</script>
+											{% elif study.quality == "High" %}
+												{{study.title}}- {{study.quality}}, <br>
+												<script type="text/javascript">
+													count_high_quality_studies();
+												</script>
+											{% elif study.quality == "Medium" %}
+												{{study.title}}- {{study.quality}}, <br>
+												<script type="text/javascript">
+													count_medium_quality_studies();
+												</script>
+											{% endif %}										
 										{% endif %}
 									{% endfor %}
 								{% endfor %}
 							{% endfor %}
-							<script type="text/javascript">
-								return_counter();
-							</script>
+
+							<div class="low_quality_counter">
+								<div class="low_quality">								
+									<script type="text/javascript">
+										return_low_quality_counter();	
+									</script>
+								</div>
+							</div>
+
+							<div class="high_quality_counter">
+								<div class="high_quality">										
+									<script type="text/javascript">
+										return_high_quality_counter();	
+									</script>
+								</div>
+							</div>
+
+							<div class="medium_quality_counter">
+								<div class="medium_quality">							
+									<script type="text/javascript">
+										return_medium_quality_counter();	
+									</script>
+								</div>
+							</div>
+
 						</td>
 					{% endfor %}
 					

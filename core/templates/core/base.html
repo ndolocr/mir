@@ -27,6 +27,7 @@
         <script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'core/js/toggle.js' %}" type="text/javascript"></script>
         <script src="{% static 'core/js/counter.js' %}" type="text/javascript"></script>
+        <script src="{% static 'core/js/styles.js' %}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
 
         
@@ -48,7 +49,7 @@
 		<div class="search-bar container-fluid">
 			<div class="row">
 				<div class="col-xs-12">
-					<form role="form" method="POST" id="search" name="search" action="">
+					<form role="form" method="POST" id="search" name="search" action="{% url 'search' %}">
                     	{% csrf_token %}
                     	<div class="row">
 
@@ -125,17 +126,8 @@
 		                    			</div>
 	                    			
 	                    			<div class="col-xs-3">
-	                    				<select class="form-control" name="country" id="country">
-	                    					<option value="">All Countries</option>
-		                    				{% for country in country_data %}
-			                    				<option value="{{country.id}}">
-			                    					{{country.country_name}} 
-			                    				</option>
-		                    				{% endfor %}
-		                    			</select>
-	                    			</div>
-
-	                    			
+	                    				
+	                    			</div>	                    		
 	                    		</div>
 	                    	</div>
 
@@ -154,11 +146,11 @@
 	                    			</div>
 
 	                    			<div class="col-sm-3 col-xs-12">
-	                    				<select class="form-control" name="quality" id="quality">
-	                    					<option value="">All Qualities</option>
-		                    				{% for quality in quality_data %}
-			                    				<option value="{{quality.id}}">
-			                    					{{quality.quality_name}} 
+	                    				<select class="form-control" name="country" id="country">
+	                    					<option value="">All Countries</option>
+		                    				{% for country in country_data %}
+			                    				<option value="{{country.id}}">
+			                    					{{country.country_name}} 
 			                    				</option>
 		                    				{% endfor %}
 		                    			</select>
@@ -184,9 +176,9 @@
 		<![endif]-->
 
         <!-- BEGIN CORE PLUGINS -->
-        <script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
+        <!--<script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'core/js/toggle.js' %}" type="text/javascript"></script>
-        <script src="{% static 'core/js/counter.js' %}" type="text/javascript"></script>
+        <script src="{% static 'core/js/counter.js' %}" type="text/javascript"></script>-->
         <!-- END CORE PLUGINS -->
 	</body>
 </html>

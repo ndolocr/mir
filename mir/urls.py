@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from core.views import search
 from core.views import home_page
+from core.views import studies_json
 
 from study.views import tag_upload
 from study.views import theme_upload
@@ -120,9 +122,8 @@ urlpatterns = [
 
     #Front End Page Links
     path('', home_page, name='home_page'),
-    #path('/search_results', search_results, name='search_results'),
-
-
+    path('/search', search, name='search'),
+    path('studies_json/serialize/study/all', studies_json, name='studies_json'),
 ]
 
 if settings.DEBUG:
