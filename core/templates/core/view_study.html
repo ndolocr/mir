@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+	
+	{% for study in study_data %}
+		{{study.title}} <br>
+		{{study.author}} <br>
+		{{study.link}} <br>
+	{% endfor %}
+
+{% endblock %}

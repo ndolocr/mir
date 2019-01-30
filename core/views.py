@@ -11,7 +11,7 @@ from study.models import Study
 from study.models import Theme
 from study.models import Region
 from study.models import Country
-from study.models import Quality
+#from study.models import Quality
 from study.models import Category
 from study.models import Resource
 from study.models import SubTheme
@@ -27,16 +27,16 @@ def search(request):
 		region = request.POST.get('region')
 		country = request.POST.get('country')
 		keyword = request.POST.get('keyword')
-		quality = request.POST.get('quality')
+		#quality = request.POST.get('quality')
 		category = request.POST.get('category')
 		sub_theme = request.POST.get('sub_theme')
 		sub_category = request.POST.get('sub_category')
-#0704348770
+
 		study_data = Study.objects.all()
 		theme_data = Theme.objects.all()
 		region_data = Region.objects.all()
 		country_data = Country.objects.all()
-		quality_data = Quality.objects.all()
+		#quality_data = Quality.objects.all()
 		category_data = Category.objects.all()	
 		sub_theme_data = SubTheme.objects.all()
 		sub_category_data = SubCategory.objects.all()
@@ -223,7 +223,7 @@ def home_page(request):
 	theme_data = Theme.objects.all()
 	region_data = Region.objects.all()
 	country_data = Country.objects.all()
-	quality_data = Quality.objects.all()
+	#quality_data = Quality.objects.all()
 	category_data = Category.objects.all()	
 	sub_theme_data = SubTheme.objects.all()
 	sub_category_data = SubCategory.objects.all()
@@ -233,7 +233,7 @@ def home_page(request):
 		'theme_data':theme_data, 
 		'region_data':region_data,
 		'country_data':country_data,
-		'quality_data':quality_data,
+		#'quality_data':quality_data,
 		'category_data':category_data, 
 		'sub_theme_data':sub_theme_data, 
 		'sub_category_data':sub_category_data,		
@@ -245,3 +245,12 @@ def studies_json(request):
 	queryset = Study.objects.all()
 	study_data = serializers.serialize('json', queryset)
 	return HttpResponse(queryset, content_type='application/json')
+
+def view_study(request, study_id):
+	study_data = Study.objects.filter(id=study_id)
+	context = {
+		'study_data': study_data,
+	}
+
+	return render(request, 'core/view_study.html', context)
+

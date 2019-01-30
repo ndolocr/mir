@@ -24,7 +24,7 @@
 					</td>						
 				{% endfor %}
 			</tr>
-			
+
 			{% for sub_theme in sub_theme_data %}
 				<tr>
 					<td class="sub_theme_td"> {{sub_theme.sub_theme_name}} </td>
@@ -34,26 +34,37 @@
 							reset_low_quality_counter();
 							reset_high_quality_counter();
 							reset_medium_quality_counter();
-						</script>				
+							reset_study_array();
+						</script>										
 						<td> 
 							{% for study in study_data %}
 								{% for s_theme in study.sub_theme.all %}
 									{% for s_category in study.sub_category.all %}
 										{% if s_category == sub_category and s_theme == sub_theme %}
+											
 											{% if study.quality == "Low" %}
-												{{study.title}} - {{study.quality}}, <br>
-												<script 'type="text/javascript">
-													count_low_quality_studies();	
+												{{study.title}} ({{study.author}}-{{study.year}})
+												<div class="popup" id="low_popup_{{sub_theme.id}}_{{sub_category.id}}" style="display: none;">
+												 	<a href="{% url 'view_study' study.id %}">
+												 		{{study.title}} ({{study.author}}-{{study.year}}) <br>
+												 	</a>
+												</div>
+												<script type="text/javascript">
+													count_low_quality_studies( {{study.id}} );	
 												</script>
 											{% elif study.quality == "High" %}
-												{{study.title}}- {{study.quality}}, <br>
+												<a href="{% url 'view_study' study.id %}">
+											 		<!--{{study.title}} ({{study.author}}-{{study.year}}) <br>-->
+											 	</a>
 												<script type="text/javascript">
-													count_high_quality_studies();
+													count_high_quality_studies( {{study.id}} );
 												</script>
 											{% elif study.quality == "Medium" %}
-												{{study.title}}- {{study.quality}}, <br>
+												<a href="{% url 'view_study' study.id %}">
+											 		<!--{{study.title}} ({{study.author}}-{{study.year}}) <br>-->
+											 	</a>
 												<script type="text/javascript">
-													count_medium_quality_studies();
+													count_medium_quality_studies( {{study.id}} );
 												</script>
 											{% endif %}										
 										{% endif %}
@@ -61,12 +72,17 @@
 								{% endfor %}
 							{% endfor %}
 
-							<div class="low_quality_counter">
-								<div class="low_quality">								
+							<div class="low_quality_counter">								
+								<div class="low_quality" name="low_popup_{{sub_theme.id}}_{{sub_category.id}}" onmouseover="low_hover(this)" >
 									<script type="text/javascript">
 										return_low_quality_counter();	
 									</script>
 								</div>
+							</div>
+							<div class="view_low_quality_studies">
+								<script type="text/javascript">
+									//view_low_quality_studies();
+								</script>
 							</div>
 
 							<div class="high_quality_counter">
@@ -76,6 +92,11 @@
 									</script>
 								</div>
 							</div>
+							<div class="view_high_quality_studies">
+								<script type="text/javascript">
+									//view_high_quality_studies();
+								</script>
+							</div>
 
 							<div class="medium_quality_counter">
 								<div class="medium_quality">							
@@ -84,6 +105,11 @@
 									</script>
 								</div>
 							</div>
+							<div class="view_medium_quality_studies">
+								<script type="text/javascript">
+									//view_medium_quality_studies();
+								</script>
+							</div>
 
 						</td>
 					{% endfor %}
@@ -91,8 +117,6 @@
 				</tr>
 			{% endfor %}
 
-
-						
 		</tbody>
 	</table>
 	{% endblock %}

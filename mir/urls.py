@@ -20,7 +20,9 @@ from django.conf.urls.static import static
 
 from core.views import search
 from core.views import home_page
-from core.views import studies_json
+from core.views import view_study
+
+from core.api.views import StudyListAPIView
 
 from study.views import tag_upload
 from study.views import theme_upload
@@ -122,8 +124,9 @@ urlpatterns = [
 
     #Front End Page Links
     path('', home_page, name='home_page'),
-    path('/search', search, name='search'),
-    path('studies_json/serialize/study/all', studies_json, name='studies_json'),
+    path('search', search, name='search'),
+    path('api/study/all', StudyListAPIView.as_view(), name='studies_json'),
+    path('view/study/<study_id>/', view_study, name='view_study'),
 ]
 
 if settings.DEBUG:
