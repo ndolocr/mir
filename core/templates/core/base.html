@@ -1,10 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html>
 	<head>
-		{% load staticfiles %}
 
 		<meta charset="utf-8" />
         <meta content="" name="author" />
@@ -18,7 +19,11 @@
 		 <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />        
         <link href="{% static 'core/bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
-        <link href="{% static 'core/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />        
+        <link href="{% static 'core/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" /> 
+
+        <link href="{% static 'core/css/components.min.css' %}" rel="stylesheet" type="text/css" />
+        <!--<link href="{% static 'core/css/uniform.default.css' %}" rel="stylesheet" type="text/css" />-->
+        <link href="{% static 'core/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />-
         <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
@@ -58,46 +63,19 @@
                     	{% csrf_token %}
                     	<div class="row">
 
-                    		<div class="col-md-6">
+                    		<div class="col-md-9">
                     			<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="form-control">
                     		</div>
-                    		
-                    		<div class="col-md-6">
-                    			<div class="row">
-                    				<div class="col-sm-3 col-xs-12">
-		                    			<select class="form-control" name="category" id="category">
-		                    				<option value="">All Categories</option>
-		                    				{% for category in category_data %}
-		                    					<option value="{{category.id}}">
-		                    						{{category.category_name}} 
-		                    					</option>
-		                    				{% endfor %}
-
-		                    			</select>		
-		                    		</div>
-
-		                    		<div class="col-sm-3 col-xs-6">
-		                    			<select class="form-control" name="theme" id="theme">
-		                    				<option value="">All Themes</option>
-		                    				{% for theme in theme_data %}
-			                    				<option value="{{theme.id}}">
-			                    					{{theme.theme_name}} 
-			                    				</option>
-		                    				{% endfor %}
-		                    				
-		                    			</select>
-		                    		</div>
-
-		                    		<div class="col-sm-3 col-xs-6">
-		                    			<!--<a href="#" class="toggle-link blue">
-		                    				<i class="fa fa-gear"> </i> Advanced
-		                    			</a>-->
-		                    			<button id="toggle_button" class="advance-btn blue btn" type="button">
+							                    		
+                    		<div class="col-md-3">
+                    			<div class="row">                    				               
+		                    		<div class="col-sm-6 col-xs-6">
+		                    			<button id="toggle_button" class="btn btn-search btn-block" type="button">
 		                    				<i class="fa fa-gear"> </i> Advanced
 		                    			</button>
 		                    		</div>
 
-		                    		<div class="col-sm-3 col-xs-6">
+		                    		<div class="col-sm-6 col-xs-6">
 		                    			<button type="submit" class="btn btn-search btn-block"> Search </button>
 		                    		</div>		
                     			</div>                    			
@@ -105,42 +83,84 @@
                     	</div>
                     	
                     	<div id="toggle_row">
-	                    	<div class="row">
-	                    		<div class="toggle">
-	                    			
-		                    			<div class="col-sm-3 col-xs-12">
-		                    				<select class="form-control" name="sub_category" id="sub_category">
-		                    					<option value="">All Sub Categories</option>
-			                    				{% for sub_category in sub_category_data %}
-				                    				<option value="{{sub_category.id}}">
-				                    					{{sub_category.sub_category_name}} 
-				                    				</option>
-			                    				{% endfor %}
-			                    			</select>
-		                    			</div>
+                    		
+                    		<div class="row">
+                    			<div class="col-md-3 col-sm-6 col-xs-12">
+                    				<div class="checkbox-list">
+                    					
+                    					<div class="toggle_heading"> Indicators </div>
+                    					<!--
+										{%for category in category_data %}
+											<label>
+												<div class="checker">
+													<span>
+														<input type="checkbox" name="category[]" value="{{category.id}}">	
+														{{category.category_name}}
+													</span>
+												</div>
+											</label>
+										{% endfor %}
+										-->
 
-		                    			<div class="col-sm-3 col-xs-12">
-		                    				<select class="form-control" name="sub_theme" id="sub_theme">
-		                    					<option value="">All Sub Themes</option>
-			                    				{% for sub_theme in sub_theme_data %}
-				                    				<option value="{{sub_theme.id}}">
-				                    					{{sub_theme.sub_theme_name}} 
-				                    				</option>
-			                    				{% endfor %}
-			                    			</select>
-		                    			</div>
-	                    			
-	                    			<div class="col-xs-3">
-	                    				
-	                    			</div>	                    		
-	                    		</div>
-	                    	</div>
+										<select class="form-control" name="category" id="category">
+		                    				<option value="">All Categories</option>
+		                    				{% for category in category_data %}
+		                    					<option value="{{category.id}}">
+		                    						{{category.category_name}} 
+		                    					</option>
+		                    				{% endfor %}
+		                    			</select>	
 
-	                    	<div class="row">
-	                    		<div class="toggle">
-	                    			
-	                    			<div class="col-xs-3">
-	                    				<select class="form-control" name="region" id="region">
+                    				</div>                    				
+                    			</div>                    		
+                    		
+                    			<div class="col-md-3 col-sm-6 col-xs-12">
+                    				<div class="checkbox-list">
+                    					
+                    					<div class="toggle_heading"> Thematic Areas </div>
+                    					<!--
+										{%for theme in theme_data %}
+											<label>
+												<div class="checker">
+													<span>
+														<input type="checkbox" name="theme[]" value="{{theme.id}}">	
+														{{theme.theme_name}}
+													</span>
+												</div>
+											</label>
+										{% endfor %} 
+										-->
+
+										<select class="form-control" name="theme" id="theme">
+		                    				<option value="">All Themes</option>
+		                    				{% for theme in theme_data %}
+			                    				<option value="{{theme.id}}">
+			                    					{{theme.theme_name}} 
+			                    				</option>
+		                    				{% endfor %}
+		                    			</select>
+
+                    				</div>                    				
+                    			</div>  
+
+                    			<div class="col-md-3 col-sm-6 col-xs-12">
+                    				<div class="checkbox-list">
+                    					
+                    					<div class="toggle_heading">  Region </div>
+                    					<!--
+										{%for region in region_data %}
+											<label>
+												<div class="checker">
+													<span>
+														<input type="checkbox" name="region[]" value="{{region.id}}">	
+														{{region.region_name}}
+													</span>
+												</div>
+											</label>
+										{% endfor %} 
+										-->
+
+										<select class="form-control" name="region" id="region">
 		                    				<option value="">All Regions</option>
 		                    				{% for region in region_data %}	                    		
 			                    				<option value="{{region.id}}">
@@ -148,10 +168,28 @@
 			                    				</option>
 		                    				{% endfor %}
 		                    			</select>
-	                    			</div>
 
-	                    			<div class="col-sm-3 col-xs-12">
-	                    				<select class="form-control" name="country" id="country">
+                    				</div>                    				
+                    			</div>
+
+                    			<div class="col-md-3 col-sm-6 col-xs-12">
+                    				<div class="checkbox-list">
+                    					
+                    					<div class="toggle_heading"> Countries </div>
+                    					<!--
+										{%for country in country_data %}
+											<label>
+												<div class="checker">
+													<span>
+														<input type="checkbox" name="country[]" value="{{country.id}}">	
+														{{country.country_name}}
+													</span>
+												</div>
+											</label>
+										{% endfor %} 
+										-->
+
+										<select class="form-control" name="country" id="country">
 	                    					<option value="">All Countries</option>
 		                    				{% for country in country_data %}
 			                    				<option value="{{country.id}}">
@@ -159,11 +197,12 @@
 			                    				</option>
 		                    				{% endfor %}
 		                    			</select>
-	                    			</div>
+		                    			
+                    				</div>                    				
+                    			</div>
 
-	                    		</div>
-	                    	</div>
-						
+                    		</div>
+							
 						</div>	
 						
 

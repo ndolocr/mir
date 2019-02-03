@@ -1,3 +1,4 @@
+#indicators/variables of internet freedom
 from django import template
 from django.core import serializers
 from django.shortcuts import render
@@ -11,7 +12,6 @@ from study.models import Study
 from study.models import Theme
 from study.models import Region
 from study.models import Country
-#from study.models import Quality
 from study.models import Category
 from study.models import Resource
 from study.models import SubTheme
@@ -22,6 +22,123 @@ from study.models import SubCategory
 '''	Front End views '''
 
 def search(request):
+	if request.method == 'POST':
+		theme = request.POST.get('theme')
+		region = request.POST.get('region')
+		country = request.POST.get('country')
+		keyword = request.POST.get('keyword')
+		category = request.POST.get('category')
+
+		study_data = Study.objects.all()
+		theme_data = Theme.objects.all()
+		region_data = Region.objects.all()
+		country_data = Country.objects.all()
+		category_data = Category.objects.all()
+
+		#If no search parameters are input
+		if theme=="" and category=="" and region=="" and country=="" and keyword=="":
+			result = Study.objects.all()
+		#If all parameters are input
+		elif theme!="" and category!="" and region!="" and country!="" and keyword!="":
+			result = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+		#Keyword Seach with other parameters
+		elif keyword!="" and theme=="" and category=="" and region=="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword)
+		elif keyword!="" and theme!="" and category=="" and region=="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword, theme=theme)
+		elif keyword!="" and theme=="" and category!="" and region=="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword, category=category)
+		elif keyword!="" and theme=="" and category=="" and region!="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword, region=region)
+		elif keyword!="" and theme=="" and category=="" and region=="" and country!="":
+			result = Study.objects.filter(title__icontains=keyword, country=country)
+		#Keyword and Theme Combination
+		elif keyword!="" and theme!="" and category!="" and region=="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword, theme=theme, category=category)
+		elif keyword!="" and theme!="" and category=="" and region!="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword, theme=theme, region=region)
+		elif keyword!="" and theme!="" and category=="" and region=="" and country!="":
+			result = Study.objects.filter(title__icontains=keyword, theme=theme, country=country)
+		#Keyword and category Combination
+		elif keyword!="" and theme=="" and category!="" and region!="" and country=="":
+			result = Study.objects.filter(title__icontains=keyword, category=category, region=region)
+		elif keyword!="" and theme=="" and category!="" and region=="" and country!="":
+			result = Study.objects.filter(title__icontains=keyword, category=category, country=country)
+		#Keyword and region combination
+		elif keyword!="" and theme=="" and category=="" and region!="" and country!="":
+			result = Study.objects.filter(title__icontains=keyword, region=region, country=country)
+		#Theme Search
+		elif keyword=="" and theme!="" and category=="" and region=="" and country=="":
+			result = Study.objects.filter(theme=theme)
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="":
+			result = Study.objects.filter(theme=theme, category=category)
+		elif keyword=="" and theme!="" and category=="" and region!="" and country=="":
+			result = Study.objects.filter(theme=theme, region=region)
+		elif keyword=="" and theme!="" and category=="" and region=="" and country!="":
+			result = Study.objects.filter(theme=theme, country=country)
+		#Theme and Category Search
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="":
+			result = Study.objects.filter(theme=theme, category=category)
+		elif keyword=="" and theme!="" and category!="" and region!="" and country=="":
+			result = Study.objects.filter(theme=theme, category=category, region=region)
+		elif keyword=="" and theme!="" and category!="" and region=="" and country!="":
+			result = Study.objects.filter(theme=theme, category=category, country=country)
+		#Theme and region combination
+		elif keyword=="" and theme!="" and category=="" and region!="" and country!="":
+			result = Study.objects.filter(theme=theme, region=region, country=country)
+		#Category search
+		elif keyword=="" and theme=="" and category!="" and region=="" and country=="":
+			result = Study.objects.filter(category=category)
+		elif keyword=="" and theme=="" and category!="" and region!="" and country=="":
+			result = Study.objects.filter(category=category, region=region)
+		elif keyword=="" and theme=="" and category!="" and region=="" and country!="":
+			result = Study.objects.filter(category=category, country=country)
+		#Category region combination
+		elif keyword=="" and theme=="" and category!="" and region!="" and country!="":
+			result = Study.objects.filter(category=category, region=region, country=country)
+		#Region Search
+		elif keyword=="" and theme=="" and category=="" and region!="" and country=="":
+			result = Study.objects.filter(region=region)		
+		elif keyword=="" and theme=="" and category=="" and region!="" and country!="":
+			result = Study.objects.filter(region=region, country=country)
+		#Country Search
+		elif keyword=="" and theme=="" and category=="" and region=="" and country!="":
+			result = Study.objects.filter(country=country)
+
+		context = {
+		'result':result,
+		'study_data':study_data,
+		'theme_data':theme_data, 
+		'region_data':region_data,
+		'country_data':country_data,		
+		'category_data':category_data,
+		}
+
+		return render(request, 'core/search_result.html', context)	
+	else:
+		return redirect('home_page')
+
+
+def search_data(request):
+	if request.method == 'POST':
+		keyword = request.POST.get('keyword')
+		theme_captured = request.POST.getlist('theme[]')
+		region_captured = request.POST.getlist('region[]')
+		country_captured = request.POST.getlist('country[]')
+		category_captured = request.POST.getlist('category[]')
+		
+		study_data = Study.objects.all()
+		theme_data = Theme.objects.all()
+		region_data = Region.objects.all()
+		country_data = Country.objects.all()
+		category_data = Category.objects.all()	
+		
+		if theme_captured=="" and region_captured=="" and country_captured=="" and category_captured and keyword=="":
+			result = Study.objects.all()
+		elif theme_captured=="" and region_captured=="" and country_captured=="" and category_captured and keyword=="":
+			pass
+
+def search_one(request):
 	if request.method == 'POST':
 		theme = request.POST.get('theme')
 		region = request.POST.get('region')
@@ -217,26 +334,18 @@ def search(request):
 
 
 def home_page(request):	
-
-	High = "High"
 	study_data = Study.objects.all()
 	theme_data = Theme.objects.all()
 	region_data = Region.objects.all()
 	country_data = Country.objects.all()
-	#quality_data = Quality.objects.all()
-	category_data = Category.objects.all()	
-	sub_theme_data = SubTheme.objects.all()
-	sub_category_data = SubCategory.objects.all()
+	category_data = Category.objects.all()		
 	
 	context = {		
 		'study_data':study_data,
 		'theme_data':theme_data, 
 		'region_data':region_data,
 		'country_data':country_data,
-		#'quality_data':quality_data,
-		'category_data':category_data, 
-		'sub_theme_data':sub_theme_data, 
-		'sub_category_data':sub_category_data,		
+		'category_data':category_data,	
 	}
 
 	return render(request, 'core/index.html', context)

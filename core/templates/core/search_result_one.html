@@ -1,0 +1,100 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+	<!--{{study_data.count}}	Laktar Japkwonj	-->
+
+	<script type="text/javascript">
+		total_study_counter({{study_data.count}});
+	</script>
+
+
+
+	<table border='1px'>
+		<tbody>			
+			<tr>
+				{% for category in category_data %}					
+				{% endfor %}
+			</tr>
+
+			<tr>
+				<td> </td>				
+				{% for sub_category in sub_category_data %}						 
+					<td class="rotate-td"> 
+						<div class="rotate"> 
+							{{sub_category.sub_category_name}} 
+						</div> 
+					</td>						
+				{% endfor %}
+			</tr>
+			
+			{% for sub_theme in sub_theme_data %}
+				<tr>
+					<td class="sub_theme_td"> {{sub_theme.sub_theme_name}} </td>
+
+					{% for sub_category in sub_category_data %}	
+						<script type="text/javascript">
+							reset_low_quality_counter();
+							reset_high_quality_counter();
+							reset_medium_quality_counter();
+						</script>				
+						<td> 
+							{% for study in result %}
+								{% for s_theme in study.sub_theme.all %}
+									{% for s_category in study.sub_category.all %}
+										{% if s_category == sub_category and s_theme == sub_theme %}
+											{% if study.quality == "Low" %}
+												{{study.title}} - {{study.quality}}, <br>
+												<script type="text/javascript">
+													count_low_quality_studies();	
+												</script>
+											{% elif study.quality == "High" %}
+												{{study.title}}- {{study.quality}}, <br>
+												<script type="text/javascript">
+													count_high_quality_studies();
+												</script>
+											{% elif study.quality == "Medium" %}
+												{{study.title}}- {{study.quality}}, <br>
+												<script type="text/javascript">
+													count_medium_quality_studies();
+												</script>
+											{% endif %}										
+										{% endif %}
+									{% endfor %}
+								{% endfor %}
+							{% endfor %}
+
+							<div class="low_quality_counter">
+								<div class="low_quality">								
+									<script type="text/javascript">
+										return_low_quality_counter();	
+									</script>
+								</div>
+							</div>
+
+							<div class="high_quality_counter">
+								<div class="high_quality">										
+									<script type="text/javascript">
+										return_high_quality_counter();	
+									</script>
+								</div>
+							</div>
+
+							<div class="medium_quality_counter">
+								<div class="medium_quality">							
+									<script type="text/javascript">
+										return_medium_quality_counter();	
+									</script>
+								</div>
+							</div>
+
+						</td>
+					{% endfor %}
+					
+				</tr>
+			{% endfor %}
+
+
+						
+		</tbody>
+	</table>
+	{% endblock %}
