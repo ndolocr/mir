@@ -14,14 +14,6 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<!-- BEGIN PORTLET -->
 			<div class="portlet light portlet-fit bordered">
-				
-				<!-- BEGIN TITLE -->
-				<div class="portlet-title">
-					<span class="caption-subject font-dark bold uppercase">
-						Research Maps
-					</span>
-				</div>
-				<!-- END TITLE -->
 
 				<!-- BEGIN PORTLET BODY -->
 				<div class="portlet-body">
@@ -32,7 +24,7 @@
 							<!--BEGIN ROW WITH INDICATORS -->
 							<thead>
 								<tr>
-									<th rowspan="10" class="theme_title"> Theamtic areas </th>	
+									<th rowspan="10" class="theme_title"> THEMATIC AREAS </th>	
 															
 									<th colspan="5" class="indicators_title"> Indicators/Variables for Internet freedom </th>
 								</tr>
@@ -50,7 +42,7 @@
 							<tbody>
 
 								<tr>
-									<th class="theme_sub_title"> Internet/Digital governance </th>
+									<th class="theme_sub_title"> Internet/Digital Governance </th>
 
 									<!-- BEGIN CELL 1 -->
 									<td>
@@ -72,7 +64,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -96,7 +88,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -119,7 +111,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -184,7 +176,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -208,7 +200,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -231,7 +223,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -296,7 +288,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -320,7 +312,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -343,7 +335,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -409,7 +401,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -433,7 +425,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -456,7 +448,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -522,7 +514,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -546,7 +538,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -569,7 +561,7 @@
 														{% if study_theme.theme_name == "Internet/Digital governance" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -639,7 +631,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -663,7 +655,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -686,7 +678,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -751,7 +743,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -775,7 +767,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -798,7 +790,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -863,7 +855,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -887,7 +879,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -910,7 +902,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -976,7 +968,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1000,7 +992,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1023,7 +1015,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1089,7 +1081,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1113,7 +1105,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1136,7 +1128,7 @@
 														{% if study_theme.theme_name == "Internet/ICT for Democracy" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1185,7 +1177,7 @@
 
 
 								<tr>
-									<th class="theme_sub_title"> Digital content </th>
+									<th class="theme_sub_title"> Digital Content </th>
 
 									<!-- BEGIN CELL 11 -->
 									<td>
@@ -1207,7 +1199,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1231,7 +1223,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1254,7 +1246,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1319,7 +1311,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1343,7 +1335,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1366,7 +1358,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1431,7 +1423,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1455,7 +1447,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1478,7 +1470,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1544,7 +1536,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1568,7 +1560,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1591,7 +1583,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1657,7 +1649,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1681,7 +1673,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1704,7 +1696,7 @@
 														{% if study_theme.theme_name == "Digital content" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1752,7 +1744,7 @@
 								</tr>
 
 								<tr>
-									<th class="theme_sub_title"> Internet/Digital safety </th>
+									<th class="theme_sub_title"> Internet/Digital Safety </th>
 									
 									<!-- BEGIN CELL 16 -->
 									<td>
@@ -1774,7 +1766,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1798,7 +1790,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1821,7 +1813,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1886,7 +1878,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -1910,7 +1902,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -1933,7 +1925,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -1998,7 +1990,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2022,7 +2014,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2045,7 +2037,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2111,7 +2103,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2135,7 +2127,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2158,7 +2150,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2224,7 +2216,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2248,7 +2240,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2271,7 +2263,7 @@
 														{% if study_theme.theme_name == "Internet/Digital safety" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2319,7 +2311,7 @@
 								</tr>
 
 								<tr>
-									<th class="theme_sub_title"> Internet based entrepreneurship </th>
+									<th class="theme_sub_title"> Internet Based Entrepreneurship </th>
 									
 									<!-- BEGIN CELL 21 -->
 									<td>
@@ -2341,7 +2333,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2365,7 +2357,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2388,7 +2380,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2453,7 +2445,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2477,7 +2469,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2500,7 +2492,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2565,7 +2557,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2589,7 +2581,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2612,7 +2604,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2678,7 +2670,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2702,7 +2694,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2725,7 +2717,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2791,7 +2783,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2815,7 +2807,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2838,7 +2830,7 @@
 														{% if study_theme.theme_name == "Internet based entrepreneurship" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -2886,7 +2878,7 @@
 								</tr>
 
 								<tr>
-									<th class="theme_sub_title"> Internet access and use </th>
+									<th class="theme_sub_title"> Internet Access and Use </th>
 									
 									<!-- BEGIN CELL 26 -->
 									<td>
@@ -2908,7 +2900,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -2932,7 +2924,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -2955,7 +2947,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3020,7 +3012,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3044,7 +3036,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3067,7 +3059,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3132,7 +3124,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3156,7 +3148,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3179,7 +3171,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3245,7 +3237,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3269,7 +3261,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3292,7 +3284,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3358,7 +3350,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3382,7 +3374,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3405,7 +3397,7 @@
 														{% if study_theme.theme_name == "Internet access and use" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3454,7 +3446,7 @@
 								
 
 								<tr>
-									<th class="theme_sub_title"> Digital literacy </th>
+									<th class="theme_sub_title"> Digital Literacy </th>
 									
 									<!-- BEGIN CELL 31 -->
 									<td>
@@ -3476,7 +3468,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3500,7 +3492,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3523,7 +3515,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3588,7 +3580,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3612,7 +3604,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3635,7 +3627,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3700,7 +3692,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3724,7 +3716,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3747,7 +3739,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3813,7 +3805,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3837,7 +3829,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3860,7 +3852,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -3926,7 +3918,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -3950,7 +3942,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -3973,7 +3965,7 @@
 														{% if study_theme.theme_name == "Digital literacy" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -4023,7 +4015,7 @@
 								
 
 								<tr>
-									<th class="theme_sub_title"> Internet/Digital rights and freedoms </th>
+									<th class="theme_sub_title"> Internet/Digital Rights and Freedoms </th>
 									
 									<!-- BEGIN CELL 36 -->
 									<td>
@@ -4045,7 +4037,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -4069,7 +4061,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Trends" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -4092,7 +4084,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Trends" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -4157,7 +4149,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -4181,7 +4173,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -4204,7 +4196,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Enablers" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -4269,7 +4261,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -4293,7 +4285,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -4316,7 +4308,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Challenges" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -4382,7 +4374,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -4406,7 +4398,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -4429,7 +4421,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Impact/Outcomes" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	
@@ -4495,7 +4487,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Low" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 
 																<script type="text/javascript">
 																	count_low_quality_studies();	
@@ -4519,7 +4511,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "Medium" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_medium_quality_studies();	
@@ -4542,7 +4534,7 @@
 														{% if study_theme.theme_name == "Internet/Digital rights and freedoms" and study_category.category_name == "Solutions" %}
 															{% if study.quality == "High" %}					
 																<br>
-																<a href="{{study.link}}">{{study.title}} ({{study.author}}, {{study.year}}) </a>
+																<a href="{{study.link}}" target="_blank">{{study.title}} ({{study.author}}, {{study.year}}) </a>
 																
 																<script type="text/javascript">
 																	count_high_quality_studies();	

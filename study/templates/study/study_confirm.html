@@ -16,10 +16,23 @@
 			<th> Country </th>
 			<th> Region </th>
 			<th> Resource </th>
-			<th> Sub Category </th>
-			<th> Sub Theme </th>
 			<th> Quality </th>
 			<th> Link </th>
+			<th> Theme One </th>
+			<th> Theme Two </th>
+			<th> Theme Three </th>
+			<th> Theme Four </th>
+			<th> Theme Five </th>
+			<th> Theme Six </th>
+			<th> Theme Seven </th>
+			<th> Theme Eight </th>
+			<th> Category One </th>
+			<th> Category Two </th>
+			<th> Category Three </th>
+			<th> Category Four </th>
+			<th> Category Five </th>
+			
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -39,11 +52,10 @@
 
 		<tr class="row2">
 			<td></td>
-			<td colspan="11">
+			<td colspan="22">
 				
 				<form method="POST" enctype="multipart/form-data" action="{% url 'study_upload_confirm' %}">
 					{% csrf_token %}					
-					<input type="text" value="{{ excel_data }}" name="excel_data_values">
 					<button type="submit" class="btn btn-upload">Save</button>
 				</form>
 

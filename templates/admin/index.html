@@ -58,10 +58,20 @@
         </caption>
         
             <tbody>
+
+                <tr class="model-user">
+                    <th scope="row"> Themes </th>
+                    <!--<td scope="row"><a href="{% url 'download_template' 'Theme.xlsx' %}" download class="addlinks">Download Template</a></td>
+                    <td scope="row"><a href="{% url 'theme_upload' %}" class="addlinks">Import Data</a></td>-->
+                    <td> </td> <td> </td>
+                    <td scope="row"><a href="{% url 'download_theme' %}" class="removelink">Export Themes</a></td>
+                </tr>
+
             	<tr class="model-user">
             		<th scope="row"> Categories </th>
-                    <td scope="row"><a href="{% url 'download_template' 'Category.xlsx' %}" download class="addlinks">Download Template</a></td>
-            		<td scope="row"><a href="{% url 'category_upload' %}" class="addlinks">Import Data </a></td>
+                    <!--<td scope="row"><a href="{% url 'download_template' 'Category.xlsx' %}" download class="addlinks">Download Template</a></td>
+            		<td scope="row"><a href="{% url 'category_upload' %}" class="addlinks">Import Data </a></td>-->
+                    <td> </td> <td> </td>
             		<td scope="row"><a href="{% url 'download_category' %}" class="removelink">Export Categories</a></td>
             	</tr>
 
@@ -100,12 +110,6 @@
             		<td scope="row"><a href="{% url 'download_tags' %}" class="removelink">Export Tags</a></td>
             	</tr>
                 -->
-            	<tr class="model-user">
-            		<th scope="row"> Themes </th>
-                    <td scope="row"><a href="{% url 'download_template' 'Theme.xlsx' %}" download class="addlinks">Download Template</a></td>
-            		<td scope="row"><a href="{% url 'theme_upload' %}" class="addlinks">Import Data</a></td>
-            		<td scope="row"><a href="{% url 'download_theme' %}" class="removelink">Export Themes</a></td>
-            	</tr>
         	</tbody>
 		</table>
 

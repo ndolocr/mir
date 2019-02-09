@@ -901,7 +901,7 @@ def study_upload(request):
 			wb = openpyxl.load_workbook(excel_file)
 
 			# getting a particular sheet by name out of many sheets
-			worksheet = wb["Sheet1"]
+			worksheet = wb["Study"]
 			#print(worksheet)
 
 			excel_data = list()
@@ -910,7 +910,7 @@ def study_upload(request):
 			x = 1
 			for row in worksheet.iter_rows():
 				row_data = list()				
-				if x>1:
+				if x>2:
 					for cell in row:
 						if cell !="":
 							row_data.append(str(cell.value))
@@ -935,31 +935,184 @@ def study_upload_confirm(request):
 			country_instance = (row[3])
 			region_instance = (row[4])
 			resource_instance = (row[5])
-			sub_category_instance = (row[6])
-			sub_theme_instance = (row[7])
-			quality_instance = (row[8])
-			got_study_link = (row[9])
+			got_quality_data = (row[6])
+			got_study_link = (row[7])
+
+
+			theme_one_instance = (row[8])
+			theme_two_instance = (row[9])
+			theme_three_instance = (row[10])
+			theme_four_instance = (row[11])
+			theme_five_instance = (row[12])
+			theme_six_instance = (row[13])
+			theme_seven_instance = (row[14])
+			theme_eight_instance = (row[15])
+
+			category_one_instance = (row[16])
+			category_two_instance = (row[17])
+			category_three_instance = (row[18])
+			category_four_instance = (row[19])
+			category_five_instance = (row[20])
 			
-			region_object = Region.objects.get(region_name = region_instance)
-			country_object = Country.objects.get(country_name = country_instance)
-			quality_object = Quality.objects.get(quality_name = quality_instance)
-			resource_object = Resource.objects.get(resource_name = resource_instance)
-			sub_theme_object = SubTheme.objects.get(sub_theme_name = sub_theme_instance)			
-			sub_category_object = SubCategory.objects.get(sub_category_name = sub_category_instance)
+			try:
+				region_object = Region.objects.get(region_name = region_instance)
+			except Region.DoesNotExist:
+				region_object = None
+			try:
+				country_object = Country.objects.get(country_name = country_instance)
+			except Country.DoesNotExist:
+				country_object = None
+			try:
+				resource_object = Resource.objects.get(resource_name = resource_instance)
+			except Resource.DoesNotExist:
+				resource_object = None
+			
+			try:
+				theme_one_object = Theme.objects.get(theme_name = theme_one_instance)
+			except Theme.DoesNotExist:
+				theme_one_object = None
+			try:
+				theme_two_object = Theme.objects.get(theme_name = theme_two_instance)
+			except Theme.DoesNotExist:
+				theme_two_object = None
+			try:
+				theme_three_object = Theme.objects.get(theme_name = theme_three_instance)
+			except Theme.DoesNotExist:
+				theme_three_object = None
+			try:
+				theme_four_object = Theme.objects.get(theme_name = theme_four_instance)
+			except Theme.DoesNotExist:
+				theme_four_object = None
+			try:
+				theme_five_object = Theme.objects.get(theme_name = theme_five_instance)
+			except Theme.DoesNotExist:
+				theme_five_object = None
+			try:
+				theme_six_object = Theme.objects.get(theme_name = theme_six_instance)
+			except Theme.DoesNotExist:
+				theme_six_object = None
+			try:
+				theme_seven_object = Theme.objects.get(theme_name = theme_seven_instance)
+			except Theme.DoesNotExist:
+				theme_seven_object = None
+			try:
+				theme_eight_object = Theme.objects.get(theme_name = theme_eight_instance)
+			except Theme.DoesNotExist:
+				theme_eight_object = None
+			
+			try:
+				category_one_object = Category.objects.get(category_name = category_one_instance)
+			except Category.DoesNotExist:
+				category_one_object = None
+			try:
+				category_two_object = Category.objects.get(category_name = category_two_instance)
+			except Category.DoesNotExist:
+				category_two_object = None
+			try:
+				category_three_object = Category.objects.get(category_name = category_three_instance)
+			except Category.DoesNotExist:
+				category_three_object = None
+			try:
+				category_four_object = Category.objects.get(category_name = category_four_instance)
+			except Category.DoesNotExist:
+				category_four_object = None
+			try:
+				category_five_object = Category.objects.get(category_name = category_five_instance)
+			except Category.DoesNotExist:
+				category_five_object = None
 			
 			object_instance = Study.objects.create(				
 				link = got_study_link,
 				year = got_study_year,				
 				title = got_study_title,				
-				quality = quality_object,
+				quality = got_quality_data,
 				author = got_study_author,
 				resource = resource_object,
 			)	
+			if region_object:
+				object_instance.region.add(region_object)
 
-			object_instance.region.add(region_object)
-			object_instance.country.add(country_object)
-			object_instance.sub_theme.add(sub_theme_object)
-			object_instance.sub_category.add(sub_category_object)
+			if country_object:
+				object_instance.country.add(country_object)
+
+			if theme_one_object is not None:
+				object_instance.theme.add(theme_one_object)
+
+			if theme_two_object is not None:
+				if theme_one_object is not theme_two_object:
+					object_instance.theme.add(theme_two_object)
+			
+			if theme_three_object is not None:
+				if theme_three_object is not theme_one_object:
+					if theme_three_object is not theme_two_object:
+						object_instance.theme.add(theme_three_object)
+			
+			if theme_four_object is not None:
+				if theme_four_object is not theme_one_object:
+					if theme_four_object is not theme_two_object:
+						if theme_four_object is not theme_three_object:
+							object_instance.theme.add(theme_four_object)
+
+			if theme_five_object is not None:
+				if theme_five_object is not theme_one_object:
+					if theme_five_object is not theme_two_object:
+						if theme_five_object is not theme_three_object:
+							if theme_five_object is not theme_four_object:
+								object_instance.theme.add(theme_five_object)
+
+			if theme_six_object is not None:
+				if theme_six_object is not theme_one_object:
+					if theme_six_object is not theme_two_object:
+						if theme_six_object is not theme_three_object:
+							if theme_six_object is not theme_four_object:
+								if theme_six_object is not theme_five_object:
+									object_instance.theme.add(theme_six_object)
+
+			if theme_seven_object is not None:
+				if theme_seven_object is not theme_one_object:
+					if theme_seven_object is not theme_two_object:
+						if theme_seven_object is not theme_three_object:
+							if theme_seven_object is not theme_four_object:
+								if theme_seven_object is not theme_five_object:
+									if theme_seven_object is not theme_six_object:
+										object_instance.theme.add(theme_seven_object)
+
+			if theme_eight_object is not None:
+				if theme_eight_object is not theme_one_object:
+					if theme_eight_object is not theme_two_object:
+						if theme_eight_object is not theme_three_object:
+							if theme_eight_object is not theme_four_object:
+								if theme_eight_object is not theme_five_object:
+									if theme_eight_object is not theme_six_object:
+										if theme_eight_object is not theme_seven_object:
+											object_instance.theme.add(theme_eight_object)
+
+
+			if category_one_object is not None:
+				object_instance.category.add(category_one_object)
+
+			if category_two_object is not None:
+				if category_one_object is not category_two_object:
+					object_instance.category.add(category_two_object)
+			
+			if category_three_object is not None:
+				if category_three_object is not category_one_object:
+					if category_three_object is not category_two_object:
+						object_instance.category.add(category_three_object)
+			
+			if category_four_object is not None:
+				if category_four_object is not category_one_object:
+					if category_four_object is not category_two_object:
+						if category_four_object is not category_three_object:
+							object_instance.category.add(category_four_object)
+
+			if category_five_object is not None:
+				if category_five_object is not category_one_object:
+					if category_five_object is not category_two_object:
+						if theme_five_object is not category_three_object:
+							if theme_five_object is not category_four_object:
+								object_instance.category.add(category_five_object)
+
 
 		return redirect('admin:index')
 '''
@@ -1009,7 +1162,7 @@ def download_study_related_template(request):
 		#country_wrksheet.write(country_row_num, 0, my_row.id)
 		country_wrksheet.write(country_row_num, 0, my_row.country_name)
 		country_row_num = country_row_num + 1
-
+	'''
 	quality_wrksheet = wrkbook.add_worksheet("quality")
 	quality_data = Quality.objects.all()
 	quality_row_num = 0
@@ -1018,7 +1171,7 @@ def download_study_related_template(request):
 		#quality_wrksheet.write(quality_row_num, 0, my_row.id)
 		quality_wrksheet.write(quality_row_num, 0, my_row.quality_name)
 		quality_row_num = quality_row_num + 1
-
+	'''
 	resource_wrksheet = wrkbook.add_worksheet("resource")
 	resource_data = Resource.objects.all()
 	resource_row_num = 0
@@ -1027,25 +1180,25 @@ def download_study_related_template(request):
 		#resource_wrksheet.write(resource_row_num, 0, my_row.id)
 		resource_wrksheet.write(resource_row_num, 0, my_row.resource_name)
 		resource_row_num = resource_row_num + 1
-
-	sub_theme_wrksheet = wrkbook.add_worksheet("sub_theme")
-	sub_theme_data = SubTheme.objects.all()
-	sub_theme_row_num = 0
+	'''
+	theme_wrksheet = wrkbook.add_worksheet("theme")
+	theme_data = Theme.objects.all()
+	theme_row_num = 0
 	#Writting content on excel sheet
-	for my_row in sub_theme_data:
+	for my_row in theme_data:
 		#sub_theme_wrksheet.write(sub_theme_row_num, 0, my_row.id)
-		sub_theme_wrksheet.write(sub_theme_row_num, 0, my_row.sub_theme_name)
-		sub_theme_row_num = sub_theme_row_num + 1
+		theme_wrksheet.write(theme_row_num, 0, my_row.theme_name)
+		theme_row_num = theme_row_num + 1
 
-	sub_categroy_wrksheet = wrkbook.add_worksheet("sub_category")
-	sub_categroy_data = SubCategory.objects.all()
-	sub_categroy_row_num = 0
+	categroy_wrksheet = wrkbook.add_worksheet("category")
+	categroy_data = Category.objects.all()
+	categroy_row_num = 0
 	#Writting content on excel sheet
-	for my_row in sub_categroy_data:
+	for my_row in categroy_data:
 		#sub_categroy_wrksheet.write(sub_categroy_row_num, 0, my_row.id)
-		sub_categroy_wrksheet.write(sub_categroy_row_num, 0, my_row.sub_category_name)
-		sub_categroy_row_num = sub_categroy_row_num + 1
-
+		categroy_wrksheet.write(categroy_row_num, 0, my_row.category_name)
+		categroy_row_num = categroy_row_num + 1
+	'''
 	wrkbook.close()
 
 	output.seek(0)
