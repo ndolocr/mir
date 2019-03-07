@@ -51,7 +51,7 @@
 												<script type="text/javascript">
 													calculate_cell_one_low({{cell_one_low.count}});
 												</script>
-											</div>					
+											</div>									
 										{% endif %}
 
 										{% if cell_one_high %}											
@@ -69,7 +69,35 @@
 												</script>
 												<br>
 											</div>
-										{% endif %}
+										{% endif %}										
+
+										<div class="one_low_data">
+											<div class="one_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_one_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="one_high_data">
+											<div class="one_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_one_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="one_medium_data">
+											<div class="one_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_one_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
 									</td>
 									<!-- END CELL 1 -->
 
@@ -97,7 +125,35 @@
 													calculate_cell_two_medium({{cell_two_medium.count}});
 												</script>												
 											</div>
-										{% endif %}						
+										{% endif %}	
+
+										<div class="two_low_data">
+											<div class="two_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_two_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="two_high_data">
+											<div class="two_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_two_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="two_medium_data">
+											<div class="two_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_two_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+					
 									</td>
 									<!-- END CELL 2 -->
 
@@ -126,6 +182,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="three_low_data">
+											<div class="three_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_three_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="three_high_data">
+											<div class="three_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_three_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="three_medium_data">
+											<div class="three_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_three_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 3 -->
 									
@@ -155,7 +238,34 @@
 												</script>
 												{{cell_four_mediun.count}}<br>
 											</div>
-										{% endif %}						
+										{% endif %}
+
+										<div class="four_low_data">
+											<div class="four_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_four_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="four_high_data">
+											<div class="four_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_four_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="four_medium_data">
+											<div class="four_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_four_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 4 -->
 									
@@ -185,6 +295,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="five_low_data">
+											<div class="five_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_five_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="five_high_data">
+											<div class="five_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_five_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="five_medium_data">
+											<div class="five_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_five_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 5 -->									
 
@@ -193,7 +330,7 @@
 								<tr>
 									<th class="theme_sub_title"> Internet/ICT for Democracy </th>
 
-									<!-- BEGIN CELL 1 -->
+									<!-- BEGIN CELL 6 -->
 									<td>
 										{% if cell_six_low %}
 											<div class="six_low">
@@ -218,6 +355,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="six_low_data">
+											<div class="six_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_six_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="six_high_data">
+											<div class="six_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_six_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="six_medium_data">
+											<div class="six_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_six_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 6 -->
 
@@ -246,7 +410,34 @@
 												</script>
 												{{cell_seven_mediun.count}}<br>
 											</div>
-										{% endif %}					
+										{% endif %}			
+
+										<div class="seven_low_data">
+											<div class="seven_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_seven_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="seven_high_data">
+											<div class="seven_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_seven_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="seven_medium_data">
+											<div class="seven_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_seven_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>		
 									</td>
 									<!-- END CELL 7 -->
 
@@ -275,6 +466,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="eight_low_data">
+											<div class="eight_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_eight_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="eight_high_data">
+											<div class="eight_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_eight_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="eight_medium_data">
+											<div class="eight_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_eight_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 8 -->
 									
@@ -304,6 +522,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="nine_low_data">
+											<div class="nine_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_nine_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="nine_high_data">
+											<div class="nine_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_nine_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="nine_medium_data">
+											<div class="nine_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_nine_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 9 -->
 									
@@ -333,6 +578,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="ten_low_data">
+											<div class="ten_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_ten_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="ten_high_data">
+											<div class="ten_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_ten_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="ten_medium_data">
+											<div class="ten_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_ten_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 10 -->									
 
@@ -367,6 +639,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="eleven_low_data">
+											<div class="eleven_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_eleven_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="eleven_high_data">
+											<div class="eleven_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_eleven_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="eleven_medium_data">
+											<div class="eleven_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_eleven_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 11 -->
 
@@ -395,6 +694,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twelve_low_data">
+											<div class="twelve_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twelve_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twelve_high_data">
+											<div class="twelve_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twelve_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twelve_medium_data">
+											<div class="twelve_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twelve_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 12 -->
 
@@ -423,6 +749,32 @@
 												</script>
 											</div>
 										{% endif %}
+										<div class="thirteen_low_data">
+											<div class="thirteen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirteen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirteen_high_data">
+											<div class="thirteen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirteen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirteen_medium_data">
+											<div class="thirteen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirteen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 13 -->
 									
@@ -452,6 +804,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="fourteen_low_data">
+											<div class="fourteen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_fourteen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="fourteen_high_data">
+											<div class="fourteen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_fourteen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="fourteen_medium_data">
+											<div class="fourteen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_fourteen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 14 -->
 									
@@ -481,6 +860,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="fifteen_low_data">
+											<div class="fifteen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_fifteen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="fifteen_high_data">
+											<div class="fifteen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_fifteen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="fifteen_medium_data">
+											<div class="fifteen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_fifteen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 15 -->									
 
@@ -514,6 +920,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="sixteen_low_data">
+											<div class="sixteen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_sixteen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="sixteen_high_data">
+											<div class="sixteen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_sixteen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="sixteen_medium_data">
+											<div class="sixteen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_sixteen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 16 -->
 
@@ -542,6 +975,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="seventeen_low_data">
+											<div class="seventeen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_seventeen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="seventeen_high_data">
+											<div class="seventeen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_seventeen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="seventeen_medium_data">
+											<div class="seventeen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_seventeen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 17 -->
 
@@ -570,6 +1030,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="eighteen_low_data">
+											<div class="eighteen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_eighteen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="eighteen_high_data">
+											<div class="eighteen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_eighteen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="eighteen_medium_data">
+											<div class="eighteen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_eighteen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 18 -->
 									
@@ -599,6 +1086,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="nineteen_low_data">
+											<div class="nineteen_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_nineteen_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="nineteen_high_data">
+											<div class="nineteen_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_nineteen_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="nineteen_medium_data">
+											<div class="nineteen_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_nineteen_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 19 -->
 									
@@ -627,6 +1141,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twenty_low_data">
+											<div class="twenty_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_high_data">
+											<div class="twenty_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_medium_data">
+											<div class="twenty_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 20 -->									
 
@@ -660,6 +1201,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twenty_one_low_data">
+											<div class="twenty_one_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_one_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_one_high_data">
+											<div class="twenty_one_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_one_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_one_medium_data">
+											<div class="twenty_one_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_one_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 21 -->
 
@@ -688,6 +1256,32 @@
 												</script>
 											</div>
 										{% endif %}
+										<div class="twenty_two_low_data">
+											<div class="twenty_two_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_two_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_two_high_data">
+											<div class="twenty_two_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_two_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_two_medium_data">
+											<div class="twenty_two_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_two_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 22 -->
 
@@ -716,6 +1310,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twenty_three_low_data">
+											<div class="twenty_three_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_three_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_three_high_data">
+											<div class="twenty_three_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_three_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_three_medium_data">
+											<div class="twenty_three_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_three_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 23 -->
 									
@@ -746,6 +1367,33 @@
 												{{cell_twenty_four_mediun.count}}<br>
 											</div>
 										{% endif %}
+
+										<div class="twenty_four_low_data">
+											<div class="twenty_four_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_four_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_four_high_data">
+											<div class="twenty_four_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_four_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_four_medium_data">
+											<div class="twenty_four_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_four_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 24 -->
 									
@@ -777,6 +1425,33 @@
 												{{cell_twenty_five_mediun.count}}<br>
 											</div>
 										{% endif %}
+
+										<div class="twenty_five_low_data">
+											<div class="twenty_five_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_five_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_five_high_data">
+											<div class="twenty_five_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_five_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_five_medium_data">
+											<div class="twenty_five_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_five_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 25 -->									
 
@@ -810,6 +1485,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twenty_six_low_data">
+											<div class="twenty_six_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_six_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_six_high_data">
+											<div class="twenty_six_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_six_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_six_medium_data">
+											<div class="twenty_six_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_six_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 26 -->
 
@@ -838,6 +1540,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twenty_seven_low_data">
+											<div class="twenty_seven_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_seven_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_seven_high_data">
+											<div class="twenty_seven_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_seven_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_seven_medium_data">
+											<div class="twenty_seven_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_seven_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 27 -->
 
@@ -866,6 +1595,33 @@
 												</script>
 										</div>
 										{% endif %}
+
+										<div class="twenty_eight_low_data">
+											<div class="twenty_eight_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_eight_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_eight_high_data">
+											<div class="twenty_eight_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_eight_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_eight_medium_data">
+											<div class="twenty_eight_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_eight_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 28 -->
 									
@@ -895,6 +1651,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="twenty_nine_low_data">
+											<div class="twenty_nine_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_twenty_nine_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_nine_high_data">
+											<div class="twenty_nine_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_twenty_nine_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="twenty_nine_medium_data">
+											<div class="twenty_nine_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_twenty_nine_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 29 -->
 									
@@ -924,6 +1707,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="thirty_low_data">
+											<div class="thirty_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_high_data">
+											<div class="thirty_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_medium_data">
+											<div class="thirty_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 30 -->									
 
@@ -958,6 +1768,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="thirty_one_low_data">
+											<div class="thirty_one_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_one_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_one_high_data">
+											<div class="thirty_one_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_one_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_one_medium_data">
+											<div class="thirty_one_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_one_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 31 -->
 
@@ -986,6 +1823,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="thirty_two_low_data">
+											<div class="thirty_two_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_two_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_two_high_data">
+											<div class="thirty_two_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_two_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_two_medium_data">
+											<div class="thirty_two_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_two_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 32 -->
 
@@ -1014,6 +1878,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="thirty_three_low_data">
+											<div class="thirty_three_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_three_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_three_high_data">
+											<div class="thirty_three_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_three_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_three_medium_data">
+											<div class="thirty_three_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_three_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 33 -->
 									
@@ -1043,6 +1934,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="thirty_four_low_data">
+											<div class="thirty_four_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_four_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_four_high_data">
+											<div class="thirty_four_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_four_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_four_medium_data">
+											<div class="thirty_four_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_four_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 34 -->
 									
@@ -1072,6 +1990,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="thirty_five_low_data">
+											<div class="thirty_five_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_five_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_five_high_data">
+											<div class="thirty_five_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_five_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_five_medium_data">
+											<div class="thirty_five_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_five_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 35 -->									
 
@@ -1106,6 +2051,32 @@
 											</div>
 										{% endif %}
 										
+										<div class="thirty_six_low_data">
+											<div class="thirty_six_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_six_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_six_high_data">
+											<div class="thirty_six_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_six_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_six_medium_data">
+											<div class="thirty_six_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_six_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 36 -->
 
@@ -1133,7 +2104,34 @@
 													calculate_cell_thirty_seven_medium({{cell_thirty_seven_medium.count}});
 												</script>
 											</div>
-										{% endif %}				
+										{% endif %}
+
+										<div class="thirty_seven_low_data">
+											<div class="thirty_seven_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_seven_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_seven_high_data">
+											<div class="thirty_seven_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_seven_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_seven_medium_data">
+											<div class="thirty_seven_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_seven_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 37 -->
 
@@ -1161,7 +2159,34 @@
 													calculate_cell_thirty_eight_medium({{cell_thirty_eight_medium.count}});
 												</script>
 											</div>
-										{% endif %}				
+										{% endif %}
+
+										<div class="thirty_eight_low_data">
+											<div class="thirty_eight_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_eight_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_eight_high_data">
+											<div class="thirty_eight_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_eight_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_eight_medium_data">
+											<div class="thirty_eight_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_eight_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 38 -->
 									
@@ -1190,7 +2215,34 @@
 													calculate_cell_thirty_nine_medium({{cell_thirty_nine_medium.count}});
 												</script>
 											</div>
-										{% endif %}				
+										{% endif %}
+
+										<div class="thirty_nine_low_data">
+											<div class="thirty_nine_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_thirty_nine_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_nine_high_data">
+											<div class="thirty_nine_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_thirty_nine_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="thirty_nine_medium_data">
+											<div class="thirty_nine_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_thirty_nine_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 39 -->
 									
@@ -1220,6 +2272,33 @@
 												</script>
 											</div>
 										{% endif %}
+
+										<div class="fourty_low_data">
+											<div class="fourty_low_title"> Low Quality Studies </div>
+
+											{% for cell_data in cell_fourty_low %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="fourty_high_data">
+											<div class="fourty_high_title"> High Quality Studies </div>
+
+											{% for cell_data in cell_fourty_high %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
+
+										<div class="fourty_medium_data">
+											<div class="fourty_medium_title"> Medium Quality Studies </div>
+
+											{% for cell_data in cell_fourty_medium %}
+												<br>
+												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}</a>
+											{% endfor %}
+										</div>
 									</td>
 									<!-- END CELL 40 -->									
 
