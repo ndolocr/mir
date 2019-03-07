@@ -170,7 +170,28 @@ class Study(models.Model):
         ('High', 'High'),
         ('Medium', 'Medium'),        
     )
+	
+	'''
+    CATEGORY_CHOICES = (
+		('Trends', 'Trends'),
+		('Enablers', 'Enablers'),
+	    ('Solutions', 'Solutions'),	   
+	    ('Challenges', 'Challenges'),
+	    ('Impact/Outcomes', 'Impact/Outcomes'),	    
+	)
 
+	THEME_CHOICES = (
+        ('Digital Content', 'Digital Content'),
+        ('Digital Literacy', 'Digital Literacy'),
+        ('Internet Access and Use', 'Internet Access and Use'),
+        ('Internet/Digital Safety', 'Internet/Digital Safety'),
+        ('Internet/ICT for Democracy', 'Internet/ICT for Democracy'),
+        ('Internet/Digital Governance', 'Internet/Digital Governance'),
+        ('Internet Based Entrepreneurship', 'Internet Based Entrepreneurship'),
+        ('Internet/Digital Rights and Freedoms', 'Internet/Digital Rights and Freedoms'),
+    )	
+	'''
+	
 	title = models.CharField(_('Title'), max_length=255, blank=False, null=False)
 	author = models.CharField(_('Author'), max_length=255, blank=False, null=False)
 	link = models.CharField(_('link'), max_length=255, blank=False, null=False)
