@@ -21,7 +21,7 @@ from study.models import SubCategory
 
 '''	Front End views '''
 
-def search(request):
+def search_two(request):
 	if request.method == 'POST':
 		theme = request.POST.get('theme')
 		region = request.POST.get('region')
@@ -704,3 +704,4996 @@ def view_study(request, study_id):
 
 	return render(request, 'core/view_study.html', context)
 
+
+def search(request):
+	if request.method == 'POST':
+		theme = request.POST.get('theme')
+		region = request.POST.get('region')
+		country = request.POST.get('country')
+		keyword = request.POST.get('keyword')
+		category = request.POST.get('category')
+
+		study_data = Study.objects.all()
+		theme_data = Theme.objects.all()
+		region_data = Region.objects.all()
+		country_data = Country.objects.all()
+		category_data = Category.objects.all()
+
+		#If no search parameters are input
+		if theme=="" and category=="" and region=="" and country=="" and keyword=="":
+			#Row 1
+			cell_one_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		#If all parameters are input
+		elif theme!="" and category!="" and region!="" and country!="" and keyword!="":
+			#Row 1
+			cell_one_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_one_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_one_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_two_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_two_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_two_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_three_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_three_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_three_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_four_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_four_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_four_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_five_low = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_five_high = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_five_medium = Study.objects.filter(theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_six_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_six_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_seven_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_seven_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_seven_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_eight_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_eight_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_eight_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_nine_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_nine_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_nine_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_ten_low = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_ten_high = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_ten_medium = Study.objects.filter(theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_eleven_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_eleven_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twelve_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twelve_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twelve_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirteen_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirteen_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirteen_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_fourteen_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_fourteen_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_fourteen_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_fifteen_low = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_fifteen_high = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_fifteen_medium = Study.objects.filter(theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_sixteen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_sixteen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_seventeen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_seventeen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_seventeen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_eighteen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_eighteen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_eighteen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_nineteen_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_nineteen_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_nineteen_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_low = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_high = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_medium = Study.objects.filter(theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_one_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_one_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_two_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_two_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_two_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_three_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_three_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_three_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_four_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_four_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_four_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_five_low = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_five_high = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_five_medium = Study.objects.filter(theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_six_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_six_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_seven_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_seven_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_seven_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_eight_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_eight_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_eight_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_twenty_nine_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_nine_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_twenty_nine_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_low = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_high = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_one_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_one_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_two_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_two_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_two_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_three_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_three_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_three_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_four_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_four_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_four_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_five_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_five_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_five_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_six_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_six_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_seven_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_seven_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_seven_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_eight_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_eight_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_eight_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_thirty_nine_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_nine_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_thirty_nine_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+
+			cell_fourty_low = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_fourty_high = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+			cell_fourty_medium = Study.objects.filter(theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium", title__icontains=keyword, theme=theme, category=category, region=region, country=country)
+						
+		#Keyword Seach with other parameters
+		elif keyword!="" and theme=="" and category=="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme!="" and category=="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme=="" and category!="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme=="" and category=="" and region!="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme=="" and category=="" and region=="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Keyword and Theme Combination
+		elif keyword!="" and theme!="" and category!="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme!="" and category=="" and region!="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme!="" and category=="" and region=="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Keyword and category Combination
+		elif keyword!="" and theme=="" and category!="" and region!="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword!="" and theme=="" and category!="" and region=="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		#Keyword and region combination
+		elif keyword!="" and theme=="" and category=="" and region!="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(title__icontains=keyword, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Theme Search
+		elif keyword=="" and theme!="" and category=="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme!="" and category=="" and region!="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme!="" and category=="" and region=="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Theme and Category Search
+		elif keyword=="" and theme!="" and category!="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme!="" and category!="" and region!="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme!="" and category!="" and region=="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Theme and region combination
+		elif keyword=="" and theme!="" and category=="" and region!="" and country!="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(theme=theme, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Category search
+		elif keyword=="" and theme=="" and category!="" and region=="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(category=category, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(category=category, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(category=category, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(category=category, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(category=category, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(category=category, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme=="" and category!="" and region!="" and country=="":			
+
+			#Row One
+			cell_one_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(category=category, region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme=="" and category!="" and region=="" and country!="":
+
+			#Row One
+			cell_one_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(category=category, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Category region combination
+		elif keyword=="" and theme=="" and category!="" and region!="" and country!="":
+
+			#Row One
+			cell_one_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(category=category, region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Region Search
+		elif keyword=="" and theme=="" and category=="" and region!="" and country=="":
+
+			#Row One
+			cell_one_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(region=region, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(region=region, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(region=region, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(region=region, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(region=region, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(region=region, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		elif keyword=="" and theme=="" and category=="" and region!="" and country!="":
+
+			#Row One
+			cell_one_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(region=region, country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+		
+		#Country Search
+		elif keyword=="" and theme=="" and category=="" and region=="" and country!="":
+
+			#Row One
+			cell_one_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Low")
+			cell_one_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="High")
+			cell_one_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Trends", quality="Medium")
+
+			cell_two_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Low")
+			cell_two_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="High")
+			cell_two_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Enablers", quality="Medium")
+
+			cell_three_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Low")
+			cell_three_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="High")
+			cell_three_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Challenges", quality="Medium")
+
+			cell_four_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Low")
+			cell_four_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="High")
+			cell_four_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_five_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Low")
+			cell_five_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="High")
+			cell_five_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital Governance", category__category_name="Solutions", quality="Medium")
+
+
+			#Row two
+			cell_six_low = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Low")
+			cell_six_high = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="High")
+			cell_six_medium = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Trends", quality="Medium")
+
+			cell_seven_low = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Low")
+			cell_seven_high = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="High")
+			cell_seven_medium = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Enablers", quality="Medium")
+
+			cell_eight_low = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Low")
+			cell_eight_high = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="High")
+			cell_eight_medium = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Challenges", quality="Medium")
+
+			cell_nine_low = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nine_high = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="High")
+			cell_nine_medium = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_ten_low = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Low")
+			cell_ten_high = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="High")
+			cell_ten_medium = Study.objects.filter(country=country, theme__theme_name="Internet/ICT for Democracy", category__category_name="Solutions", quality="Medium")
+
+			#Row three
+			cell_eleven_low = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Low")
+			cell_eleven_high = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="High")
+			cell_eleven_medium = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Trends", quality="Medium")
+
+			cell_twelve_low = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Low")
+			cell_twelve_high = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="High")
+			cell_twelve_medium = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Enablers", quality="Medium")
+
+			cell_thirteen_low = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Low")
+			cell_thirteen_high = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="High")
+			cell_thirteen_medium = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Challenges", quality="Medium")
+
+			cell_fourteen_low = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Low")
+			cell_fourteen_high = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="High")
+			cell_fourteen_medium = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fifteen_low = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Low")
+			cell_fifteen_high = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="High")
+			cell_fifteen_medium = Study.objects.filter(country=country, theme__theme_name="Digital content", category__category_name="Solutions", quality="Medium")
+
+			#Row four
+			cell_sixteen_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Low")
+			cell_sixteen_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="High")
+			cell_sixteen_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Trends", quality="Medium")
+
+			cell_seventeen_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Low")
+			cell_seventeen_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="High")
+			cell_seventeen_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Enablers", quality="Medium")
+
+			cell_eighteen_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Low")
+			cell_eighteen_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="High")
+			cell_eighteen_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Challenges", quality="Medium")
+
+			cell_nineteen_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Low")
+			cell_nineteen_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="High")
+			cell_nineteen_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Low")
+			cell_twenty_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="High")
+			cell_twenty_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital safety", category__category_name="Solutions", quality="Medium")
+
+			#Row five
+			cell_twenty_one_low = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Low")
+			cell_twenty_one_high = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="High")
+			cell_twenty_one_medium = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_two_low = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Low")
+			cell_twenty_two_high = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="High")
+			cell_twenty_two_medium = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_three_low = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Low")
+			cell_twenty_three_high = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="High")
+			cell_twenty_three_medium = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_four_low = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_four_high = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_four_medium = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_twenty_five_low = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Low")
+			cell_twenty_five_high = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="High")
+			cell_twenty_five_medium = Study.objects.filter(country=country, theme__theme_name="Internet based entrepreneurship", category__category_name="Solutions", quality="Medium")
+
+			#Row six
+			cell_twenty_six_low = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Low")
+			cell_twenty_six_high = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="High")
+			cell_twenty_six_medium = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Trends", quality="Medium")
+
+			cell_twenty_seven_low = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Low")
+			cell_twenty_seven_high = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="High")
+			cell_twenty_seven_medium = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Enablers", quality="Medium")
+
+			cell_twenty_eight_low = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Low")
+			cell_twenty_eight_high = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="High")
+			cell_twenty_eight_medium = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Challenges", quality="Medium")
+
+			cell_twenty_nine_low = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Low")
+			cell_twenty_nine_high = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="High")
+			cell_twenty_nine_medium = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_low = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Low")
+			cell_thirty_high = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="High")
+			cell_thirty_medium = Study.objects.filter(country=country, theme__theme_name="Internet access and use", category__category_name="Solutions", quality="Medium")
+
+			#Row seven
+			cell_thirty_one_low = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Low")
+			cell_thirty_one_high = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="High")
+			cell_thirty_one_medium = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_two_low = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Low")
+			cell_thirty_two_high = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="High")
+			cell_thirty_two_medium = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_three_low = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Low")
+			cell_thirty_three_high = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="High")
+			cell_thirty_three_medium = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_four_low = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_four_high = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_four_medium = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_thirty_five_low = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Low")
+			cell_thirty_five_high = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="High")
+			cell_thirty_five_medium = Study.objects.filter(country=country, theme__theme_name="Digital literacy", category__category_name="Solutions", quality="Medium")
+
+			#Row eight
+			cell_thirty_six_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Low")
+			cell_thirty_six_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="High")
+			cell_thirty_six_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Trends", quality="Medium")
+
+			cell_thirty_seven_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Low")
+			cell_thirty_seven_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="High")
+			cell_thirty_seven_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Enablers", quality="Medium")
+
+			cell_thirty_eight_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Low")
+			cell_thirty_eight_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="High")
+			cell_thirty_eight_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Challenges", quality="Medium")
+
+			cell_thirty_nine_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Low")
+			cell_thirty_nine_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="High")
+			cell_thirty_nine_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Impact/Outcomes", quality="Medium")
+
+			cell_fourty_low = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Low")
+			cell_fourty_high = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="High")
+			cell_fourty_medium = Study.objects.filter(country=country, theme__theme_name="Internet/Digital rights and freedoms", category__category_name="Solutions", quality="Medium")
+
+		context = {		
+			'study_data':study_data,
+			'theme_data':theme_data, 
+			'region_data':region_data,
+			'country_data':country_data,
+			'category_data':category_data,
+			
+			#Row one
+			'cell_one_low':cell_one_low,
+			'cell_one_high':cell_one_high,
+			'cell_one_medium':cell_one_medium,
+
+			'cell_two_low':cell_two_low,
+			'cell_two_high':cell_two_high,
+			'cell_two_medium':cell_two_medium,
+
+			'cell_three_low':cell_three_low,
+			'cell_three_high':cell_three_high,
+			'cell_three_medium':cell_three_medium,
+
+			'cell_four_low':cell_four_low,
+			'cell_four_high':cell_four_high,
+			'cell_four_medium':cell_four_medium,
+
+			'cell_five_low':cell_five_low,
+			'cell_five_high':cell_five_high,
+			'cell_five_medium':cell_five_medium,
+
+			#Row two
+			'cell_six_low':cell_six_low,
+			'cell_six_high':cell_six_high,
+			'cell_six_medium':cell_six_medium,
+
+			'cell_seven_low':cell_seven_low,
+			'cell_seven_high':cell_seven_high,
+			'cell_seven_medium':cell_seven_medium,
+
+			'cell_eight_low':cell_eight_low,
+			'cell_eight_high':cell_eight_high,
+			'cell_eight_medium':cell_eight_medium,
+
+			'cell_nine_low':cell_nine_low,
+			'cell_nine_high':cell_nine_high,
+			'cell_nine_medium':cell_nine_medium,
+
+			'cell_ten_low':cell_ten_low,
+			'cell_ten_high':cell_ten_high,
+			'cell_ten_medium':cell_ten_medium,
+
+			#Row three
+			'cell_eleven_low':cell_eleven_low,
+			'cell_eleven_high':cell_eleven_high,
+			'cell_eleven_medium':cell_eleven_medium,
+
+			'cell_twelve_low':cell_twelve_low,
+			'cell_twelve_high':cell_twelve_high,
+			'cell_twelve_medium':cell_twelve_medium,
+
+			'cell_thirteen_low':cell_thirteen_low,
+			'cell_thirteen_high':cell_thirteen_high,
+			'cell_thirteen_medium':cell_thirteen_medium,
+
+			'cell_fourteen_low':cell_fourteen_low,
+			'cell_fourteen_high':cell_fourteen_high,
+			'cell_fourteen_medium':cell_fourteen_medium,
+
+			'cell_fifteen_low':cell_fifteen_low,
+			'cell_fifteen_high':cell_fifteen_high,
+			'cell_fifteen_medium':cell_fifteen_medium,
+
+			#Row four
+			'cell_sixteen_low':cell_sixteen_low,
+			'cell_sixteen_high':cell_sixteen_high,
+			'cell_sixteen_medium':cell_sixteen_medium,
+
+			'cell_seventeen_low':cell_seventeen_low,
+			'cell_seventeen_high':cell_seventeen_high,
+			'cell_seventeen_medium':cell_seventeen_medium,
+
+			'cell_eighteen_low':cell_eighteen_low,
+			'cell_eighteen_high':cell_eighteen_high,
+			'cell_eighteen_medium':cell_eighteen_medium,
+
+			'cell_nineteen_low':cell_nineteen_low,
+			'cell_nineteen_high':cell_nineteen_high,
+			'cell_nineteen_medium':cell_nineteen_medium,
+
+			'cell_twenty_low':cell_twenty_low,
+			'cell_twenty_high':cell_twenty_high,
+			'cell_twenty_medium':cell_twenty_medium,
+
+			#Row five
+			'cell_twenty_one_low':cell_twenty_one_low,
+			'cell_twenty_one_high':cell_twenty_one_high,
+			'cell_twenty_one_medium':cell_twenty_one_medium,
+
+			'cell_twenty_two_low':cell_twenty_two_low,
+			'cell_twenty_two_high':cell_twenty_two_high,
+			'cell_twenty_two_medium':cell_twenty_two_medium,
+
+			'cell_twenty_three_low':cell_twenty_three_low,
+			'cell_twenty_three_high':cell_twenty_three_high,
+			'cell_twenty_three_medium':cell_twenty_three_medium,
+
+			'cell_twenty_four_low':cell_twenty_four_low,
+			'cell_twenty_four_high':cell_twenty_four_high,
+			'cell_twenty_four_medium':cell_twenty_four_medium,
+
+			'cell_twenty_five_low':cell_twenty_five_low,
+			'cell_twenty_five_high':cell_twenty_five_high,
+			'cell_twenty_five_medium':cell_twenty_five_medium,
+
+			#Row six
+			'cell_twenty_six_low':cell_twenty_six_low,
+			'cell_twenty_six_high':cell_twenty_six_high,
+			'cell_twenty_six_medium':cell_twenty_six_medium,
+
+			'cell_twenty_seven_low':cell_twenty_seven_low,
+			'cell_twenty_seven_high':cell_twenty_seven_high,
+			'cell_twenty_seven_medium':cell_twenty_seven_medium,
+
+			'cell_twenty_eight_low':cell_twenty_eight_low,
+			'cell_twenty_eight_high':cell_twenty_eight_high,
+			'cell_twenty_eight_medium':cell_twenty_eight_medium,
+
+			'cell_twenty_nine_low':cell_twenty_nine_low,
+			'cell_twenty_nine_high':cell_twenty_nine_high,
+			'cell_twenty_nine_medium':cell_twenty_nine_medium,
+
+			'cell_thirty_low':cell_thirty_low,
+			'cell_thirty_high':cell_thirty_high,
+			'cell_thirty_medium':cell_thirty_medium,
+
+			#Row seven
+			'cell_thirty_one_low':cell_thirty_one_low,
+			'cell_thirty_one_high':cell_thirty_one_high,
+			'cell_thirty_one_medium':cell_thirty_one_medium,
+
+			'cell_thirty_two_low':cell_thirty_two_low,
+			'cell_thirty_two_high':cell_thirty_two_high,
+			'cell_thirty_two_medium':cell_thirty_two_medium,
+
+			'cell_thirty_three_low':cell_thirty_three_low,
+			'cell_thirty_three_high':cell_thirty_three_high,
+			'cell_thirty_three_medium':cell_thirty_three_medium,
+
+			'cell_thirty_four_low':cell_thirty_four_low,
+			'cell_thirty_four_high':cell_thirty_four_high,
+			'cell_thirty_four_medium':cell_thirty_four_medium,
+
+			'cell_thirty_five_low':cell_thirty_five_low,
+			'cell_thirty_five_high':cell_thirty_five_high,
+			'cell_thirty_five_medium':cell_thirty_five_medium,
+
+			#Row eight
+			'cell_thirty_six_low':cell_thirty_six_low,
+			'cell_thirty_six_high':cell_thirty_six_high,
+			'cell_thirty_six_medium':cell_thirty_six_medium,
+
+			'cell_thirty_seven_low':cell_thirty_seven_low,
+			'cell_thirty_seven_high':cell_thirty_seven_high,
+			'cell_thirty_seven_medium':cell_thirty_seven_medium,
+
+			'cell_thirty_eight_low':cell_thirty_eight_low,
+			'cell_thirty_eight_high':cell_thirty_eight_high,
+			'cell_thirty_eight_medium':cell_thirty_eight_medium,
+
+			'cell_thirty_nine_low':cell_thirty_nine_low,
+			'cell_thirty_nine_high':cell_thirty_nine_high,
+			'cell_thirty_nine_medium':cell_thirty_nine_medium,
+
+
+			'cell_fourty_low':cell_fourty_low,
+			'cell_fourty_high':cell_fourty_high,
+			'cell_fourty_medium':cell_fourty_medium,
+
+		}
+
+		return render(request, 'core/search_result.html', context)	
+	else:
+		return redirect('home_page')
