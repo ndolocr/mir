@@ -247,16 +247,28 @@
 
 		{% block content %} {% endblock %}
 
-		<!--[if lt IE 9]>
-			<script src="../assets/global/plugins/respond.min.js"></script>
-			<script src="../assets/global/plugins/excanvas.min.js"></script> 
-		<![endif]-->
+		<!-- BEGIN CONTAINER -->
+		<div class="container-fluid footer">
+			<!-- BEGIN ROW -->			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="site-info">
+		                Copyright &copy; {% now "Y" %}. All Rights Reserved.  
+		            </div>
+				</div>
 
-        <!-- BEGIN CORE PLUGINS -->
-        <!--<script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'core/js/toggle.js' %}" type="text/javascript"></script>
-        <script src="{% static 'core/js/counter.js' %}" type="text/javascript"></script>-->
-        <!-- END CORE PLUGINS -->       
+				<div class="col-md-4">
+					Powered with <i class="fa fa-heart"> </i> <span class="sep"> | by Dr. R.Ojino & Dr. O. Obadia</span>
+				</div>
+
+				<div class="col-md-4 ">
+	            	Licenced Under the under a Creative Commons International License.
+	            </div>
+			</div>
+			<!-- END ROW -->
+		</div>
+		<!-- END CONTAINER -->
+
 
 	</body>
 </html>

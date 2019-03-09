@@ -1,11 +1,33 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-	
-	{% for study in study_data %}
-		{{study.title}} <br>
-		{{study.author}} <br>
-		{{study.link}} <br>
-	{% endfor %}
 
+<script type="text/javascript">
+	total_study_counter({{study_data.count}});
+</script>
+
+<!-- BEGIN CONTAINER -->
+<div class="container-fluid">
+	<!-- BEGIN ROW -->
+	<div class="row">
+		<!-- BEGIN COL -->
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<!-- BEGIN PORTLET -->
+			<div class="portlet light portlet-fit bordered">
+
+				<!-- BEGIN PORTLET BODY -->
+				<div class="portlet-body">
+					<!-- BEGIN TABLE CLASS -->
+					
+						<!-- END TABLE -->
+				</div>
+				<!-- END TABLE CLASS -->					
+			</div>
+			<!-- END PORTLET -->
+		</div>
+		<!-- END COL -->
+	</div>
+	<!-- END ROW -->
+</div>
+<!-- END CONTAINER -->	
 {% endblock %}
