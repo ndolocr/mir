@@ -171,15 +171,12 @@ class Study(models.Model):
         ('Medium', 'Medium'),        
     )
 	
-	'''
-    CATEGORY_CHOICES = (
-		('Trends', 'Trends'),
-		('Enablers', 'Enablers'),
-	    ('Solutions', 'Solutions'),	   
-	    ('Challenges', 'Challenges'),
-	    ('Impact/Outcomes', 'Impact/Outcomes'),	    
+	PUBLISH_CHOICES = (
+		('Public', 'Public'),
+		('Private', 'Private'),		
 	)
 
+	'''
 	THEME_CHOICES = (
         ('Digital Content', 'Digital Content'),
         ('Digital Literacy', 'Digital Literacy'),
@@ -204,6 +201,7 @@ class Study(models.Model):
 	category = models.ManyToManyField(Category)
 	resource = models.ForeignKey(Resource, default=1, on_delete=models.CASCADE)	
 	quality = models.CharField(_('Quality'), max_length=6, choices=QUALITY_CHOICES, default='Low')
+	publish =  models.CharField(_('Publish'), max_length=7, choices=PUBLISH_CHOICES, default='Private')
 
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)

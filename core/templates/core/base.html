@@ -41,7 +41,7 @@
 	</head>
 
 	<body>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<div class="upper-branding">
 		            <div class="social-menu-navigation" role="navigation">
@@ -56,8 +56,7 @@
 		            </div>
 		        </div>
 			</div>			
-		</div>
-
+		</div>-->
 		<nav class="navbar navbar-default">
 			<!-- Site Logo -->
 			<div class="navbar-header">
@@ -65,10 +64,19 @@
 			</div>
 
 			<ul class="nav navbar-nav">
-				<li > <a href=""> Home </a> </li>
+				<li> <a href="{% url 'home_page' %}"> Home </a> </li>
 				<li> <a href=""> About us </a> </li>
 				<li> <a href=""> Contact Us </a> </li>
 			</ul>
+
+			<ul class="nav navbar-social">
+				<li> <a href="http://www.facebook.com" target="_blank"> <i class="fa fa-facebook"> </i> </a> </li>
+				<li> <a href="http://www.twitter.com" target="_blank"> <i class="fa fa-twitter"> </i>  </a> </li>
+				<li> <a href="http://www.instagram.com" target="_blank"> <i class="fa fa-instagram"> </i>  </a> </li>
+				<li> <a href="http://www.google.com" target="_blank"> <i class="fa fa-google-plus"> </i>  </a> </li>
+				<li> <a href="http://www.pinterest.com" target="_blank"> <i class="fa fa-pinterest"> </i>  </a> </li>
+			</ul>
+
 		</nav>
 		<div class="search-bar container-fluid">
 			<div class="row">
@@ -77,23 +85,11 @@
                     	{% csrf_token %}
                     	<div class="row">
 
-                    		<div class="col-md-9">
+                    		<div class="col-md-12">
                     			<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="form-control">
                     		</div>
 							                    		
-                    		<div class="col-md-3">
-                    			<div class="row">                    				               
-		                    		<!--<div class="col-sm-6 col-xs-6">
-		                    			<button id="toggle_button" class="btn btn-search btn-block" type="button">
-		                    				<i class="fa fa-gear"> </i> Advanced
-		                    			</button>
-		                    		</div>-->
-
-		                    		<div class="col-md-12 col-sm-12 col-xs-12">
-		                    			<button type="submit" class="btn btn-search btn-block"> Search </button>
-		                    		</div>		
-                    			</div>                    			
-                    		</div>	
+                    			
                     	</div>
                     	
                     	<div id="toggle_row">
@@ -218,6 +214,29 @@
                     		</div>
 							
 						</div>	
+
+						<div class="form-controls">
+							<div class="row">
+								<div class="col-sm-6">
+									
+								</div>
+
+								<div class="col-sm-6">
+									<div class="row">
+		                    			    <div class="col-md-6 col-sm-12 col-xs-12">
+				                    			<button type="reset" class="btn btn-cancel btn-block"> Cancel </button>
+				                    		</div>                				               
+				                    		
+
+				                    		<div class="col-md-6 col-sm-12 col-xs-12">
+				                    			<button type="submit" class="btn btn-search btn-block"> Search </button>
+				                    		</div>	
+
+		                    			</div>                    			
+		                    		</div>
+								</div>
+							</div>
+						</div>
 						
 
 						
