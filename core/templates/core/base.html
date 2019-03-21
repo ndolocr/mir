@@ -23,7 +23,7 @@
 
         <link href="{% static 'core/css/components.min.css' %}" rel="stylesheet" type="text/css" />
         <!--<link href="{% static 'core/css/uniform.default.css' %}" rel="stylesheet" type="text/css" />-->
-        <link href="{% static 'core/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />-
+        <link href="{% static 'core/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
         <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
@@ -41,26 +41,10 @@
 	</head>
 
 	<body>
-		<!--<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<div class="upper-branding">
-		            <div class="social-menu-navigation" role="navigation">
-		                <ul>
-		                    <li><a href="facebook.com"></a></li>
-		                    <li><a href="twitter.com"></a></li>
-		                    <li><a href="plus.google.com"></a></li>
-		                    <li><a href="instagram.com"></a></li>
-		                    <li><a href="linkedin.com"></a></li>
-		                    <li><a href="pinterest.com"></a></li>
-		                </ul>
-		            </div>
-		        </div>
-			</div>			
-		</div>-->
 		<nav class="navbar navbar-default">
 			<!-- Site Logo -->
 			<div class="navbar-header">
-				<a href="{% url 'home_page' %}" class="navbar-brand"> Africa Research</a>
+				<a href="{% url 'home_page' %}" class="navbar-brand">  Internet Freedom in Africa Gap Maps</a>
 			</div>
 
 			<ul class="nav navbar-nav">
@@ -78,7 +62,11 @@
 			</ul>
 
 		</nav>
-		<div class="search-bar container-fluid">
+
+		{% block pageDescription %} {% endblock %}
+
+		<div class="search-bar container-fluid">			
+
 			<div class="row">
 				<div class="col-xs-12">
 					<form role="form" method="POST" id="search" name="search" action="{% url 'search' %}">
@@ -99,18 +87,6 @@
                     				<div class="checkbox-list">
                     					
                     					<div class="toggle_heading"> Indicators </div>
-                    					<!--
-										{%for category in category_data %}
-											<label>
-												<div class="checker">
-													<span>
-														<input type="checkbox" name="category[]" value="{{category.id}}">	
-														{{category.category_name}}
-													</span>
-												</div>
-											</label>
-										{% endfor %}
-										-->
 
 										<select class="form-control" name="category" id="category">
 		                    				<option value="">All Categories</option>
@@ -128,19 +104,7 @@
                     				<div class="checkbox-list">
                     					
                     					<div class="toggle_heading"> Thematic Areas </div>
-                    					<!--
-										{%for theme in theme_data %}
-											<label>
-												<div class="checker">
-													<span>
-														<input type="checkbox" name="theme[]" value="{{theme.id}}">	
-														{{theme.theme_name}}
-													</span>
-												</div>
-											</label>
-										{% endfor %} 
-										-->
-
+                    					
 										<select class="form-control" name="theme" id="theme">
 		                    				<option value="">All Themes</option>
 		                    				{% for theme in theme_data %}
@@ -157,19 +121,7 @@
                     				<div class="checkbox-list">
                     					
                     					<div class="toggle_heading">  Region </div>
-                    					<!--
-										{%for region in region_data %}
-											<label>
-												<div class="checker">
-													<span>
-														<input type="checkbox" name="region[]" value="{{region.id}}">	
-														{{region.region_name}}
-													</span>
-												</div>
-											</label>
-										{% endfor %} 
-										-->
-
+                    					
 										<select class="form-control" name="region" id="region">
 		                    				<option value="">All Regions</option>
 		                    				{% for region in region_data %}	                    		
@@ -185,19 +137,7 @@
                     			<div class="col-md-3 col-sm-6 col-xs-12">
                     				<div class="checkbox-list">
                     					
-                    					<div class="toggle_heading"> Countries </div>
-                    					<!--
-										{%for country in country_data %}
-											<label>
-												<div class="checker">
-													<span>
-														<input type="checkbox" name="country[]" value="{{country.id}}">	
-														{{country.country_name}}
-													</span>
-												</div>
-											</label>
-										{% endfor %} 
-										-->
+                    					<div class="toggle_heading"> Countries </div>                    					
 
 										<select class="form-control" name="country" id="country">
 	                    					<option value="">All Countries</option>
@@ -224,7 +164,7 @@
 								<div class="col-sm-6">
 									<div class="row">
 		                    			    <div class="col-md-6 col-sm-12 col-xs-12">
-				                    			<button type="reset" class="btn btn-cancel btn-block"> Cancel </button>
+				                    			<button type="reset" class="btn btn-cancel btn-block"> Reset </button>
 				                    		</div>                				               
 				                    		
 

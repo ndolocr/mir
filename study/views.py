@@ -930,29 +930,30 @@ def study_upload_confirm(request):
 
 		for row in excel_data:
 			got_study_title = row[0]
-			got_study_author = row[1]
-			got_study_year = row[2]
-			country_instance = (row[3])
-			region_instance = (row[4])
-			resource_instance = (row[5])
-			got_quality_data = (row[6])
-			got_study_link = (row[7])
+			got_study_description = row[1]
+			got_study_author = row[2]
+			got_study_year = row[3]
+			country_instance = (row[4])
+			region_instance = (row[5])
+			resource_instance = (row[6])
+			got_quality_data = (row[7])
+			got_study_link = (row[8])
 
 
-			theme_one_instance = (row[8])
-			theme_two_instance = (row[9])
-			theme_three_instance = (row[10])
-			theme_four_instance = (row[11])
-			theme_five_instance = (row[12])
-			theme_six_instance = (row[13])
-			theme_seven_instance = (row[14])
-			theme_eight_instance = (row[15])
+			theme_one_instance = (row[9])
+			theme_two_instance = (row[10])
+			theme_three_instance = (row[11])
+			theme_four_instance = (row[12])
+			theme_five_instance = (row[13])
+			theme_six_instance = (row[14])
+			theme_seven_instance = (row[15])
+			theme_eight_instance = (row[16])
 
-			category_one_instance = (row[16])
-			category_two_instance = (row[17])
-			category_three_instance = (row[18])
-			category_four_instance = (row[19])
-			category_five_instance = (row[20])
+			category_one_instance = (row[17])
+			category_two_instance = (row[18])
+			category_three_instance = (row[19])
+			category_four_instance = (row[20])
+			category_five_instance = (row[21])			
 			
 			try:
 				region_object = Region.objects.get(region_name = region_instance)
@@ -1023,12 +1024,14 @@ def study_upload_confirm(request):
 			
 			object_instance = Study.objects.create(				
 				link = got_study_link,
-				year = got_study_year,				
-				title = got_study_title,				
-				quality = got_quality_data,
+				year = got_study_year,								
+				title = got_study_title,
 				author = got_study_author,
+				quality = got_quality_data,
 				resource = resource_object,
+				description = got_study_description,								
 			)	
+
 			if region_object:
 				object_instance.region.add(region_object)
 
