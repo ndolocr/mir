@@ -192,7 +192,7 @@ class Study(models.Model):
 	title = models.CharField(_('Title'), max_length=255, blank=False, null=False)
 	author = models.CharField(_('Author'), max_length=255, blank=False, null=False)
 	link = models.CharField(_('link'), max_length=255, blank=False, null=False)
-	description = models.TextField(_('Description'), blank=True, default='')
+	description = models.TextField(_('Study Summary'), blank=True, default='')
 	#tags = models.ManyToManyField(Tag)
 	year = models.PositiveIntegerField(_('Year'))
 	'''FOREGIN KEY FIELDS'''

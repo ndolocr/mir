@@ -2,10 +2,6 @@
 
 {% block content %}
 
-<script type="text/javascript">
-	total_study_counter({{study_data.count}});
-</script>
-
 <!-- BEGIN CONTAINER -->
 <div class="container-fluid">
 	<!-- BEGIN ROW -->
@@ -17,9 +13,66 @@
 
 				<!-- BEGIN PORTLET BODY -->
 				<div class="portlet-body">
-					<!-- BEGIN TABLE CLASS -->
-					
-						<!-- END TABLE -->
+					<!-- BEGIN SPECIFIC STUDY INFORMATION ROW -->
+					<div class="row"> 
+						<div class="col-sm-12 specific-study-title">
+							<h2> {{study_data.title}} </h2>
+						</div>						
+					</div>
+
+					<div class="row specific-study-details">
+						<div class="col-sm-2">														
+							<u> Type of Resource</u>:  <br/>{{study_data.resource}}
+							<br><br>
+							<u> Year of Publication</u>:  <br/>{{study_data.year}}
+							<br><br>
+							<u> Indicators</u>:  
+							<br/>
+							{% for indicator in study_data.category.all %}
+								- {{indicator.category_name}} <br>
+							{% endfor %}
+							<br><br>							
+							<u> Themes</u>:  
+							<br/>
+							{% for theme in study_data.theme.all %}
+								- {{theme.theme_name}} <br>
+							{% endfor %}
+							<br><br>
+
+						</div>
+
+						<div class="col-sm-10">
+							<u>Author(s)</u>: {{study_data.author}}
+							<br/><br/>
+							{{study_data.description}}
+
+							<br/>
+							<br/>
+							<u>URL</u> 
+							<br>
+							<a href="{{study_data.link}}" target="_blank"> {{study_data.link}}</a>
+							<br>
+							<br>
+							<u> Region of Study</u>:  
+							<br/>
+							{% for region in study_data.region.all %}
+								{{region.region_name}}, 
+							{% endfor %}
+							<br/>
+							<br/>
+							<u> Country of Study</u>:  
+							<br/>
+							{% for country in study_data.country.all %}
+								{{country.country_name}}, 
+							{% endfor %}
+							<br/>
+							<br/>
+							<u>Study Quality</u> 
+							<br>
+							{{study_data.quality}}
+						</div>
+					</div>
+					<!-- END SPECIFIC STUDY INFORMATION ROW -->
 				</div>
 				<!-- END TABLE CLASS -->					
 			</div>

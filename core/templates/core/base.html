@@ -48,8 +48,8 @@
 			</div>
 
 			<ul class="nav navbar-nav">
-				<li> <a href="{% url 'home_page' %}"> Home </a> </li>
-				<li> <a href=""> About us </a> </li>
+				<!--<li> <a href="{% url 'home_page' %}"> Home </a> </li>-->
+				<li> <a href="{% url 'about' %}"> About us </a> </li>
 				<li> <a href=""> Contact Us </a> </li>
 			</ul>
 
@@ -64,122 +64,150 @@
 		</nav>
 
 		{% block pageDescription %} {% endblock %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="portlet light portlet-fit bordered">
 
-		<div class="search-bar container-fluid">			
+						<!-- BEGIN PORTLET BODY -->
+						<div class="portlet-body">
+							<b>HOVER OVER</b> a bubble to see details with links to studies. <b>CLICK</b> ON a link in the axes to see more information of a specific study and a link to redirect you to the specific study.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="search-bar container-fluid">						
 			<div class="row">
 				<div class="col-xs-12">
 					<form role="form" method="POST" id="search" name="search" action="{% url 'search' %}">
                     	{% csrf_token %}
                     	<div class="row">
 
-                    		<div class="col-md-12">
+                    		<div class="col-md-10 col-sm-12 col-xs-12">
                     			<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="form-control">
                     		</div>
-							                    		
+
+                    		<div class="col-md-2">
+	                    			<div class="col-md-12 col-sm-12 col-xs-12">                    			
+		                    				<button type="submit" class="btn btn-search btn-block"> Search </button>
+		                    		</div>
+		                    	</div>                    		
+							
+							<!-- <div class="col-md-3 col-sm-12 col-xs-12">
+                    			<button type="reset" class="btn btn-cancel btn-block"> Reset </button>
+                    		</div> -->		
                     			
                     	</div>
                     	
                     	<div id="toggle_row">
                     		
                     		<div class="row">
-                    			<div class="col-md-3 col-sm-6 col-xs-12">
-                    				<div class="checkbox-list">
-                    					
-                    					<div class="toggle_heading"> Indicators </div>
 
-										<select class="form-control" name="category" id="category">
-		                    				<option value="">All Categories</option>
-		                    				{% for category in category_data %}
-		                    					<option value="{{category.id}}">
-		                    						{{category.category_name}} 
-		                    					</option>
-		                    				{% endfor %}
-		                    			</select>	
+                    			<div class="col-md-10">
 
-                    				</div>                    				
-                    			</div>                    		
+	                    			<div class="col-md-3 col-sm-6 col-xs-12">
+	                    				<div class="checkbox-list">
+	                    					
+	                    					<div class="toggle_heading"> Indicators </div>
+
+											<select class="form-control" name="category" id="category">
+			                    				<option value="">All Categories</option>
+			                    				{% for category in category_data %}
+			                    					<option value="{{category.id}}">
+			                    						{{category.category_name}} 
+			                    					</option>
+			                    				{% endfor %}
+			                    			</select>	
+
+	                    				</div>                    				
+	                    			</div>                    		
                     		
-                    			<div class="col-md-3 col-sm-6 col-xs-12">
-                    				<div class="checkbox-list">
-                    					
-                    					<div class="toggle_heading"> Thematic Areas </div>
-                    					
-										<select class="form-control" name="theme" id="theme">
-		                    				<option value="">All Themes</option>
-		                    				{% for theme in theme_data %}
-			                    				<option value="{{theme.id}}">
-			                    					{{theme.theme_name}} 
-			                    				</option>
-		                    				{% endfor %}
-		                    			</select>
+	                    			<div class="col-md-3 col-sm-6 col-xs-12">
+	                    				<div class="checkbox-list">
+	                    					
+	                    					<div class="toggle_heading"> Thematic Areas </div>
+	                    					
+											<select class="form-control" name="theme" id="theme">
+			                    				<option value="">All Themes</option>
+			                    				{% for theme in theme_data %}
+				                    				<option value="{{theme.id}}">
+				                    					{{theme.theme_name}} 
+				                    				</option>
+			                    				{% endfor %}
+			                    			</select>
 
-                    				</div>                    				
-                    			</div>  
+	                    				</div>                    				
+	                    			</div>  
 
-                    			<div class="col-md-3 col-sm-6 col-xs-12">
-                    				<div class="checkbox-list">
-                    					
-                    					<div class="toggle_heading">  Region </div>
-                    					
-										<select class="form-control" name="region" id="region">
-		                    				<option value="">All Regions</option>
-		                    				{% for region in region_data %}	                    		
-			                    				<option value="{{region.id}}">
-			                    					{{region.region_name}} 
-			                    				</option>
-		                    				{% endfor %}
-		                    			</select>
+	                    			<div class="col-md-3 col-sm-6 col-xs-12">
+	                    				<div class="checkbox-list">
+	                    					
+	                    					<div class="toggle_heading">  Region </div>
+	                    					
+											<select class="form-control" name="region" id="region">
+			                    				<option value="">All Regions</option>
+			                    				{% for region in region_data %}	                    		
+				                    				<option value="{{region.id}}">
+				                    					{{region.region_name}} 
+				                    				</option>
+			                    				{% endfor %}
+			                    			</select>
 
-                    				</div>                    				
-                    			</div>
+	                    				</div>                    				
+	                    			</div>
 
-                    			<div class="col-md-3 col-sm-6 col-xs-12">
-                    				<div class="checkbox-list">
-                    					
-                    					<div class="toggle_heading"> Countries </div>                    					
+	                    			<div class="col-md-3 col-sm-6 col-xs-12">
+	                    				<div class="checkbox-list">
+	                    					
+	                    					<div class="toggle_heading"> Countries </div>                    					
 
-										<select class="form-control" name="country" id="country">
-	                    					<option value="">All Countries</option>
-		                    				{% for country in country_data %}
-			                    				<option value="{{country.id}}">
-			                    					{{country.country_name}} 
-			                    				</option>
-		                    				{% endfor %}
-		                    			</select>
-		                    			
-                    				</div>                    				
-                    			</div>
+											<select class="form-control" name="country" id="country">
+		                    					<option value="">All Countries</option>
+			                    				{% for country in country_data %}
+				                    				<option value="{{country.id}}">
+				                    					{{country.country_name}} 
+				                    				</option>
+			                    				{% endfor %}
+			                    			</select>
+			                    			
+	                    				</div>                    				
+	                    			</div>
 
+	                    		</div>
+
+	                    		<div class="col-md-2">
+	                    			<div class="col-md-12 col-sm-12 col-xs-12">                    			
+		                    			<button type="reset" class="btn btn-cancel btn-block" style="margin-top: 37px; "> Reset </button>
+		                    		</div>
+		                    	</div>
                     		</div>
 							
 						</div>	
 
-						<div class="form-controls">
+						<!--<div class="form-controls">
 							<div class="row">
 								<div class="col-sm-6">
 									
 								</div>
 
-								<div class="col-sm-6">
+								 <div class="col-sm-6">
 									<div class="row">
 		                    			    <div class="col-md-6 col-sm-12 col-xs-12">
 				                    			<button type="reset" class="btn btn-cancel btn-block"> Reset </button>
-				                    		</div>                				               
+				                    		</div>              				               
 				                    		
 
 				                    		<div class="col-md-6 col-sm-12 col-xs-12">
 				                    			<button type="submit" class="btn btn-search btn-block"> Search </button>
-				                    		</div>	
+				                    		</div> 	
 
 		                    			</div>                    			
 		                    		</div>
 								</div>
-							</div>
-						</div>
-						
-
-						
+							</div>-->
+						</div>										
 					</form>
 				</div>
 			</div>
@@ -198,11 +226,15 @@
 				</div>
 
 				<div class="col-md-4">
-					Powered with <i class="fa fa-heart"> </i> <span class="sep"> | by Dr. R.Ojino & Dr. O. Obadia</span>
+					Powered with <i class="fa fa-heart"> </i> <span class="sep"> | <!--by Dr. R.Ojino & Dr. O. Obadia --> </span>
 				</div>
 
-				<div class="col-md-4 ">
-	            	Licenced Under the under a Creative Commons International License.
+				<div class="col-md-4 ccl">
+	            	Licenced Under the <a href="https://creativecommons.org/" target="_blank"> Creative Commons International License. 	</a>
+	            	</br>
+				            	
+					<a href="https://creativecommons.org/" target="_blank"> <img src="{% static 'core/img/ccl.jpg' %}" /> </a>
+				
 	            </div>
 			</div>
 			<!-- END ROW -->

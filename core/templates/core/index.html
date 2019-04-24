@@ -1,13 +1,5 @@
 {% extends 'core/base.html' %}
 
-{% block pageDescription %}
-	<div class="row page-description">
-		<div class="col-sm-12">
-			<h1> Internet Freedom in Africa Gap Maps </h1>
-			This is an internet freedom gap map. It shows studies relevant for internet policies in and about Africa. The studies are empirical (based on primary data), focus thematic areas relevant for internet freedoms, linked to the content of internet policies, and conducted between 2013 to date. Researchers, policy makers and practioners can use the studies in the formulation and implementation of proper internet policies; monitoring and evaluation of the policies; and in the development of strategies and actions that affect control, direction, access, and use of the internet. Appropriate internet policies would enable people’s internet freedoms as a right, an end, as well as enhance use of the internet in ways that improve their economic, social and political livelihoods.
-		</div>
-	</div>
-{% endblock %}
 
 {% block content %}
 
@@ -17,6 +9,7 @@
 
 <!-- BEGIN CONTAINER -->
 <div class="container-fluid">
+
 	<!-- BEGIN ROW -->
 	<div class="row">
 		<!-- BEGIN COL -->
@@ -26,6 +19,10 @@
 
 				<!-- BEGIN PORTLET BODY -->
 				<div class="portlet-body">
+					<!--<b>HOVER OVER</b> a bubble to see details with links to studies. <b>CLICK</b> ON a link in the axes to see more information of a specific study and a link to redirect you to the specific study.
+
+					</br></br>-->
+
 					<!-- BEGIN TABLE CLASS -->
 					<div class="table">
 						<!-- BEGIN TABLE -->											
@@ -35,7 +32,7 @@
 								<tr>
 									<th rowspan="2" class="theme_title"> THEMATIC AREAS </th>	
 															
-									<th colspan="5" class="indicators_title"> Indicators/Variables for Internet freedom </th>
+									<th colspan="5" class="indicators_title"> INDICATORS FOR INTERNET FREEDOMS </th>
 								</tr>
 								
 								<tr>									
@@ -43,15 +40,15 @@
 									<th class="indicators_sub_title"> Trends </th>
 									<th class="indicators_sub_title"> Enablers </th>
 									<th class="indicators_sub_title"> Challenges </th>
-									<th class="indicators_sub_title"> Impact/Outcomes </th>
-									<th class="indicators_sub_title"> Solutions </th>
+									<th class="indicators_sub_title"> Outcomes and Impacts </th>
+									<th class="indicators_sub_title"> Solutions or Strategies </th>
 								</tr>
 							</thead>
 
 							<tbody>
 
 								<tr>
-									<th class="theme_sub_title"> Internet/Digital Governance </th>
+									<th class="theme_sub_title"> Internet Governance </th>
 
 									<!-- BEGIN CELL 1 -->
 									<td>
@@ -85,7 +82,7 @@
 
 											{% for cell_data in cell_one_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -94,7 +91,7 @@
 
 											{% for cell_data in cell_one_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -103,7 +100,7 @@
 
 											{% for cell_data in cell_one_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -141,7 +138,7 @@
 
 											{% for cell_data in cell_two_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -150,7 +147,7 @@
 
 											{% for cell_data in cell_two_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -159,7 +156,7 @@
 
 											{% for cell_data in cell_two_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 					
@@ -197,7 +194,7 @@
 
 											{% for cell_data in cell_three_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -206,7 +203,7 @@
 
 											{% for cell_data in cell_three_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -215,7 +212,7 @@
 
 											{% for cell_data in cell_three_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -254,7 +251,7 @@
 
 											{% for cell_data in cell_four_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -263,7 +260,7 @@
 
 											{% for cell_data in cell_four_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -272,7 +269,7 @@
 
 											{% for cell_data in cell_four_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -310,7 +307,7 @@
 
 											{% for cell_data in cell_five_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -319,7 +316,7 @@
 
 											{% for cell_data in cell_five_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -328,7 +325,7 @@
 
 											{% for cell_data in cell_five_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -337,7 +334,7 @@
 								</tr>
 
 								<tr>
-									<th class="theme_sub_title"> Internet/ICT for Democracy </th>
+									<th class="theme_sub_title"> Internet for Democracy </th>
 
 									<!-- BEGIN CELL 6 -->
 									<td>
@@ -370,7 +367,7 @@
 
 											{% for cell_data in cell_six_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -379,7 +376,7 @@
 
 											{% for cell_data in cell_six_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}} ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -388,7 +385,7 @@
 
 											{% for cell_data in cell_six_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -426,7 +423,7 @@
 
 											{% for cell_data in cell_seven_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -435,7 +432,7 @@
 
 											{% for cell_data in cell_seven_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -444,7 +441,7 @@
 
 											{% for cell_data in cell_seven_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>		
 									</td>
@@ -481,7 +478,7 @@
 
 											{% for cell_data in cell_eight_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -490,7 +487,7 @@
 
 											{% for cell_data in cell_eight_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -499,7 +496,7 @@
 
 											{% for cell_data in cell_eight_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -537,7 +534,7 @@
 
 											{% for cell_data in cell_nine_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -546,7 +543,7 @@
 
 											{% for cell_data in cell_nine_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -555,7 +552,7 @@
 
 											{% for cell_data in cell_nine_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -593,7 +590,7 @@
 
 											{% for cell_data in cell_ten_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -602,7 +599,7 @@
 
 											{% for cell_data in cell_ten_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -611,7 +608,7 @@
 
 											{% for cell_data in cell_ten_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -619,12 +616,12 @@
 
 								</tr>
 
-
+								<!--
 								<tr>
 									<th class="theme_sub_title"> Digital Content </th>
 
 									<!-- BEGIN CELL 11 -->
-									<td>
+									<!--<td>
 										{% if cell_eleven_low %}
 											<div class="eleven_low">
 												<script type="text/javascript">
@@ -654,7 +651,7 @@
 
 											{% for cell_data in cell_eleven_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -663,7 +660,7 @@
 
 											{% for cell_data in cell_eleven_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -672,13 +669,14 @@
 
 											{% for cell_data in cell_eleven_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
 									<!-- END CELL 11 -->
 
 									<!-- BEGIN CELL 12 -->
+									<!--
 									<td>
 										{% if cell_twelve_low %}
 											<div class="twelve_low">
@@ -709,7 +707,7 @@
 
 											{% for cell_data in cell_twelve_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -718,7 +716,7 @@
 
 											{% for cell_data in cell_twelve_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -727,13 +725,14 @@
 
 											{% for cell_data in cell_twelve_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
 									<!-- END CELL 12 -->
 
 									<!-- BEGIN CELL 13 -->
+									<!--
 									<td>
 										{% if cell_thirteen_low %}
 											<div class="thirteen_low">
@@ -763,7 +762,7 @@
 
 											{% for cell_data in cell_thirteen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -772,7 +771,7 @@
 
 											{% for cell_data in cell_thirteen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -781,7 +780,7 @@
 
 											{% for cell_data in cell_thirteen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -789,6 +788,7 @@
 									
 
 									<!-- BEGIN CELL 14 -->
+									<!--
 									<td>
 										{% if cell_fourteen_low %}
 											<div class="fourteen_low">
@@ -819,7 +819,7 @@
 
 											{% for cell_data in cell_fourteen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -828,7 +828,7 @@
 
 											{% for cell_data in cell_fourteen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -837,7 +837,7 @@
 
 											{% for cell_data in cell_fourteen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -845,6 +845,7 @@
 									
 
 									<!-- BEGIN CELL 15 -->
+									<!--
 									<td>
 										{% if cell_fifteen_low %}
 											<div class="fifteen_low">
@@ -875,7 +876,7 @@
 
 											{% for cell_data in cell_fifteen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -884,7 +885,7 @@
 
 											{% for cell_data in cell_fifteen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -893,16 +894,16 @@
 
 											{% for cell_data in cell_fifteen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
 									<!-- END CELL 15 -->									
 
-								</tr>
+								<!--</tr> -->
 
 								<tr>
-									<th class="theme_sub_title"> Internet/Digital Safety </th>
+									<th class="theme_sub_title"> Internet Safety </th>
 									
 									<!-- BEGIN CELL 16 -->
 									<td>
@@ -935,7 +936,7 @@
 
 											{% for cell_data in cell_sixteen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -944,7 +945,7 @@
 
 											{% for cell_data in cell_sixteen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -953,7 +954,7 @@
 
 											{% for cell_data in cell_sixteen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -990,7 +991,7 @@
 
 											{% for cell_data in cell_seventeen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -999,7 +1000,7 @@
 
 											{% for cell_data in cell_seventeen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1008,7 +1009,7 @@
 
 											{% for cell_data in cell_seventeen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1045,7 +1046,7 @@
 
 											{% for cell_data in cell_eighteen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1054,7 +1055,7 @@
 
 											{% for cell_data in cell_eighteen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1063,7 +1064,7 @@
 
 											{% for cell_data in cell_eighteen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1101,7 +1102,7 @@
 
 											{% for cell_data in cell_nineteen_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1110,7 +1111,7 @@
 
 											{% for cell_data in cell_nineteen_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1119,7 +1120,7 @@
 
 											{% for cell_data in cell_nineteen_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1156,7 +1157,7 @@
 
 											{% for cell_data in cell_twenty_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1165,7 +1166,7 @@
 
 											{% for cell_data in cell_twenty_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1174,7 +1175,7 @@
 
 											{% for cell_data in cell_twenty_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1216,7 +1217,7 @@
 
 											{% for cell_data in cell_twenty_one_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1225,7 +1226,7 @@
 
 											{% for cell_data in cell_twenty_one_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1234,7 +1235,7 @@
 
 											{% for cell_data in cell_twenty_one_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1270,7 +1271,7 @@
 
 											{% for cell_data in cell_twenty_two_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1279,7 +1280,7 @@
 
 											{% for cell_data in cell_twenty_two_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1288,7 +1289,7 @@
 
 											{% for cell_data in cell_twenty_two_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1325,7 +1326,7 @@
 
 											{% for cell_data in cell_twenty_three_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1334,7 +1335,7 @@
 
 											{% for cell_data in cell_twenty_three_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1343,7 +1344,7 @@
 
 											{% for cell_data in cell_twenty_three_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1382,7 +1383,7 @@
 
 											{% for cell_data in cell_twenty_four_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1391,7 +1392,7 @@
 
 											{% for cell_data in cell_twenty_four_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1400,7 +1401,7 @@
 
 											{% for cell_data in cell_twenty_four_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1440,7 +1441,7 @@
 
 											{% for cell_data in cell_twenty_five_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1449,7 +1450,7 @@
 
 											{% for cell_data in cell_twenty_five_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1458,7 +1459,7 @@
 
 											{% for cell_data in cell_twenty_five_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1467,7 +1468,7 @@
 								</tr>
 
 								<tr>
-									<th class="theme_sub_title"> Internet Access and Use </th>
+									<th class="theme_sub_title"> Internet Access, Affordability and Use </th>
 									
 									<!-- BEGIN CELL 26 -->
 									<td>
@@ -1500,7 +1501,7 @@
 
 											{% for cell_data in cell_twenty_six_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1509,7 +1510,7 @@
 
 											{% for cell_data in cell_twenty_six_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1518,7 +1519,7 @@
 
 											{% for cell_data in cell_twenty_six_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1555,7 +1556,7 @@
 
 											{% for cell_data in cell_twenty_seven_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1564,7 +1565,7 @@
 
 											{% for cell_data in cell_twenty_seven_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1573,7 +1574,7 @@
 
 											{% for cell_data in cell_twenty_seven_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1610,7 +1611,7 @@
 
 											{% for cell_data in cell_twenty_eight_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1619,7 +1620,7 @@
 
 											{% for cell_data in cell_twenty_eight_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1628,7 +1629,7 @@
 
 											{% for cell_data in cell_twenty_eight_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1666,7 +1667,7 @@
 
 											{% for cell_data in cell_twenty_nine_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1675,7 +1676,7 @@
 
 											{% for cell_data in cell_twenty_nine_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1684,7 +1685,7 @@
 
 											{% for cell_data in cell_twenty_nine_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1722,7 +1723,7 @@
 
 											{% for cell_data in cell_thirty_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1731,7 +1732,7 @@
 
 											{% for cell_data in cell_thirty_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1740,7 +1741,7 @@
 
 											{% for cell_data in cell_thirty_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1750,7 +1751,7 @@
 								
 
 								<tr>
-									<th class="theme_sub_title"> Digital Literacy </th>
+									<th class="theme_sub_title"> Digital Literacy And Skills </th>
 									
 									<!-- BEGIN CELL 31 -->
 									<td>
@@ -1783,7 +1784,7 @@
 
 											{% for cell_data in cell_thirty_one_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1792,7 +1793,7 @@
 
 											{% for cell_data in cell_thirty_one_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1801,7 +1802,7 @@
 
 											{% for cell_data in cell_thirty_one_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1838,7 +1839,7 @@
 
 											{% for cell_data in cell_thirty_two_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1847,7 +1848,7 @@
 
 											{% for cell_data in cell_thirty_two_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1856,7 +1857,7 @@
 
 											{% for cell_data in cell_thirty_two_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1893,7 +1894,7 @@
 
 											{% for cell_data in cell_thirty_three_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1902,7 +1903,7 @@
 
 											{% for cell_data in cell_thirty_three_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1911,7 +1912,7 @@
 
 											{% for cell_data in cell_thirty_three_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -1949,7 +1950,7 @@
 
 											{% for cell_data in cell_thirty_four_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1958,7 +1959,7 @@
 
 											{% for cell_data in cell_thirty_four_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -1967,7 +1968,7 @@
 
 											{% for cell_data in cell_thirty_four_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -2005,7 +2006,7 @@
 
 											{% for cell_data in cell_thirty_five_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2014,7 +2015,7 @@
 
 											{% for cell_data in cell_thirty_five_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2023,7 +2024,7 @@
 
 											{% for cell_data in cell_thirty_five_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -2032,7 +2033,7 @@
 								</tr>
 										
 								<tr>
-									<th class="theme_sub_title"> Internet/Digital Rights and Freedoms </th>
+									<th class="theme_sub_title"> Internet Or Digital Rights and Freedoms </th>
 									
 									<!-- BEGIN CELL 36 -->
 									<td>
@@ -2065,7 +2066,7 @@
 
 											{% for cell_data in cell_thirty_six_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2074,7 +2075,7 @@
 
 											{% for cell_data in cell_thirty_six_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2083,7 +2084,7 @@
 
 											{% for cell_data in cell_thirty_six_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -2120,7 +2121,7 @@
 
 											{% for cell_data in cell_thirty_seven_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2129,7 +2130,7 @@
 
 											{% for cell_data in cell_thirty_seven_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2138,7 +2139,7 @@
 
 											{% for cell_data in cell_thirty_seven_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -2175,7 +2176,7 @@
 
 											{% for cell_data in cell_thirty_eight_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2184,7 +2185,7 @@
 
 											{% for cell_data in cell_thirty_eight_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2193,7 +2194,7 @@
 
 											{% for cell_data in cell_thirty_eight_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -2231,7 +2232,7 @@
 
 											{% for cell_data in cell_thirty_nine_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2240,7 +2241,7 @@
 
 											{% for cell_data in cell_thirty_nine_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2249,7 +2250,7 @@
 
 											{% for cell_data in cell_thirty_nine_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>
@@ -2287,7 +2288,7 @@
 
 											{% for cell_data in cell_fourty_low %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2296,7 +2297,7 @@
 
 											{% for cell_data in cell_fourty_high %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}  ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 
@@ -2305,7 +2306,7 @@
 
 											{% for cell_data in cell_fourty_medium %}
 												<br>
-												{{forloop.counter}} - <a href="{{cell_data.link}}" target="_blank">{{cell_data.title}}   ({{cell_data.author}}, {{cell_data.year}})</a>
+												{{forloop.counter}} - <a href="{% url 'view_study' cell_data.id %}" target="_blank">{{cell_data.title}}   ({{cell_data.author}}, {{cell_data.year}})</a>
 											{% endfor %}
 										</div>
 									</td>

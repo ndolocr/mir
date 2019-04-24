@@ -930,30 +930,30 @@ def study_upload_confirm(request):
 
 		for row in excel_data:
 			got_study_title = row[0]
-			got_study_description = row[1]
-			got_study_author = row[2]
-			got_study_year = row[3]
-			country_instance = (row[4])
-			region_instance = (row[5])
-			resource_instance = (row[6])
-			got_quality_data = (row[7])
-			got_study_link = (row[8])
+			got_study_author = row[1]
+			got_study_year = row[2]
+			country_instance = (row[3])
+			region_instance = (row[4])
+			resource_instance = (row[5])
+			got_quality_data = (row[6])
+			got_study_link = (row[7])
 
 
-			theme_one_instance = (row[9])
-			theme_two_instance = (row[10])
-			theme_three_instance = (row[11])
-			theme_four_instance = (row[12])
-			theme_five_instance = (row[13])
-			theme_six_instance = (row[14])
-			theme_seven_instance = (row[15])
-			theme_eight_instance = (row[16])
+			theme_one_instance = (row[8])
+			theme_two_instance = (row[9])
+			theme_three_instance = (row[10])
+			theme_four_instance = (row[11])
+			theme_five_instance = (row[12])
+			theme_six_instance = (row[13])
+			theme_seven_instance = (row[14])
 
-			category_one_instance = (row[17])
-			category_two_instance = (row[18])
-			category_three_instance = (row[19])
-			category_four_instance = (row[20])
-			category_five_instance = (row[21])			
+			category_one_instance = (row[15])
+			category_two_instance = (row[16])
+			category_three_instance = (row[17])
+			category_four_instance = (row[18])
+			category_five_instance = (row[19])
+
+			got_study_description = row[20]			
 			
 			try:
 				region_object = Region.objects.get(region_name = region_instance)
@@ -996,10 +996,7 @@ def study_upload_confirm(request):
 				theme_seven_object = Theme.objects.get(theme_name = theme_seven_instance)
 			except Theme.DoesNotExist:
 				theme_seven_object = None
-			try:
-				theme_eight_object = Theme.objects.get(theme_name = theme_eight_instance)
-			except Theme.DoesNotExist:
-				theme_eight_object = None
+			
 			
 			try:
 				category_one_object = Category.objects.get(category_name = category_one_instance)
@@ -1029,7 +1026,8 @@ def study_upload_confirm(request):
 				author = got_study_author,
 				quality = got_quality_data,
 				resource = resource_object,
-				description = got_study_description,								
+				description = got_study_description,
+				publish = "Public",
 			)	
 
 			if region_object:
@@ -1078,17 +1076,7 @@ def study_upload_confirm(request):
 							if theme_seven_object is not theme_four_object:
 								if theme_seven_object is not theme_five_object:
 									if theme_seven_object is not theme_six_object:
-										object_instance.theme.add(theme_seven_object)
-
-			if theme_eight_object is not None:
-				if theme_eight_object is not theme_one_object:
-					if theme_eight_object is not theme_two_object:
-						if theme_eight_object is not theme_three_object:
-							if theme_eight_object is not theme_four_object:
-								if theme_eight_object is not theme_five_object:
-									if theme_eight_object is not theme_six_object:
-										if theme_eight_object is not theme_seven_object:
-											object_instance.theme.add(theme_eight_object)
+										object_instance.theme.add(theme_seven_object)			
 
 
 			if category_one_object is not None:
@@ -1135,14 +1123,9 @@ def download_template(request, file_name):
 			return response
 
 	
-def download_study_related_template(request):
-	#output = io.BytesIO()
-
-	#workbook = Workbook(output, {'in_memory': True})
-	#worksheet = workbook.add_worksheet()
+def download_study_related_template(request):	
 
 	output = io.BytesIO()
-
 	wrkbook = Workbook(output, {'in_memory': True})
 	
 
@@ -1165,16 +1148,7 @@ def download_study_related_template(request):
 		#country_wrksheet.write(country_row_num, 0, my_row.id)
 		country_wrksheet.write(country_row_num, 0, my_row.country_name)
 		country_row_num = country_row_num + 1
-	'''
-	quality_wrksheet = wrkbook.add_worksheet("quality")
-	quality_data = Quality.objects.all()
-	quality_row_num = 0
-	#Writting content on excel sheet
-	for my_row in quality_data:
-		#quality_wrksheet.write(quality_row_num, 0, my_row.id)
-		quality_wrksheet.write(quality_row_num, 0, my_row.quality_name)
-		quality_row_num = quality_row_num + 1
-	'''
+	
 	resource_wrksheet = wrkbook.add_worksheet("resource")
 	resource_data = Resource.objects.all()
 	resource_row_num = 0
@@ -1183,25 +1157,7 @@ def download_study_related_template(request):
 		#resource_wrksheet.write(resource_row_num, 0, my_row.id)
 		resource_wrksheet.write(resource_row_num, 0, my_row.resource_name)
 		resource_row_num = resource_row_num + 1
-	'''
-	theme_wrksheet = wrkbook.add_worksheet("theme")
-	theme_data = Theme.objects.all()
-	theme_row_num = 0
-	#Writting content on excel sheet
-	for my_row in theme_data:
-		#sub_theme_wrksheet.write(sub_theme_row_num, 0, my_row.id)
-		theme_wrksheet.write(theme_row_num, 0, my_row.theme_name)
-		theme_row_num = theme_row_num + 1
-
-	categroy_wrksheet = wrkbook.add_worksheet("category")
-	categroy_data = Category.objects.all()
-	categroy_row_num = 0
-	#Writting content on excel sheet
-	for my_row in categroy_data:
-		#sub_categroy_wrksheet.write(sub_categroy_row_num, 0, my_row.id)
-		categroy_wrksheet.write(categroy_row_num, 0, my_row.category_name)
-		categroy_row_num = categroy_row_num + 1
-	'''
+	
 	wrkbook.close()
 
 	output.seek(0)
@@ -1221,3 +1177,49 @@ def download_study_related_template(request):
 	End downlodaing Templates
 '''
 	
+def download_all_studies(request):
+	output = io.BytesIO()
+
+	workbook = Workbook(output, {'in_memory': True})
+	worksheet = workbook.add_worksheet()
+
+	data = Study.objects.all()
+
+	row_num = 0
+	
+	column = worksheet.set_column('A:A', 45)
+	
+	#column header names
+	columns = ['Title','Author','Link','Year','Region','Country', 'Resource', 'Quality','Theme', 'Indicator', 'Description',]
+
+	#write column headers in sheet
+	for col_num in range(len(columns)):
+		worksheet.write(row_num, col_num, columns[col_num])
+	
+	#Writting content on excel sheet
+	for my_row in data:	
+		row_num = row_num + 1		
+		worksheet.write(row_num, 0, my_row.title)
+		worksheet.write(row_num, 1, my_row.author)
+		worksheet.write(row_num, 2, my_row.link)
+		worksheet.write(row_num, 3, my_row.year)
+		worksheet.write(row_num, 4, my_row.region_region_name)
+		'''worksheet.write(row_num, 5, my_row.country)
+		worksheet.write(row_num, 6, my_row.resource)'''
+		worksheet.write(row_num, 7, my_row.quality)
+		'''worksheet.write(row_num, 8, my_row.theme)
+		worksheet.write(row_num, 9, my_row.indicator)'''
+		worksheet.write(row_num, 10, my_row.description)
+		
+	workbook.close()
+
+	output.seek(0)
+
+	response = HttpResponse(output.read(), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+	response['Content-Disposition'] = "attachment; filename=studies.xlsx"
+
+	output.close()
+
+	return response
+
+

@@ -14,8 +14,11 @@ from study.models import SubCategory
 
 # Register your models here.
 
+class StudyAdmin(admin.ModelAdmin):
+	search_fields = ['title']
+
 #admin.site.register(Tag)
-admin.site.register(Study)
+admin.site.register(Study, StudyAdmin)
 admin.site.register(Theme)
 admin.site.register(Region)
 admin.site.register(Country)

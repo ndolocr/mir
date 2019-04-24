@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from core.views import search
 from core.views import home_page
 from core.views import view_study
+from core.views import about_us_page
 
 from core.api.views import StudyListAPIView
 
@@ -55,6 +56,7 @@ from study.views import download_category
 from study.views import download_resource
 
 from study.views import download_template
+from study.views import download_all_studies
 from study.views import download_study_related_template
 from study.views import download_sub_theme_related_template
 from study.views import download_sub_category_related_template
@@ -65,6 +67,7 @@ urlpatterns = [
 	#Study URLS
 	path('admin/study/upload/', study_upload, name='study_upload'),
 	path('admin/study/upload/confirm/', study_upload_confirm, name='study_upload_confirm'),
+	path('admin/study/studies/download/', download_all_studies, name='download_all_studies'),	
 	path('admin/study/download/related/templates/', download_study_related_template, name='download_study_related_template'),	
 
 	#Tags URLS
@@ -124,7 +127,9 @@ urlpatterns = [
 
     #Front End Page Links
     path('', home_page, name='home_page'),
+
     path('search', search, name='search'),
+    path('about', about_us_page, name='about'),
     path('api/study/all', StudyListAPIView.as_view(), name='studies_json'),
     path('view/study/<study_id>/', view_study, name='view_study'),
 ]

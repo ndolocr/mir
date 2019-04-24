@@ -121,11 +121,11 @@
             <tbody>
                 <tr class="model-user">
                     <th scope="row"> Studies </th>
-                    <!--<td scope="row"><a href="{% url 'download_template' 'Study.xlsx' %}" download class="addlinks">Download Template</a></td>-->
+                    
                     <td scope="row"><a href="{% url 'download_template' 'Study.xlsx' %}" download class="addlinks">Study Template</a></td>
                     <td scope="row"><a href="{% url 'download_study_related_template' %}" download class="addlinks">Related Data</a></td>
                     <td scope="row"><a href="{% url 'study_upload' %}" class="addlinks">Import Data</a></td>
-                    <!--<td scope="row"><a href="" class="removelink">Export Studies</a></td>-->
+                    <!--<td scope="row"><a href="{% url 'download_all_studies' %}" class="removelink">Export All Studies</a></td>-->
                 </tr>
 
                 <!--<tr class="model-user">
