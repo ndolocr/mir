@@ -11,7 +11,7 @@ import openpyxl
 from io import StringIO
 from zipfile import ZipFile
 
-from study.models import Tag
+#from study.models import Tag
 from study.models import Study
 from study.models import Theme
 from study.models import Region
@@ -19,8 +19,8 @@ from study.models import Country
 from study.models import Quality
 from study.models import Category
 from study.models import Resource
-from study.models import SubTheme
-from study.models import SubCategory
+#from study.models import SubTheme
+#from study.models import SubCategory
 
 from django.conf import settings
 from django.shortcuts import render
@@ -1203,7 +1203,7 @@ def download_all_studies(request):
 		worksheet.write(row_num, 1, my_row.author)
 		worksheet.write(row_num, 2, my_row.link)
 		worksheet.write(row_num, 3, my_row.year)
-		worksheet.write(row_num, 4, my_row.region_region_name)
+		'''worksheet.write(row_num, 4, my_row.region)'''
 		'''worksheet.write(row_num, 5, my_row.country)
 		worksheet.write(row_num, 6, my_row.resource)'''
 		worksheet.write(row_num, 7, my_row.quality)

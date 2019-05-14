@@ -7,15 +7,15 @@ from django.shortcuts import redirect
 
 #register = template.Library()
 
-from study.models import Tag
+#from study.models import Tag
 from study.models import Study
 from study.models import Theme
 from study.models import Region
 from study.models import Country
 from study.models import Category
 from study.models import Resource
-from study.models import SubTheme
-from study.models import SubCategory
+#from study.models import SubTheme
+#from study.models import SubCategory
 
 # Create your views here.
 

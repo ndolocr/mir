@@ -9,8 +9,8 @@ from study.models import Country
 #from study.models import Quality
 from study.models import Category
 from study.models import Resource
-from study.models import SubTheme
-from study.models import SubCategory
+#from study.models import SubTheme
+#from study.models import SubCategory
 
 # Register your models here.
 

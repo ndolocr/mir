@@ -54,6 +54,7 @@ from study.views import download_country
 from study.views import download_quality
 from study.views import download_category
 from study.views import download_resource
+#from study.views import download_all_studies
 
 from study.views import download_template
 from study.views import download_all_studies
@@ -69,6 +70,7 @@ urlpatterns = [
 	path('admin/study/upload/confirm/', study_upload_confirm, name='study_upload_confirm'),
 	path('admin/study/studies/download/', download_all_studies, name='download_all_studies'),	
 	path('admin/study/download/related/templates/', download_study_related_template, name='download_study_related_template'),	
+
 
 	#Tags URLS
 	path('admin/study/tag/upload/', tag_upload, name='tag_upload'),

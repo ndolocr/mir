@@ -110,6 +110,7 @@ class Theme(models.Model):
 '''
 SUB THEME MODEL
 '''
+'''
 class SubTheme(models.Model):	
 	sub_theme_name = models.CharField(_('Sub Theme'), max_length=255, unique=True, blank=False, null=False)
 	theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
@@ -124,9 +125,10 @@ class SubTheme(models.Model):
 
 	def __str__(self):
 		return self.sub_theme_name
-
+'''
 '''
 SUB CATEGORY MODEL
+'''
 '''
 class SubCategory(models.Model):
 	sub_category_name = models.CharField(_('Sub Category'), max_length=255, unique=True, blank=False, null=False)
@@ -142,9 +144,11 @@ class SubCategory(models.Model):
 
 	def __str__(self):
 		return self.sub_category_name
+'''
 
 '''
 TAG MODEL
+'''
 '''
 class Tag(models.Model):
 	tag_name = models.CharField(_('Tag'), max_length=255, unique=True, blank=False, null=False)
@@ -160,6 +164,7 @@ class Tag(models.Model):
 	def __str__(self):
 		return self.tag_name
 
+'''
 '''
 STUDY MODEL
 '''
@@ -189,9 +194,9 @@ class Study(models.Model):
     )	
 	'''
 	
-	title = models.CharField(_('Title'), max_length=255, blank=False, null=False)
-	author = models.CharField(_('Author'), max_length=255, blank=False, null=False)
-	link = models.CharField(_('link'), max_length=255, blank=False, null=False)
+	title = models.CharField(_('Title'), max_length=555, blank=False, null=False)
+	author = models.CharField(_('Author'), max_length=555, blank=False, null=False)
+	link = models.CharField(_('link'), max_length=555, blank=False, null=False)
 	description = models.TextField(_('Study Summary'), blank=True, default='')
 	#tags = models.ManyToManyField(Tag)
 	year = models.PositiveIntegerField(_('Year'))
