@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<!-- BEGIN CONTAINER -->
+<div class="container-fluid">
+	<!-- BEGIN ROW -->
+	<div class="row">
+		<!-- BEGIN COL -->
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<!-- BEGIN PORTLET -->
+			<div class="portlet light portlet-fit bordered">
+
+				<!-- BEGIN PORTLET BODY -->
+				<div class="portlet-body">
+					<!-- BEGIN SPECIFIC STUDY INFORMATION ROW -->
+					<div class="row"> 
+						<div class="col-sm-12 specific-study-title">
+							<h2> {{study_data.count}} Studies </h2>
+						</div>						
+					</div>
+
+					<div class="row specific-study-details">
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th> Title </th>
+									<th> Author </th>
+									<th> Year </th>
+								</tr>
+								<tbody>
+									{% for study in study_data %}										
+										<tr>
+											<td class="study-link"> <a href="{% url 'view_study' study.id %}" target="_blank"> {{study.title}} </a> </td>
+											<td class="study-link"> <a href="{% url 'view_study' study.id %}" target="_blank"> {{study.author}} </a> </td>
+											<td class="study-link"> <a href="{% url 'view_study' study.id %}" target="_blank"> {{study.year}} </a> </td>
+										</tr>										
+									{% endfor %}
+								</tbody>
+							</thead>
+
+						</table>
+					</div>
+					<!-- END SPECIFIC STUDY INFORMATION ROW -->
+				</div>
+				<!-- END TABLE CLASS -->					
+			</div>
+			<!-- END PORTLET -->
+		</div>
+		<!-- END COL -->
+	</div>
+	<!-- END ROW -->
+</div>
+<!-- END CONTAINER -->	
+{% endblock %}

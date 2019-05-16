@@ -53,28 +53,34 @@
 									<!-- BEGIN CELL 1 -->
 									<td>
 										{% if cell_one_low %}
-											<div class="one_low"> 
-												<script type="text/javascript">
-													calculate_cell_one_low({{cell_one_low.count}});
-												</script>
-											</div>									
+											<a href="{% url 'view_bubble_study' 'one_low' %}">
+												<div class="one_low"> 
+													<script type="text/javascript">
+														calculate_cell_one_low({{cell_one_low.count}});
+													</script>
+												</div>
+											</a>									
 										{% endif %}
 
-										{% if cell_one_high %}											
-											<div class="one_high"> 
-												<script type="text/javascript">
-													calculate_cell_one_high({{cell_one_high.count}});
-												</script>
-											</div>
+										{% if cell_one_high %}
+											<a href="{% url 'view_bubble_study' 'one_high' %}">
+												<div class="one_high"> 
+													<script type="text/javascript">
+														calculate_cell_one_high({{cell_one_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_one_medium %}
-											<div class="one_medium">
-												<script type="text/javascript">
-													calculate_cell_one_medium({{cell_one_medium.count}});
-												</script>
-												<br>
-											</div>
+											<a href="{% url 'view_bubble_study' 'one_medium' %}">
+												<div class="one_medium">
+													<script type="text/javascript">
+														calculate_cell_one_medium({{cell_one_medium.count}});
+													</script>
+													<br>
+												</div>
+											</a>
 										{% endif %}										
 
 										<div class="one_low_data">
@@ -110,27 +116,33 @@
 									<!-- BEGIN CELL 2 -->
 									<td>
 										{% if cell_two_low %}
-											<div class="two_low">
-												<script type="text/javascript">
-													calculate_cell_two_low({{cell_two_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'two_low' %}">
+												<div class="two_low">
+													<script type="text/javascript">
+														calculate_cell_two_low({{cell_two_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}							
 										
 										{% if cell_two_high %}
-											<div class="two_high">
-												<script type="text/javascript">
-													calculate_cell_two_high({{cell_two_high.count}});
-												</script>											
-											</div>
+											<a href="{% url 'view_bubble_study' 'two_high' %}">
+												<div class="two_high">
+													<script type="text/javascript">
+														calculate_cell_two_high({{cell_two_high.count}});
+													</script>											
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_two_medium %}
-											<div class="two_medium">
-												<script type="text/javascript">
-													calculate_cell_two_medium({{cell_two_medium.count}});
-												</script>												
-											</div>
+											<a href="{% url 'view_bubble_study' 'two_medium' %}">
+												<div class="two_medium">
+													<script type="text/javascript">
+														calculate_cell_two_medium({{cell_two_medium.count}});
+													</script>												
+												</div>
+											</a>
 										{% endif %}	
 
 										<div class="two_low_data">
@@ -166,27 +178,33 @@
 									<!-- BEGIN CELL 3 -->
 									<td>
 										{% if cell_three_low %}
-											<div class="three_low">
-												<script type="text/javascript">
-													calculate_cell_three_low({{cell_three_low.count}});
-												</script>												
-											</div>
+											<a href="{% url 'view_bubble_study' 'three_low' %}">
+												<div class="three_low">
+													<script type="text/javascript">
+														calculate_cell_three_low({{cell_three_low.count}});
+													</script>												
+												</div>
+											</a>
 										{% endif %}				
 										
 										{% if cell_three_high %}
-											<div class="three_high">
-												<script type="text/javascript">
-													calculate_cell_three_high({{cell_three_high.count}});
-												</script>											
-											</div>
+											<a href="{% url 'view_bubble_study' 'three_high' %}">
+												<div class="three_high">
+													<script type="text/javascript">
+														calculate_cell_three_high({{cell_three_high.count}});
+													</script>											
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_three_medium %}
-											<div class="three_medium">
-												<script type="text/javascript">
-													calculate_cell_three_medium({{cell_three_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'three_medium' %}">
+												<div class="three_medium">
+													<script type="text/javascript">
+														calculate_cell_three_medium({{cell_three_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="three_low_data">
@@ -222,28 +240,34 @@
 									<!-- BEGIN CELL 4 -->
 									<td>
 										{% if cell_four_low %}
-											<div class="four_low">
-												<script type="text/javascript">
-													calculate_cell_four_low({{cell_four_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'four_low' %}">
+												<div class="four_low">
+													<script type="text/javascript">
+														calculate_cell_four_low({{cell_four_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}					
 										
 										{% if cell_four_high %}
-											<div class="four_high">
-												<script type="text/javascript">
-													calculate_cell_four_high({{cell_four_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'four_high' %}">
+												<div class="four_high">
+													<script type="text/javascript">
+														calculate_cell_four_high({{cell_four_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_four_medium %}
-											<div class="four_medium">
-												<script type="text/javascript">
-													calculate_cell_four_medium({{cell_four_medium.count}});
-												</script>
-												{{cell_four_mediun.count}}<br>
-											</div>
+											<a href="{% url 'view_bubble_study' 'four_medium' %}">
+												<div class="four_medium">
+													<script type="text/javascript">
+														calculate_cell_four_medium({{cell_four_medium.count}});
+													</script>
+													{{cell_four_mediun.count}}<br>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="four_low_data">
@@ -279,27 +303,33 @@
 									<!-- BEGIN CELL 5 -->
 									<td>
 										{% if cell_five_low %}
-											<div class="five_low">
-												<script type="text/javascript">
-													calculate_cell_five_low({{cell_five_low.count}});
-												</script>												
-											</div>								
+											<a href="{% url 'view_bubble_study' 'five_low' %}">
+												<div class="five_low">
+													<script type="text/javascript">
+														calculate_cell_five_low({{cell_five_low.count}});
+													</script>												
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_five_high %}
-											<div class="five_high">
-												<script type="text/javascript">
-													calculate_cell_five_high({{cell_five_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'five_high' %}">
+												<div class="five_high">
+													<script type="text/javascript">
+														calculate_cell_five_high({{cell_five_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_five_medium %}
-											<div class="five_medium">
-												<script type="text/javascript">
-													calculate_cell_five_medium({{cell_five_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'five_medium' %}">
+												<div class="five_medium">
+													<script type="text/javascript">
+														calculate_cell_five_medium({{cell_five_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="five_low_data">
@@ -339,27 +369,33 @@
 									<!-- BEGIN CELL 6 -->
 									<td>
 										{% if cell_six_low %}
-											<div class="six_low">
-												<script type="text/javascript">
-													calculate_cell_six_low({{cell_six_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'six_low' %}">
+												<div class="six_low">
+													<script type="text/javascript">
+														calculate_cell_six_low({{cell_six_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 										
 										{% if cell_six_high %}
-											<div class="six_high">
-												<script type="text/javascript">
-													calculate_cell_six_high({{cell_six_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'six_high' %}">
+												<div class="six_high">
+													<script type="text/javascript">
+														calculate_cell_six_high({{cell_six_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_six_medium %}
-											<div class="six_medium">
-												<script type="text/javascript">
-													calculate_cell_six_medium({{cell_six_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'six_medium' %}">
+												<div class="six_medium">
+													<script type="text/javascript">
+														calculate_cell_six_medium({{cell_six_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="six_low_data">
@@ -394,28 +430,34 @@
 									<!-- BEGIN CELL 7 -->
 									<td>
 										{% if cell_seven_low %}
-											<div class="seven_low">
-												<script type="text/javascript">
-													calculate_cell_seven_low({{cell_seven_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'seven_low' %}">
+												<div class="seven_low">
+													<script type="text/javascript">
+														calculate_cell_seven_low({{cell_seven_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}				
 										
 										{% if cell_seven_high %}
-											<div class="seven_high">
-												<script type="text/javascript">
-													calculate_cell_seven_high({{cell_seven_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'seven_high' %}">
+												<div class="seven_high">
+													<script type="text/javascript">
+														calculate_cell_seven_high({{cell_seven_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_seven_medium %}
-											<div class="seven_medium">
-												<script type="text/javascript">
-													calculate_cell_seven_medium({{cell_seven_medium.count}});
-												</script>
-												{{cell_seven_mediun.count}}<br>
-											</div>
+											<a href="{% url 'view_bubble_study' 'seven_medium' %}">
+												<div class="seven_medium">
+													<script type="text/javascript">
+														calculate_cell_seven_medium({{cell_seven_medium.count}});
+													</script>
+													{{cell_seven_mediun.count}}<br>
+												</div>
+											</a>
 										{% endif %}			
 
 										<div class="seven_low_data">
@@ -450,27 +492,33 @@
 									<!-- BEGIN CELL 8 -->
 									<td>
 										{% if cell_eight_low %}
-											<div class="eight_low">
-												<script type="text/javascript">
-													calculate_cell_eight_low({{cell_eight_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'eight_low' %}">
+												<div class="eight_low">
+													<script type="text/javascript">
+														calculate_cell_eight_low({{cell_eight_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}				
 										
 										{% if cell_eight_high %}
-											<div class="eight_high">
-												<script type="text/javascript">
-													calculate_cell_eight_high({{cell_eight_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'eight_high' %}">
+												<div class="eight_high">
+													<script type="text/javascript">
+														calculate_cell_eight_high({{cell_eight_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_eight_medium %}
-											<div class="eight_medium">
-												<script type="text/javascript">
-													calculate_cell_eight_medium({{cell_eight_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'eight_medium' %}">
+												<div class="eight_medium">
+													<script type="text/javascript">
+														calculate_cell_eight_medium({{cell_eight_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="eight_low_data">
@@ -506,27 +554,33 @@
 									<!-- BEGIN CELL 9 -->
 									<td>
 										{% if cell_nine_low %}
-											<div class="nine_low">
-												<script type="text/javascript">
-													calculate_cell_nine_low({{cell_nine_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'nine_low' %}">
+												<div class="nine_low">
+													<script type="text/javascript">
+														calculate_cell_nine_low({{cell_nine_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}					
 										
 										{% if cell_nine_high %}
-											<div class="nine_high">
-												<script type="text/javascript">
-													calculate_cell_nine_high({{cell_nine_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'nine_high' %}">
+												<div class="nine_high">
+													<script type="text/javascript">
+														calculate_cell_nine_high({{cell_nine_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_nine_medium %}
-											<div class="nine_medium">
-												<script type="text/javascript">
-													calculate_cell_nine_medium({{cell_nine_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'nine_medium' %}">
+												<div class="nine_medium">
+													<script type="text/javascript">
+														calculate_cell_nine_medium({{cell_nine_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="nine_low_data">
@@ -562,27 +616,33 @@
 									<!-- BEGIN CELL 10 -->
 									<td>
 										{% if cell_ten_low %}
-											<div class="ten_low">
-												<script type="text/javascript">
-													calculate_cell_ten_low({{cell_ten_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'ten_low' %}">
+												<div class="ten_low">
+													<script type="text/javascript">
+														calculate_cell_ten_low({{cell_ten_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}							
 										
 										{% if cell_ten_high %}
-											<div class="ten_high">
-												<script type="text/javascript">
-													calculate_cell_ten_high({{cell_ten_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'ten_high' %}">
+												<div class="ten_high">
+													<script type="text/javascript">
+														calculate_cell_ten_high({{cell_ten_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_ten_medium %}
-											<div class="ten_medium">
-												<script type="text/javascript">
-													calculate_cell_ten_medium({{cell_ten_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'ten_medium' %}">
+												<div class="ten_medium">
+													<script type="text/javascript">
+														calculate_cell_ten_medium({{cell_ten_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="ten_low_data">
@@ -908,27 +968,33 @@
 									<!-- BEGIN CELL 16 -->
 									<td>
 										{% if cell_sixteen_low %}
-											<div class="sixteen_low">
-												<script type="text/javascript">
-													calculate_cell_sixteen_low({{cell_sixteen_low.count}});
-												</script>
-											</div>									
+											<a href="{% url 'view_bubble_study' 'sixteen_low' %}">
+												<div class="sixteen_low">
+													<script type="text/javascript">
+														calculate_cell_sixteen_low({{cell_sixteen_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 										
 										{% if cell_sixteen_high %}
-											<div class="sixteen_high">
-												<script type="text/javascript">
-													calculate_cell_sixteen_high({{cell_sixteen_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'sixteen_high' %}">
+												<div class="sixteen_high">
+													<script type="text/javascript">
+														calculate_cell_sixteen_high({{cell_sixteen_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_sixteen_medium %}
-											<div class="sixteen_medium">
-												<script type="text/javascript">
-													calculate_cell_sixteen_medium({{cell_sixteen_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'sixteen_medium' %}">
+												<div class="sixteen_medium">
+													<script type="text/javascript">
+														calculate_cell_sixteen_medium({{cell_sixteen_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="sixteen_low_data">
@@ -963,27 +1029,33 @@
 									<!-- BEGIN CELL 17 -->
 									<td>
 										{% if cell_seventeen_low %}
-											<div class="seventeen_low">
-												<script type="text/javascript">
-													calculate_cell_seventeen_low({{cell_seventeen_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'seventeen_low' %}">
+												<div class="seventeen_low">
+													<script type="text/javascript">
+														calculate_cell_seventeen_low({{cell_seventeen_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}									
 										
 										{% if cell_seventeen_high %}
-											<div class="seventeen_high">
-												<script type="text/javascript">
-													calculate_cell_seventeen_high({{cell_seventeen_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'seventeen_high' %}">
+												<div class="seventeen_high">
+													<script type="text/javascript">
+														calculate_cell_seventeen_high({{cell_seventeen_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_seventeen_medium %}
-											<div class="seventeen_medium">
-												<script type="text/javascript">
-													calculate_cell_seventeen_medium({{cell_seventeen_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'seventeen_medium' %}">
+												<div class="seventeen_medium">
+													<script type="text/javascript">
+														calculate_cell_seventeen_medium({{cell_seventeen_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="seventeen_low_data">
@@ -1026,19 +1098,23 @@
 										{% endif %}
 										
 										{% if cell_eighteen_high %}
-											<div class="eighteen_high">
-												<script type="text/javascript">
-													calculate_cell_eighteen_high({{cell_eighteen_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'eighteen_high' %}">
+												<div class="eighteen_high">
+													<script type="text/javascript">
+														calculate_cell_eighteen_high({{cell_eighteen_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_eighteen_medium %}
-											<div class="eighteen_medium">
-												<script type="text/javascript">
-													calculate_cell_eighteen_medium({{cell_eighteen_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'eighteen_medium' %}">
+												<div class="eighteen_medium">
+													<script type="text/javascript">
+														calculate_cell_eighteen_medium({{cell_eighteen_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="eighteen_low_data">
@@ -1074,27 +1150,33 @@
 									<!-- BEGIN CELL 19 -->
 									<td>
 										{% if cell_nineteen_low %}
-											<div class="nineteen_low">
-												<script type="text/javascript">
-													calculate_cell_nineteen_low({{cell_nineteen_low.count}});
-												</script>
-											</div>			
+											<a href="{% url 'view_bubble_study' 'nineteen_low' %}">
+												<div class="nineteen_low">
+													<script type="text/javascript">
+														calculate_cell_nineteen_low({{cell_nineteen_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}						
 										
 										{% if cell_nineteen_high %}
-											<div class="nineteen_high">
-												<script type="text/javascript">
-													calculate_cell_nineteen_high({{cell_nineteen_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'nineteen_high' %}">
+												<div class="nineteen_high">
+													<script type="text/javascript">
+														calculate_cell_nineteen_high({{cell_nineteen_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_nineteen_medium %}
-											<div class="nineteen_medium">
-												<script type="text/javascript">
-													calculate_cell_nineteen_medium({{cell_nineteen_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'nineteen_medium' %}">
+												<div class="nineteen_medium">
+													<script type="text/javascript">
+														calculate_cell_nineteen_medium({{cell_nineteen_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="nineteen_low_data">
@@ -1130,26 +1212,33 @@
 									<!-- BEGIN CELL 20 -->
 									<td>
 										{% if cell_twenty_low %}
-											<div class="twenty_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_low({{cell_twenty_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_low' %}">
+												<div class="twenty_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_low({{cell_twenty_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}									
 										
 										{% if cell_twenty_high %}
-											<div class="twenty_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_high({{cell_twenty_high.count}});
-												</script>											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_high' %}">
+												<div class="twenty_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_high({{cell_twenty_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_medium %}
-											<div class="twenty_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_medium({{cell_twenty_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_medium' %}">
+												<div class="twenty_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_medium({{cell_twenty_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_low_data">
@@ -1189,27 +1278,33 @@
 									<!-- BEGIN CELL 21 -->
 									<td>
 										{% if cell_twenty_one_low %}
-											<div class="twenty_one_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_one_low({{cell_twenty_one_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_one_low' %}">
+												<div class="twenty_one_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_one_low({{cell_twenty_one_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}									
 										
 										{% if cell_twenty_one_high %}
-											<div class="twenty_one_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_one_high({{cell_twenty_one_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_one_high' %}">
+												<div class="twenty_one_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_one_high({{cell_twenty_one_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_one_medium %}
-											<div class="twenty_one_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_one_medium({{cell_twenty_one_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_one_medium' %}">
+												<div class="twenty_one_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_one_medium({{cell_twenty_one_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_one_low_data">
@@ -1244,27 +1339,33 @@
 									<!-- BEGIN CELL 22 -->
 									<td>
 										{% if cell_twenty_two_low %}
-											<div class="twenty_two_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_two_low({{cell_twenty_two_low.count}});
-												</script>
-											</div>	
+											<a href="{% url 'view_bubble_study' 'twenty_two_low' %}">
+												<div class="twenty_two_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_two_low({{cell_twenty_two_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}								
 										
 										{% if cell_twenty_two_high %}
-											<div class="twenty_two_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_two_high({{cell_twenty_two_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_two_high' %}">
+												<div class="twenty_two_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_two_high({{cell_twenty_two_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_two_medium %}
-											<div class="twenty_two_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_two_medium({{cell_twenty_two_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_two_medium' %}">
+												<div class="twenty_two_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_two_medium({{cell_twenty_two_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 										<div class="twenty_two_low_data">
 											<div class="twenty_two_low_title"> Low Quality Studies </div>
@@ -1298,27 +1399,33 @@
 									<!-- BEGIN CELL 23 -->
 									<td>
 										{% if cell_twenty_three_low %}
-											<div class="twenty_three_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_three_low({{cell_twenty_three_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_three_low' %}">
+												<div class="twenty_three_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_three_low({{cell_twenty_three_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 										
 										{% if cell_twenty_three_high %}
-											<div class="twenty_three_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_three_high({{cell_twenty_three_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_three_high' %}">
+												<div class="twenty_three_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_three_high({{cell_twenty_three_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_three_medium %}
-											<div class="twenty_three_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_three_medium({{cell_twenty_three_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_three_medium' %}">
+												<div class="twenty_three_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_three_medium({{cell_twenty_three_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_three_low_data">
@@ -1354,28 +1461,34 @@
 									<!-- BEGIN CELL 24 -->
 									<td>
 										{% if cell_twenty_four_low %}
-											<div class="twenty_four_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_four_low({{cell_twenty_four_low.count}});
-												</script>
-											</div>									
+											<a href="{% url 'view_bubble_study' 'twenty_four_low' %}">
+												<div class="twenty_four_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_four_low({{cell_twenty_four_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 										
 										{% if cell_twenty_four_high %}
-											<div class="twenty_four_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_four_high({{cell_twenty_four_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_four_high' %}">
+												<div class="twenty_four_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_four_high({{cell_twenty_four_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_four_medium %}
-											<div class="twenty_four_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_four_medium({{cell_twenty_four_medium.count}});
-												</script>
-												{{cell_twenty_four_mediun.count}}<br>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_four_medium' %}">
+												<div class="twenty_four_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_four_medium({{cell_twenty_four_medium.count}});
+													</script>
+													{{cell_twenty_four_mediun.count}}<br>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_four_low_data">
@@ -1411,29 +1524,35 @@
 									<!-- BEGIN CELL 25 -->
 									<td>
 										{% if cell_twenty_five_low %}
-											<div class="twenty_five_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_five_low({{cell_twenty_five_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_five_low' %}">
+												<div class="twenty_five_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_five_low({{cell_twenty_five_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}									
 										
 										{% if cell_twenty_five_high %}
-											<div class="twenty_five_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_five_high({{cell_twenty_five_high.count}});
-												</script>
-												{{cell_twenty_five_high.count}}<br>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_five_high' %}">
+												<div class="twenty_five_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_five_high({{cell_twenty_five_high.count}});
+													</script>
+													{{cell_twenty_five_high.count}}<br>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_five_medium %}
-											<div class="twenty_five_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_five_medium({{cell_twenty_five_medium.count}});
-												</script>
-												{{cell_twenty_five_mediun.count}}<br>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_five_medium' %}">
+												<div class="twenty_five_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_five_medium({{cell_twenty_five_medium.count}});
+													</script>
+													{{cell_twenty_five_mediun.count}}<br>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_five_low_data">
@@ -1473,27 +1592,33 @@
 									<!-- BEGIN CELL 26 -->
 									<td>
 										{% if cell_twenty_six_low %}
-											<div class="twenty_six_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_six_low({{cell_twenty_six_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_six_low' %}">
+												<div class="twenty_six_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_six_low({{cell_twenty_six_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}									
 										
 										{% if cell_twenty_six_high %}
-											<div class="twenty_six_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_six_high({{cell_twenty_six_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_six_high' %}">
+												<div class="twenty_six_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_six_high({{cell_twenty_six_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_six_medium %}
-											<div class="twenty_six_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_six_medium({{cell_twenty_six_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_six_medium' %}">
+												<div class="twenty_six_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_six_medium({{cell_twenty_six_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_six_low_data">
@@ -1528,27 +1653,33 @@
 									<!-- BEGIN CELL 27 -->
 									<td>
 										{% if cell_twenty_seven_low %}
-											<div class="twenty_seven_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_seven_low({{cell_twenty_seven_low.count}});
-												</script>
-											</div>									
+											<a href="{% url 'view_bubble_study' 'twenty_seven_low' %}">
+												<div class="twenty_seven_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_seven_low({{cell_twenty_seven_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 										
 										{% if cell_twenty_seven_high %}
-											<div class="twenty_seven_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_seven_high({{cell_twenty_seven_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_seven_high' %}">
+												<div class="twenty_seven_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_seven_high({{cell_twenty_seven_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_seven_medium %}
-											<div class="twenty_seven_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_seven_medium({{cell_twenty_seven_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_seven_medium' %}">
+												<div class="twenty_seven_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_seven_medium({{cell_twenty_seven_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_seven_low_data">
@@ -1583,27 +1714,33 @@
 									<!-- BEGIN CELL 28 -->
 									<td>
 										{% if cell_twenty_eight_low %}
-											<div class="twenty_eight_low">
-												<script type="text/javascript">
-													calculate_cell_twenty_eight_low({{cell_twenty_eight_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_eight_low' %}">
+												<div class="twenty_eight_low">
+													<script type="text/javascript">
+														calculate_cell_twenty_eight_low({{cell_twenty_eight_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 										
 										{% if cell_twenty_eight_high %}
-											<div class="twenty_eight_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_eight_high({{cell_twenty_eight_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_eight_high' %}">
+												<div class="twenty_eight_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_eight_high({{cell_twenty_eight_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_eight_medium %}
-										<div class="twenty_eight_medium">
-											<script type="text/javascript">
-													calculate_cell_twenty_eight_medium({{cell_twenty_eight_medium.count}});
-												</script>
-										</div>
+											<a href="{% url 'view_bubble_study' 'twenty_eight_medium' %}">
+												<div class="twenty_eight_medium">
+													<script type="text/javascript">
+															calculate_cell_twenty_eight_medium({{cell_twenty_eight_medium.count}});
+														</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_eight_low_data">
@@ -1647,19 +1784,23 @@
 										{% endif %}
 										
 										{% if cell_twenty_nine_high %}
-											<div class="twenty_nine_high">
-												<script type="text/javascript">
-													calculate_cell_twenty_nine_high({{cell_twenty_nine_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_nine_high' %}">
+												<div class="twenty_nine_high">
+													<script type="text/javascript">
+														calculate_cell_twenty_nine_high({{cell_twenty_nine_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_twenty_nine_medium %}
-											<div class="twenty_nine_medium">
-												<script type="text/javascript">
-													calculate_cell_twenty_nine_medium({{cell_twenty_nine_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'twenty_nine_medium' %}">
+												<div class="twenty_nine_medium">
+													<script type="text/javascript">
+														calculate_cell_twenty_nine_medium({{cell_twenty_nine_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="twenty_nine_low_data">
@@ -1695,27 +1836,33 @@
 									<!-- BEGIN CELL 30 -->
 									<td>
 										{% if cell_thirty_low %}
-											<div class="thirty_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_low({{cell_thirty_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_low' %}">
+												<div class="thirty_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_low({{cell_thirty_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}				
 										
 										{% if cell_thirty_high %}
-											<div class="thirty_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_high({{cell_thirty_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_high' %}">
+												<div class="thirty_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_high({{cell_thirty_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_medium %}
-											<div class="thirty_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_medium({{cell_thirty_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_medium' %}">
+												<div class="thirty_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_medium({{cell_thirty_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_low_data">
@@ -1756,27 +1903,33 @@
 									<!-- BEGIN CELL 31 -->
 									<td>
 										{% if cell_thirty_one_low %}
-											<div class="thirty_one_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_one_low({{cell_thirty_one_low.count}});
-												</script>
-											</div>									
+											<a href="{% url 'view_bubble_study' 'thirty_one_low' %}">
+												<div class="thirty_one_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_one_low({{cell_thirty_one_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_one_high %}
-											<div class="thirty_one_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_one_high({{cell_thirty_one_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_one_high' %}">
+												<div class="thirty_one_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_one_high({{cell_thirty_one_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_one_medium %}
-											<div class="thirty_one_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_one_medium({{cell_thirty_one_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_one_medium' %}">
+												<div class="thirty_one_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_one_medium({{cell_thirty_one_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_one_low_data">
@@ -1811,27 +1964,33 @@
 									<!-- BEGIN CELL 32 -->
 									<td>
 										{% if cell_thirty_two_low %}
-											<div class="thirty_two_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_two_low({{cell_thirty_two_low.count}});
-												</script>
-											</div>						
+											<a href="{% url 'view_bubble_study' 'thirty_two_low' %}">
+												<div class="thirty_two_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_two_low({{cell_thirty_two_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 
 										{% if cell_thirty_two_high %}
-											<div class="thirty_two_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_two_high({{cell_thirty_two_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_two_high' %}">
+												<div class="thirty_two_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_two_high({{cell_thirty_two_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_two_medium %}
-											<div class="thirty_two_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_two_medium({{cell_thirty_two_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_two_medium' %}">
+												<div class="thirty_two_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_two_medium({{cell_thirty_two_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_two_low_data">
@@ -1866,27 +2025,33 @@
 									<!-- BEGIN CELL 33 -->
 									<td>
 										{% if cell_thirty_three_low %}
-											<div class="thirty_three_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_three_low({{cell_thirty_three_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_three_low' %}">
+												<div class="thirty_three_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_three_low({{cell_thirty_three_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 										
 										{% if cell_thirty_three_high %}
-											<div class="thirty_three_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_three_high({{cell_thirty_three_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_three_high' %}">
+												<div class="thirty_three_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_three_high({{cell_thirty_three_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_three_medium %}
-											<div class="thirty_three_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_three_medium({{cell_thirty_three_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_three_medium' %}">
+												<div class="thirty_three_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_three_medium({{cell_thirty_three_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_three_low_data">
@@ -1922,27 +2087,33 @@
 									<!-- BEGIN CELL 34 -->
 									<td>
 										{% if cell_thirty_four_low %}
-											<div class="thirty_four_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_four_low({{cell_thirty_four_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_four_low' %}">
+												<div class="thirty_four_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_four_low({{cell_thirty_four_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}					
 										
 										{% if cell_thirty_four_high %}
-										<div class="thirty_four_high">
-											<script type="text/javascript">
-												calculate_cell_thirty_four_high({{cell_thirty_four_high.count}});
-											</script>
-										</div>
+											<a href="{% url 'view_bubble_study' 'thirty_four_high' %}">
+												<div class="thirty_four_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_four_high({{cell_thirty_four_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_four_medium %}
-											<div class="thirty_four_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_four_medium({{cell_thirty_four_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_four_medium' %}">
+												<div class="thirty_four_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_four_medium({{cell_thirty_four_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_four_low_data">
@@ -1978,27 +2149,33 @@
 									<!-- BEGIN CELL 35 -->
 									<td>
 										{% if cell_thirty_five_low %}
-											<div class="thirty_five_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_five_low({{cell_thirty_five_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_five_low' %}">
+												<div class="thirty_five_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_five_low({{cell_thirty_five_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}					
 										
 										{% if cell_thirty_five_high %}
-											<div class="thirty_five_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_five_high({{cell_thirty_five_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_five_high' %}">
+												<div class="thirty_five_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_five_high({{cell_thirty_five_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_five_medium %}
-											<div class="thirty_five_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_five_medium({{cell_thirty_five_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_five_medium' %}">
+												<div class="thirty_five_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_five_medium({{cell_thirty_five_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_five_low_data">
@@ -2038,27 +2215,33 @@
 									<!-- BEGIN CELL 36 -->
 									<td>
 										{% if cell_thirty_six_low %}
-											<div class="thirty_six_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_six_low({{cell_thirty_six_low.count}});
-												</script>
-											</div>						
+											<a href="{% url 'view_bubble_study' 'thirty_six_low' %}">
+												<div class="thirty_six_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_six_low({{cell_thirty_six_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 										
 										{% if cell_thirty_six_high %}
-											<div class="thirty_six_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_six_high({{cell_thirty_six_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_six_high' %}">
+												<div class="thirty_six_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_six_high({{cell_thirty_six_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_six_medium %}
-											<div class="thirty_six_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_six_medium({{cell_thirty_six_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_six_medium' %}">
+												<div class="thirty_six_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_six_medium({{cell_thirty_six_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 										
 										<div class="thirty_six_low_data">
@@ -2093,27 +2276,33 @@
 									<!-- BEGIN CELL 37 -->
 									<td>
 										{% if cell_thirty_seven_low %}
-											<div class="thirty_seven_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_seven_low({{cell_thirty_seven_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_seven_low' %}">
+												<div class="thirty_seven_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_seven_low({{cell_thirty_seven_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 										
 										{% if cell_thirty_seven_high %}
-											<div class="thirty_seven_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_seven_high({{cell_thirty_seven_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_seven_high' %}">
+												<div class="thirty_seven_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_seven_high({{cell_thirty_seven_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_seven_medium %}
-											<div class="thirty_seven_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_seven_medium({{cell_thirty_seven_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_seven_medium' %}">
+												<div class="thirty_seven_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_seven_medium({{cell_thirty_seven_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_seven_low_data">
@@ -2148,27 +2337,33 @@
 									<!-- BEGIN CELL 38 -->
 									<td>
 										{% if cell_thirty_eight_low %}
-											<div class="thirty_eight_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_eight_low({{cell_thirty_eight_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_eight_low' %}">
+												<div class="thirty_eight_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_eight_low({{cell_thirty_eight_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}			
 										
 										{% if cell_thirty_eight_high %}
-											<div class="thirty_eight_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_eight_high({{cell_thirty_eight_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_eight_high' %}">
+												<div class="thirty_eight_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_eight_high({{cell_thirty_eight_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_eight_medium %}
-											<div class="thirty_eight_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_eight_medium({{cell_thirty_eight_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_eight_medium' %}">
+												<div class="thirty_eight_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_eight_medium({{cell_thirty_eight_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_eight_low_data">
@@ -2204,27 +2399,33 @@
 									<!-- BEGIN CELL 39 -->
 									<td>
 										{% if cell_thirty_nine_low %}
-											<div class="thirty_nine_low">
-												<script type="text/javascript">
-													calculate_cell_thirty_nine_low({{cell_thirty_nine_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_nine_low' %}">
+												<div class="thirty_nine_low">
+													<script type="text/javascript">
+														calculate_cell_thirty_nine_low({{cell_thirty_nine_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}					
 										
 										{% if cell_thirty_nine_high %}
-											<div class="thirty_nine_high">
-												<script type="text/javascript">
-													calculate_cell_thirty_nine_high({{cell_thirty_nine_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_nine_high' %}">
+												<div class="thirty_nine_high">
+													<script type="text/javascript">
+														calculate_cell_thirty_nine_high({{cell_thirty_nine_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_thirty_nine_medium %}
-											<div class="thirty_nine_medium">
-												<script type="text/javascript">
-													calculate_cell_thirty_nine_medium({{cell_thirty_nine_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'thirty_nine_medium' %}">
+												<div class="thirty_nine_medium">
+													<script type="text/javascript">
+														calculate_cell_thirty_nine_medium({{cell_thirty_nine_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="thirty_nine_low_data">
@@ -2260,27 +2461,33 @@
 									<!-- BEGIN CELL 40 -->
 									<td>
 										{% if cell_fourty_low %}
-											<div class="fourty_low">
-												<script type="text/javascript">
-													calculate_cell_fourty_low({{cell_fourty_low.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'fourty_low' %}">
+												<div class="fourty_low">
+													<script type="text/javascript">
+														calculate_cell_fourty_low({{cell_fourty_low.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}				
 										
 										{% if cell_fourty_high %}
-											<div class="fourty_high">
-												<script type="text/javascript">
-													calculate_cell_fourty_high({{cell_fourty_high.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'fourty_high' %}">
+												<div class="fourty_high">
+													<script type="text/javascript">
+														calculate_cell_fourty_high({{cell_fourty_high.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										{% if cell_fourty_medium %}
-											<div class="fourty_medium">
-												<script type="text/javascript">
-													calculate_cell_fourty_medium({{cell_fourty_medium.count}});
-												</script>
-											</div>
+											<a href="{% url 'view_bubble_study' 'four_medium' %}">
+												<div class="fourty_medium">
+													<script type="text/javascript">
+														calculate_cell_fourty_medium({{cell_fourty_medium.count}});
+													</script>
+												</div>
+											</a>
 										{% endif %}
 
 										<div class="fourty_low_data">
