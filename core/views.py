@@ -110,155 +110,155 @@ def view_bubble_study(request, bubble_id):
 	elif bubble_id=="ten_medium":
 		study_data = Study.objects.filter(theme__theme_name="Internet for Democracy", category__category_name="Solutions or Strategies", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="sixteen_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Trends", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="sixteen_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="sixteen_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')	
 	elif bubble_id=="seventeen_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Enablers", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="seventeen_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Enablers", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="seventeen_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Enablers", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="eighteen_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Challenges", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="eighteen_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Challenges", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="eighteen_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Challenges", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="nineteen_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Outcomes and Impacts", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="nineteen_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Outcomes and Impacts", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="nineteen_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Outcomes and Impacts", quality="medium", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Solutions or Strategies", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="twenty_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Solutions or Strategies", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Safety", category__category_name="Solutions or Strategies", quality="Medium", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_one_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Trends", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="twenty_one_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Trends", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_one_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_two_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Enablers", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_two_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Enablers", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_two_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Enablers", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_three_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Challenges", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_three_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Challenges", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_three_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Challenges", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_four_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Outcomes and Impacts", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="twenty_four_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Outcomes and Impacts", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_four_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Outcomes and Impacts", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_five_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Solutions or Strategies", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="twenty_five_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Solutions or Strategies", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_five_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Based Entrepreneurship", category__category_name="Solutions or Strategies", quality="Medium", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_six_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Trends", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="twenty_six_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Trends", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_six_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_seven_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Enablers", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_seven_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Enablers", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_seven_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Enablers", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_eight_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Challenges", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_eight_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Challenges", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="twenty_eight_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Challenges", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="twenty_nine_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Outcomes and Impacts", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="twenty_nine_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Outcomes and Impacts", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="twenty_nine_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Outcomes and Impacts", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Solutions or Strategies", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="thirty_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Solutions or Strategies", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Access, Affordability And Use", category__category_name="Solutions or Strategies", quality="Medium", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_one_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Trends", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="thirty_one_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Trends", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="thirty_one_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_two_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Enablers", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_two_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Enablers", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="thirty_two_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Enablers", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_three_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Challenges", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_three_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Challenges", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="thirty_three_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Challenges", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_four_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Outcomes and Impacts", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="thirty_four_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Outcomes and Impacts", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_four_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Outcomes and Impacts", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_five_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Solutions or Strategies", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="thirty_five_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Solutions or Strategies", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_five_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Digital Literacy And Skills", category__category_name="Solutions or Strategies", quality="Medium", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_six_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Trends", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="thirty_six_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Trends", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="thirty_six_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_seven_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Enablers", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_seven_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Enablers", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="thirty_seven_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="Medium", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Enablers", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_eight_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Challenges", quality="Low", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_eight_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Challenges", quality="High", publish="Public").order_by('title')
 	elif bubble_id=="thirty_eight_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Challenges", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="thirty_nine_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Outcomes and Impacts", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="thirty_nine_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Outcomes and Impacts", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="thirty_nine_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Outcomes and Impacts", quality="Medium", publish="Public").order_by('title')
 	elif bubble_id=="fourty_low":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Solutions or Strategies", quality="Low", publish="Public").order_by('title')
 	elif bubble_id=="fourty_high":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Solutions or Strategies", quality="High", publish="Public").order_by('title')	
 	elif bubble_id=="fourty_medium":
-		study_data = Study.objects.filter(theme__theme_name="Internet Governance", category__category_name="Trends", quality="High", publish="Public").order_by('title')	
+		study_data = Study.objects.filter(theme__theme_name="Internet Or Digital Rights and Freedoms", category__category_name="Solutions or Strategies", quality="Medium", publish="Public").order_by('title')	
 
 
 	context = {
